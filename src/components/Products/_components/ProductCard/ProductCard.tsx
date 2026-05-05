@@ -24,7 +24,7 @@ function ProductCard({
   }
 
   return (
-    <div className="sm:p-5 relative p-3 rounded-2xl shadow-xl flex flex-col justify-between gap-3 ring ring-gray-50/20 bg-white/5 hover:shadow-2xl hover:scale-102 mytransition">
+    <div title={product.name} className="sm:p-5 relative p-3 rounded-2xl shadow-xl flex flex-col justify-between gap-3 ring ring-gray-50/20 bg-white/5 hover:shadow-2xl hover:scale-102 mytransition">
       <div className="relative aspect-square bg-white rounded-2xl overflow-hidden">
         <Image
           src={product.productImages[0].image}
@@ -44,9 +44,11 @@ function ProductCard({
       </p>
       <ProductCardFooter userSession={userSession} product={product} />
       <LowStockWarning product={product} />
-      <span className="absolute top-1 shadow left-1 bg-red-500 py-1 px-3 rounded-full font-extrabold text-xs">
-        خصم {discountPercentage}%
-      </span>
+      {product.stock > 0 && (
+        <span className="absolute top-1 shadow left-1 bg-red-500 py-1 px-3 rounded-full font-extrabold text-xs">
+          خصم {discountPercentage}%
+        </span>
+      )}
     </div>
   );
 }

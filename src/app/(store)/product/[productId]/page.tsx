@@ -76,10 +76,13 @@ async function Product({ params }: { params: Promise<{ productId: string }> }) {
           </Link>
         )}
         <ProductDetails product={product} userSession={userSession} />
-        <SimilarProducts
-          products={product.category.products}
-          userSession={userSession}
-        />
+        {product.category.products.length > 1 && (
+          <SimilarProducts
+            singleProduct={product}
+            products={product.category.products}
+            userSession={userSession}
+          />
+        )}
         <ProductOpinions
           opinions={product.opinions}
           userSession={userSession}

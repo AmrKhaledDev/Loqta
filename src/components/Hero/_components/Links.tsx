@@ -20,11 +20,11 @@ function Links() {
         تسوق الآن <ShoppingCart className="md:size-6 size-4.5"/>
       </Link>
       <Link
-        href={"/categories"}
-        title="تصفح الفئات"
+        href={"/offers"}
+        title="تصفح الخصومات"
         className="w-fit sm:text-[15px] text-xs ring ring-gray-50/20 bg-white/5 sm:py-3 py-2 sm:px-6 px-5 rounded-md font-semibold shadow mytransition hover:scale-105 active:scale-95"
       >
-        تصفح الفئات
+        تصفح الخصومات
       </Link>
     </motion.div>
   );

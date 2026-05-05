@@ -1,5 +1,5 @@
 "use client";
-import { ShoppingBag } from "lucide-react";
+import { BadgeCheck, ShoppingBag } from "lucide-react";
 import { useState } from "react";
 import ProductImage from "./_components/ProductImage";
 import ProductQuantity from "./_components/ProductQuantity";
@@ -44,11 +44,7 @@ function ProductDetails({
   };
   return (
     <div className="ring ring-gray-50/20 bg-white/5 p-5 rounded-2xl gap-4 min-h-100 flex flex-col">
-      {existingItem && (
-        <h2 className="flex items-center gap-2 font-bold text-green-400 flex-row-reverse text-sm w-fit">
-          هذا المنتج في العربة <Check className="text-green-400 size-5" />
-        </h2>
-      )}
+      {existingItem && <BadgeCheck className="size-8 text-green-400 animate-pulse"/>}
       <div className="flex justify-between gap-6">
         <div className="flex gap-2">
           {product.productImages.length > 1 && (

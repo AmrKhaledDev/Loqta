@@ -35,26 +35,28 @@ function ProductsOffers({
           );
         }
         return (
-          <SwiperSlide
-            key={p.id}
-            className="ring hover:shadow-2xl flex! hover:-translate-y-1 flex-col justify-between gap-3 sm:w-60! w-45! ring-gray-50/20 bg-white/5 mytransition! sm:p-5 p-3  rounded-2xl"
-          >
-            <ProductOfferImage product={p} />
-            <Link
-              href={p.stock > 0 ? `/product/${p.id}` : ""}
-              className={`line-clamp-1 ${p.stock > 0 ? "hover:underline" : "cursor-default"} font-semibold sm:text-[15px] text-xs`}
+          p.stock > 0 && (
+            <SwiperSlide
+              key={p.id}
+              className="ring hover:shadow-2xl flex! hover:-translate-y-1 flex-col justify-between gap-3 sm:w-60! w-45! ring-gray-50/20 bg-white/5 mytransition! sm:p-5 p-3  rounded-2xl"
             >
-              {p.name}
-            </Link>
-            <p className="sm:text-sm text-xs text-gray-300 sm:line-clamp-2 line-clamp-3 ">
-              {p.description}
-            </p>
-            <ProductCardFooter userSession={userSession} product={p} />
-            <LowStockWarning product={p} />
-            <span className="absolute top-1 shadow left-1 bg-red-500 sm:py-1 py-0.5 px-3 rounded-full font-extrabold sm:text-xs text-[10px]">
-              خصم {discountPercentage || 0}%
-            </span>
-          </SwiperSlide>
+              <ProductOfferImage product={p} />
+              <Link
+                href={p.stock > 0 ? `/product/${p.id}` : ""}
+                className={`line-clamp-1 ${p.stock > 0 ? "hover:underline" : "cursor-default"} font-semibold sm:text-[15px] text-xs`}
+              >
+                {p.name}
+              </Link>
+              <p className="sm:text-sm text-xs text-gray-300 sm:line-clamp-2 line-clamp-3 ">
+                {p.description}
+              </p>
+              <ProductCardFooter userSession={userSession} product={p} />
+              <LowStockWarning product={p} />
+              <span className="absolute top-1 shadow left-1 bg-red-500 sm:py-1 py-0.5 px-3 rounded-full font-extrabold sm:text-xs text-[10px]">
+                خصم {discountPercentage || 0}%
+              </span>
+            </SwiperSlide>
+          )
         );
       })}
     </Swiper>

@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import Loader from "@/components/Loader/Loader";
 import { User } from "@prisma/client";
 import OrderSuccessMessage from "./OrderSuccessMessage";
-import SelectCity from "../../../components/SelectCity/SelectCity";
+import SelectCity from "../../../../components/SelectCity/SelectCity";
 import { OrderErrors } from "@/lib/types";
 import { orderInputs } from "@/lib/data/OrderInputs";
 import { handleCreateOrder } from "./handleCreateOrder";

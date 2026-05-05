@@ -7,9 +7,11 @@ import { motion } from "framer-motion";
 function Products({
   products,
   userSession,
+  singleProduct,
 }: {
   products: ProductDbType[];
   userSession: User | null;
+  singleProduct?: ProductDbType;
 }) {
   return (
     <motion.div
@@ -19,13 +21,16 @@ function Products({
       viewport={{ once: true }}
       className="grid xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-3 products"
     >
-      {products.map((product) => (
-        <ProductCard
-          product={product}
-          key={product.id}
-          userSession={userSession}
-        />
-      ))}
+      {products.map(
+        (product) =>
+          product.id !== singleProduct?.id && (
+            <ProductCard
+              product={product}
+              key={product.id}
+              userSession={userSession}
+            />
+          ),
+      )}
     </motion.div>
   );
 }

@@ -67,8 +67,8 @@ export const CreateUserProductAction = async (
     return {
       success: true,
       message: existingItem
-        ? "تم تعديل كمية المنتج"
-        : "تم إضافة المنتج إلى العربة بنجاح",
+        ? "تم زيادة كمية هذا المنتج الموجود لديك "
+        : "تم إضافة المنتج إلى العربة",
     };
   } catch (error) {
     console.error("Cart Error:", error);

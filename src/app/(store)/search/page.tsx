@@ -5,6 +5,7 @@ import { GetUserSession } from "@/lib/Sessions/GetUserSession";
 import Products from "@/components/Products/Products";
 import Link from "next/link";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 // ==============================================
 async function Search({
   searchParams,
@@ -13,6 +14,7 @@ async function Search({
 }) {
   const params = await searchParams;
   const search = params.q;
+  if (search == undefined) return redirect("/");
   let SuggestedProducts: ProductDbType[] | null = null;
   if (search) {
     SuggestedProducts = await prisma.product.findMany({
@@ -46,14 +48,16 @@ async function Search({
     });
   }
   const userSession = await GetUserSession();
+  const title =
+    search.trim().length > 10
+      ? search.slice(0, 10) + "..."
+      : search.slice(0, 10);
   return (
     <main>
       <div className="mycontainer section-p text-white section-flex">
         {SuggestedProducts !== null && SuggestedProducts.length > 0 ? (
           <>
-            <SectionHead
-              title={`منتجات مقترحة عن "${search?.slice(0, 10) + "..."}"`}
-            />
+            <SectionHead title={`منتجات مقترحة عن "${title}"`} />
             <Products products={SuggestedProducts} userSession={userSession} />
           </>
         ) : (
