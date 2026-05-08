@@ -1,0 +1,34 @@
+import { Search } from "lucide-react";
+import { Dispatch, SetStateAction } from "react";
+import DashAlertMessage from "../DashAlertMessage/DashAlertMessage";
+// =====================================
+function SearchBar({
+  value,
+  setValue,
+  error,
+}: {
+  value: string;
+  setValue: Dispatch<SetStateAction<string>>;
+  error: string;
+}) {
+  return (
+    <div className="h-13 rounded-full focus-within:ring-gray-50/30 mytransition focus-within:bg-white/10  overflow-hidden bg-white/5 ring ring-gray-50/15 flex items-center gap-3 shadow">
+      <button disabled={true} className="pr-4 text-gray-400">
+        <Search className="size-6" />
+      </button>
+      <span className="h-6 w-px block bg-white/10 rounded-full" />
+      <div>
+        <input
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          type="text"
+          className="h-full flex-1 outline-none text-xl placeholder:text-gray-400 cursor-pointer"
+          placeholder="عن ماذا تبحث ؟"
+        />
+        {error && <DashAlertMessage type="error" message={error} />}
+      </div>
+    </div>
+  );
+}
+
+export default SearchBar;

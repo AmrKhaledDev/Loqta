@@ -20,11 +20,11 @@ enum ProductStatus {
 }
 
 enum OrderStatus {
-  PENDING 
-  CONFIRMED 
-  SHIPPED 
-  DELIVERED 
-  CANCELLED 
+  PENDING
+  CONFIRMED
+  SHIPPED
+  DELIVERED
+  CANCELLED
   REFUNDED
   NO_ANSWER
 }
@@ -82,7 +82,7 @@ model ProductImage {
 
 model Category {
   id        String    @id @default(cuid())
-  name      String
+  name      String    @unique
   products  Product[]
   createdAt DateTime  @default(now())
 }

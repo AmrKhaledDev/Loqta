@@ -3,9 +3,9 @@ import Sidebar from "./_components/Sidebar/Sidebar";
 // =======================================================
 function layout({ children }: { children: React.ReactNode }) {
   return (
-    <div>
+    <div className="flex">
       <Sidebar />
-      {children}
+      <main className="p-10 flex-1 mycontainer  text-white">{children}</main>
     </div>
   );
 }

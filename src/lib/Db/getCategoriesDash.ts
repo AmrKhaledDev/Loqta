@@ -2,14 +2,9 @@ import { Category } from "@prisma/client";
 import { Cache } from "../Cache/Cache";
 import { prisma } from "@/lib/prisma";
 // ===============================================
-export const getCategories = Cache(
+export const getCategoriesDash = Cache(
   async (): Promise<Category[]> => {
     const data = await prisma.category.findMany({
-      where: {
-        products: {
-          some: {},
-        },
-      },
       include: {
         products: true,
       },

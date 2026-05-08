@@ -3,7 +3,7 @@ import { CategoriesOffers } from "../types";
 import { prisma } from "@/lib/prisma";
 // ===============================================
 
-export const getCategoriesOffers = Cache(
+export const getCategorysOffers = Cache(
   async (): Promise<CategoriesOffers[]> => {
     const data = await prisma.category.findMany({
       where: {
@@ -20,12 +20,13 @@ export const getCategoriesOffers = Cache(
         products: {
           include: {
             productImages: true,
+            category: true,
           },
         },
       },
     });
     return data;
   },
-  ["getCategoriesOffers"],
-  { revalidate: 3600, tags: ["getCategoriesOffers"] },
+  ["getCategorysOffers"],
+  { revalidate: 3600, tags: ["getCategorysOffers"] },
 );

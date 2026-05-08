@@ -78,3 +78,9 @@ export type OrderErrors = {
   phone?: string;
   serverError?: string;
 };
+
+export type CategoryDbType = Prisma.CategoryGetPayload<{
+  include: {
+    products: true;
+  };
+}>;
