@@ -14,9 +14,7 @@ function CategoryPageContent({ cates }: { cates: CategoryDbType[] }) {
   const [error, setError] = useState("");
   const [data, setData] = useState<CategoryDbType[] | null>(null);
   const [loading, setLoading] = useState(false);
-  const [categoryAction, setCategoryAction] = useState<
-    "edit" | "create" | null
-  >(null);
+  const [actionType, setActionType] = useState<"edit" | "create" | null>(null);
   const [category, setCategory] = useState<Category | null>(null);
   useEffect(() => {
     const FETCH_DATA = async () => {
@@ -34,8 +32,10 @@ function CategoryPageContent({ cates }: { cates: CategoryDbType[] }) {
   return (
     <>
       <DashSectionHead
-        setAction={setCategoryAction}
-        setCategory={setCategory}
+        setAction={setActionType}
+        setItem={setCategory}
+        title="إدارة الأصناف"
+        buttonName="إضافة صنف جديد"
       />
       <SearchBar value={search} setValue={setSearch} error={error} />
       {loading ? (
@@ -46,16 +46,16 @@ function CategoryPageContent({ cates }: { cates: CategoryDbType[] }) {
             <CategeoryCard
               key={cat.id}
               category={cat}
-              setAction={setCategoryAction}
+              setAction={setActionType}
               setCategoryEdit={setCategory}
             />
           ))}
         </ul>
       )}
-      {categoryAction !== null && (
+      {actionType !== null && (
         <CategoryModal
-          actionType={categoryAction}
-          setAction={setCategoryAction}
+          actionType={actionType}
+          setAction={setActionType}
           category={category}
         />
       )}

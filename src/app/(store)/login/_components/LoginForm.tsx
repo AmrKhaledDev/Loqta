@@ -1,7 +1,7 @@
 "use client";
-import AuthFormField from "@/components/AuthFormField/AuthFormField";
-import AuthRedirect from "@/components/AuthRedirect/AuthRedirect";
-import ButtonSubmit from "@/components/ButtonSubmit/ButtonSubmit";
+import AuthFormField from "@/components/Auth/AuthFormField/AuthFormField";
+import AuthRedirect from "@/components/Auth/AuthRedirect/AuthRedirect";
+import ButtonSubmit from "@/components/Auth/ButtonSubmit/ButtonSubmit";
 import { LoginErrors } from "@/lib/types";
 import { User } from "lucide-react";
 import Link from "next/link";
@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 import AlertMessage from "@/components/AlertMessage/AlertMessage";
 import { motion } from "framer-motion";
-import AuthIcon from "@/components/AuthIcon/AuthIcon";
+import AuthIcon from "@/components/Auth/AuthIcon/AuthIcon";
 import handleLogin from "./handleLogin";
 // ===================================================================
 function LoginForm() {

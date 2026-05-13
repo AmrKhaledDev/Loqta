@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 async function Profile() {
   const userSession = await GetUserSessionWithRelations();
   if (!userSession) return redirect("/login");
-  const PurchasedProducts = await prisma.order.findMany({
+  const OrdersPendings = await prisma.order.findMany({
     where: {
       userId: userSession.id,
       status: {
@@ -30,13 +30,31 @@ async function Profile() {
       },
     },
   });
+  const PurchasedOrders = await prisma.order.findMany({
+    where: {
+      userId: userSession.id,
+      status: "DELIVERED",
+    },
+    include: {
+      items: {
+        include: {
+          product: {
+            include: {
+              productImages: true,
+            },
+          },
+        },
+      },
+    },
+  });
   return (
     <main className="section-p min-h-screen">
       <div className="mycontainer">
         <ProfileDetails
           productsInCart={userSession.userProducts}
-          orders={PurchasedProducts}
+          ordersPending={OrdersPendings}
           userSession={userSession}
+          purchasedOrders={PurchasedOrders}
         />
       </div>
     </main>

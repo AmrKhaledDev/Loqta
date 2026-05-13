@@ -46,7 +46,7 @@ function Hero() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="w-fit h-fit rounded-3xl overflow-hidden relative"
+          className="w-fit h-fit rounded-3xl overflow-hidden"
         >
           <Image
             src={"/hero-bg.jpg"}
@@ -55,9 +55,6 @@ function Hero() {
             height={400}
             className="lg:w-100 sm:w-140 w-full sm:min-h-50 h-130 object-cover"
           />
-          <span className="bg-red-400 py-1 text-sm px-3 rounded-full absolute top-2 left-2">
-            خصم حتى 50%
-          </span>
         </motion.div>
       </div>
     </section>

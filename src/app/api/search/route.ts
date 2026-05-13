@@ -61,6 +61,9 @@ export async function GET(req: NextRequest) {
             contains: searchTxt,
             mode: "insensitive",
           },
+          products: {
+            some: {},
+          },
         },
         orderBy: {
           createdAt: "desc",

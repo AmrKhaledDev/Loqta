@@ -1,7 +1,7 @@
 "use client";
 import { Eye, EyeClosed } from "lucide-react";
 import { Dispatch, SetStateAction } from "react";
-import AlertMessage from "../AlertMessage/AlertMessage";
+import AlertMessage from "../../AlertMessage/AlertMessage";
 // ==========================================
 interface AuthFormFieldInterface {
   placeholder: string;

@@ -6,7 +6,7 @@ import { CreditCard } from "lucide-react";
 function UserProductsInCart({ products }: { products: UserProductDbType[] }) {
   return (
     <div className="flex flex-col gap-8">
-      <ul>
+      <ul className="flex flex-col gap-2">
         {products.map((p) => (
           <ProfileProductCard key={p.id} product={p} />
         ))}

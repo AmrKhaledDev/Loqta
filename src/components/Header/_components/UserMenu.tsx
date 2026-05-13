@@ -37,7 +37,7 @@ function UserMenu({ userSession }: { userSession: User }) {
           initial={{ opacity: 0, scale: 0 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3 }}
-          className="absolute flex flex-col boxMenu backdrop-blur-2xl gap-3 p-4 text-nowrap ring ring-gray-50/20 bg-white/10 shadow-xl rounded-2xl sm:w-60 w-50 mt-2 sm:-right-5 -right-10 text-white"
+          className="absolute flex flex-col boxMenu backdrop-blur-2xl gap-3 p-4 text-nowrap ring ring-gray-50/20 bg-white/10 shadow-xl rounded-2xl sm:w-60 w-50 mt-2 left-0 text-white"
         >
           {errorInSignOut && (
             <AlertMessage type="error" message={errorInSignOut} />

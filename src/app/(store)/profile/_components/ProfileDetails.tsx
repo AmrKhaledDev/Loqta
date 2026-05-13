@@ -2,19 +2,22 @@
 import { CameraIcon } from "lucide-react";
 import Tabs from "./Tabs";
 import { useState } from "react";
-import Settings from "./Settings";
+import Settings from "./Settings/Settings";
 import { OrderDbType, UserProductDbType } from "@/lib/types";
 import UserProductsInCart from "./UserProductsInCart";
 import OrderProductsList from "./OrderProductsList";
 import { User } from "@prisma/client";
+import PurchasedOrders from "./PurchasedOrders";
 // ==========================================================
 function ProfileDetails({
   productsInCart,
-  orders,
+  ordersPending,
+  purchasedOrders,
   userSession,
 }: {
   productsInCart: UserProductDbType[];
-  orders: OrderDbType[];
+  ordersPending: OrderDbType[];
+  purchasedOrders: OrderDbType[];
   userSession: User;
 }) {
   const [activeTab, setActiveTab] = useState("purchased");
@@ -28,7 +31,12 @@ function ProfileDetails({
       </div>
       <div className="flex flex-col gap-10 items-center">
         <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
-        {activeTab === "ordered" && <OrderProductsList orders={orders} />}
+        {activeTab === "purchased" && (
+          <PurchasedOrders orders={purchasedOrders} />
+        )}
+        {activeTab === "ordered" && (
+          <OrderProductsList orders={ordersPending} />
+        )}
         {activeTab === "settings" && <Settings userSession={userSession} />}
         {activeTab === "cart" && (
           <UserProductsInCart products={productsInCart} />

@@ -12,6 +12,11 @@ export default proxy(async (req) => {
     return NextResponse.redirect(new URL("/", req.nextUrl.origin));
   if (protectedRoutes.includes(pathname) && !userSession)
     return NextResponse.redirect(new URL("/login", req.nextUrl.origin));
+  if (
+    pathname.startsWith("/dashboard") &&
+    (!userSession || userSession?.role !== "ADMIN")
+  )
+    return NextResponse.redirect(new URL("/", req.nextUrl.origin));
 });
 export const config = {
   mathcer: ["/login", "/register", "/cart", "/profile", "/order"],

@@ -21,7 +21,7 @@ function ProfileProductCard({ product }: { product: UserProductDbType }) {
         </p>
         <div className="flex items-center gap-2">
           <p>الكمية : </p>
-          <p className="size-6 flex items-center justify-center rounded-full ring ring-gray-50/20 bg-white/5 text-sm font-serif">
+          <p className="size-6 flex items-center justify-center rounded-full ring ring-gray-50/20 bg-white/5 text-sm">
             {product.quantity}
           </p>
         </div>

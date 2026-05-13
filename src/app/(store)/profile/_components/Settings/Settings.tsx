@@ -7,6 +7,7 @@ import { EditUserProfileAction } from "@/lib/Server_Actions/Edit/EditUserProfile
 import { useRouter } from "next/navigation";
 import AlertMessage from "@/components/AlertMessage/AlertMessage";
 import FormField from "@/components/FormField/FormField";
+import ChangePassword from "./_components/ChangePassword";
 // ===================================================================================
 function Settings({ userSession }: { userSession: User }) {
   const [error, setError] = useState("");
@@ -50,12 +51,7 @@ function Settings({ userSession }: { userSession: User }) {
         onChange={setName}
         disabled={true}
       />
-      <div className="text-white flex items-center gap-5 py-3">
-        <h2>كلمة السر : ********</h2>
-        <button disabled={loading} className="text-white disabled:text-gray-600 mytransition not-disabled:hover:bg-white/15 ring ring-gray-50/20 bg-white/5 py-2 px-6 text-xs not-disabled:cursor-pointer rounded-md">
-          تغيير كلمة السر
-        </button>
-      </div>
+      <ChangePassword disabled={loading} />
       <FormField
         type="number"
         placeholder="رقم الهاتف"
