@@ -44,12 +44,21 @@ function ProductsPageContent({
         setItem={setProduct}
       />
       <SearchBar value={search} setValue={setSearch} error={error} />
-      {loading ? <ProductLoading /> : <ProductsGrid products={productsList} />}
+      {loading ? (
+        <ProductLoading />
+      ) : (
+        <ProductsGrid
+          setActionType={setActionType}
+          setProduct={setProduct}
+          products={productsList}
+        />
+      )}
       {actionType !== null && (
         <ProductModal
           actionType={actionType}
           setActionType={setActionType}
           categories={categories}
+          product={product}
         />
       )}
     </>

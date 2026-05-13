@@ -44,6 +44,7 @@ async function Product({ params }: { params: Promise<{ productId: string }> }) {
             include: {
               productImages: true,
               category: true,
+              opinions:true
             },
           },
         },

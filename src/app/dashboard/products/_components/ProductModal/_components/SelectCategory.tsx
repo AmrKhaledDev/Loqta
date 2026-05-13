@@ -6,17 +6,18 @@ import { Dispatch, SetStateAction } from "react";
 // =====================================================================
 function SelectCategory({
   setShowSelector,
-  category,
+  categoryId,
   showSelector,
-  setCategory,
+  setCategoryId,
   categories,
 }: {
   setShowSelector: Dispatch<SetStateAction<boolean>>;
-  category: CategoryDbType | null;
+  categoryId:string;
   showSelector: boolean;
-  setCategory: Dispatch<SetStateAction<CategoryDbType | null>>;
+  setCategoryId: Dispatch<SetStateAction<string>>;
   categories: CategoryDbType[];
 }) {
+  const category = categories.find(cat=>cat.id === categoryId)
   return (
     <div className="w-fit">
       <div
@@ -29,16 +30,17 @@ function SelectCategory({
         <ChevronDown className="text-slate-300" />
       </div>
       {showSelector && (
-        <div className="bg-white/10 p-2 max-h-40 overflow-y-auto rounded-xl ring ring-gray-50/30 mt-2 flex flex-col">
+        <div className="bg-white/10 p-2 max-h-40 overflow-y-auto rounded-xl ring ring-gray-50/30 mt-2 flex flex-col gap-1">
           {categories.map((cat) => (
             <button
               type="button"
               onClick={() => {
-                setCategory(cat);
+                setCategoryId(cat.id);
                 setShowSelector(false);
               }}
               key={cat.id}
-              className="hover:bg-cyan-500 button rounded-md text-sm text-start px-3 mytransition py-1.5 cursor-pointer"
+              className={`hover:bg-cyan-500 shadow button rounded-md hover:scale-103 text-sm text-start px-3 mytransition py-1.5 cursor-pointer 
+                ${cat.id === categoryId && "bg-cyan-500 scale-103"} `}
             >
               {cat.name}
             </button>

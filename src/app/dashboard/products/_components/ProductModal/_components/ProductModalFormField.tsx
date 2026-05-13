@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-
+// ========================================================
 function ProductModalFormField({
   type,
   placeholder,
@@ -7,7 +7,7 @@ function ProductModalFormField({
   id,
   typeField,
   value,
-  onChange
+  onChange,
 }: {
   type: string;
   placeholder: string;
@@ -24,6 +24,8 @@ function ProductModalFormField({
       </label>
       {typeField == "textarea" ? (
         <textarea
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
           rows={6}
           className="p-2 resize-none ring focus:ring-2 ring-cyan-400 outline-none focus:ring-white mytransition cursor-pointer  rounded text-white placeholder:text-gray-300"
           placeholder={placeholder}
@@ -31,6 +33,8 @@ function ProductModalFormField({
         />
       ) : (
         <input
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
           className="p-2 ring focus:ring-2 ring-cyan-400 outline-none focus:ring-white mytransition cursor-pointer  rounded text-white placeholder:text-gray-300"
           type={type}
           placeholder={placeholder}

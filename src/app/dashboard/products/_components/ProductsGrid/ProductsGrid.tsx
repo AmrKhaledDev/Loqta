@@ -3,8 +3,17 @@ import { ProductDbType } from "@/lib/types";
 import ProductStats from "./_components/ProductStats";
 import ProductFooter from "./_components/ProductFooter";
 import ProductEdit from "./_components/ProductEdit";
+import { Dispatch, SetStateAction } from "react";
 // =========================================
-function ProductsGrid({ products }: { products: ProductDbType[] }) {
+function ProductsGrid({
+  products,
+  setActionType,
+  setProduct,
+}: {
+  products: ProductDbType[];
+  setActionType: Dispatch<SetStateAction<"create" | "edit" | null>>;
+  setProduct: Dispatch<SetStateAction<ProductDbType | null>>;
+}) {
   return (
     <ul className="grid grid-cols-4 gap-3">
       {products.map((product) => {
@@ -41,11 +50,14 @@ function ProductsGrid({ products }: { products: ProductDbType[] }) {
             </p>
             <ProductStats product={product} />
             <ProductFooter product={product} />
-            {/* Absolute */}
             <span className="absolute top-2 right-2 py-1 px-3 font-bold text-xs bg-red-100 text-red-500 shadow rounded-full">
               عليه خصم <span>{discountPercentage}%</span>
             </span>
-            <ProductEdit />
+            <ProductEdit
+              product={product}
+              setActionType={setActionType}
+              setProduct={setProduct}
+            />
           </li>
         );
       })}

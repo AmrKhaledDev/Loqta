@@ -2,7 +2,7 @@
 import { Plus } from "lucide-react";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import ProductModalFormField from "./_components/ProductModalFormField";
-import { CategoryDbType } from "@/lib/types";
+import { CategoryDbType, ProductDbType } from "@/lib/types";
 import { CreateProductInputs } from "@/lib/data/CreateProductInputs";
 import ModalHead from "./_components/ModalHead";
 import ProductImages from "./_components/ProductImages";
@@ -16,29 +16,37 @@ function ProductModal({
   actionType,
   setActionType,
   categories,
+  product,
 }: {
   actionType: "edit" | "create" | null;
   setActionType: Dispatch<SetStateAction<"edit" | "create" | null>>;
   categories: CategoryDbType[];
+  product?: ProductDbType | null;
 }) {
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
-  const [stock, setStock] = useState("");
-  const [minStock, setMinStock] = useState("");
-  const [returnPolicy, setReturnPolicy] = useState("");
-  const [warranty, setWarranty] = useState("");
-  const [shippingInfo, setShippingInfo] = useState("");
-  const [description, setDescription] = useState("");
-  const [discountPrice, setDiscountPrice] = useState("");
-  const [logoBrandLink, setLogoBrandLink] = useState("");
-  const [brandWebsite, setBrandWebsite] = useState("");
+  const [name, setName] = useState(product?.name || "");
+  const [price, setPrice] = useState(String(product?.price) || "");
+  const [stock, setStock] = useState(String(product?.stock) || "");
+  const [minStock, setMinStock] = useState(String(product?.min_stock) || "");
+  const [returnPolicy, setReturnPolicy] = useState(product?.returnPolicy || "");
+  const [warranty, setWarranty] = useState(product?.warranty || "");
+  const [shippingInfo, setShippingInfo] = useState(product?.warranty || "");
+  const [description, setDescription] = useState(product?.description || "");
+  const [discountPrice, setDiscountPrice] = useState(
+    String(product?.discountPrice) || "",
+  );
+  const [logoBrandLink, setLogoBrandLink] = useState(product?.brandLogo || "");
+  const [brandWebsite, setBrandWebsite] = useState(product?.brandWebsite || "");
   // ====
-  const [isLogoLink, setIsLogoLink] = useState(false);
-  const [isOnSale, setIsOnSale] = useState(false);
-  const [isOriginal, setIsOriginal] = useState<boolean | null>(null);
-  const [category, setCategory] = useState<CategoryDbType | null>(null);
+  const [isLogoLink, setIsLogoLink] = useState(
+    product?.brandLogo ? true : false || false,
+  );
+  const [isOnSale, setIsOnSale] = useState(product?.isOnSale || false);
+  const [isOriginal, setIsOriginal] = useState<boolean | null>(
+    product?.isOriginal || null,
+  );
+  const [categoryId, setCategoryId] = useState(product?.categoryId || "");
   const [showSelector, setShowSelector] = useState(false);
-  const [loading,setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const inputs = CreateProductInputs({
     name,
     setName,
@@ -93,11 +101,11 @@ function ProductModal({
             />
           ))}
           <SelectCategory
-            setCategory={setCategory}
+            setCategoryId={setCategoryId}
             setShowSelector={setShowSelector}
             showSelector={showSelector}
             categories={categories}
-            category={category}
+            categoryId={categoryId}
           />
           <IsOnSale
             value={discountPrice}
@@ -120,14 +128,18 @@ function ProductModal({
             setWebsiteValue={setBrandWebsite}
             setIsLogoLink={setIsLogoLink}
           />
-        
+
           <FloatingIconButton
             bgColor="bg-cyan-500"
-            label="إنشاء منتج جديد"
+            label={actionType === "edit" ? "تعديل المنتج" : "إنشاء منتج جديد"}
             textColor="text-cyan-500"
             Icon={Plus}
             loading={loading}
-            loadingText="جاري الإنشاء . . ."
+            loadingText={
+              actionType === "edit"
+                ? "جاري تعديل المنتج . . ."
+                : "جاري الإنشاء . . ."
+            }
           />
         </form>
       </div>
