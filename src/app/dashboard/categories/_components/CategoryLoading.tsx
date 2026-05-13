@@ -6,7 +6,7 @@ function CategoryLoading() {
         .map((_, i) => (
           <div
             key={i}
-            className="bg-gray-200/30 relative animate-pulse overflow-hidden h-40 rounded-2xl flex items-center flex-col justify-between"
+            className="ring ring-gray-50/10 bg-white/5 relative animate-pulse overflow-hidden h-40 rounded-2xl flex items-center flex-col justify-between"
           >
             <div className="w-full flex flex-col h-full justify-center gap-4">
               {Array(2)
@@ -18,7 +18,7 @@ function CategoryLoading() {
                   </div>
                 ))}
             </div>
-            <span className="absolute top-2 right-2 w-[30%] rounded-full block h-1.5 bg-gray-300/40" />
+            <span className="absolute top-2 right-2 w-[30%] rounded-full block h-1.5 bg-gray-300/30" />
             <span className="w-[50%] h-2 block bg-gray-300/30 rounded-full mb-2 " />
           </div>
         ))}
