@@ -9,7 +9,7 @@ function OrderCustomerInfo({order}:{order:OrderDbType}) {
   return (
     <div className="flex flex-col gap-2 font-semibold">
       تفاصيل أُخرى:
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 sm:flex-nowrap flex-wrap">
         {customerInfo.map((item) => (
           <h2
             key={item.id}

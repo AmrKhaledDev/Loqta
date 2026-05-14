@@ -52,7 +52,7 @@ function Modal({ setModal }: { setModal: Dispatch<SetStateAction<boolean>> }) {
   };
   return (
     <div className="fixed inset-0 bg-black/10 backdrop-blur z-60 flex items-center justify-center">
-      <div className="ring ring-gray-50/30 boxChangePassword bg-white/10 rounded-2xl w-120 p-4">
+      <div className="ring ring-gray-50/30 boxChangePassword bg-white/10 rounded-2xl md:w-120 sm:w-[60%] w-[80%] p-4">
         <div onSubmit={handleChangePassword} className="flex flex-col gap-3">
           <SettingsFormField
             type="password"

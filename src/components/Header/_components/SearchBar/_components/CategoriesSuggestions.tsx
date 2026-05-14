@@ -10,9 +10,9 @@ function CategoriesSuggestions({ categories }: { categories: Category[] }) {
           <ul className="flex items-center gap-2 p-3">
             {categories.map((cat) => (
               <li key={cat.id}>
-                <Link
+                <Link dir="auto"
                   href={`/category/${cat.id}`}
-                  className="bg-white block py-1 px-3 rounded-full cursor-pointer text-gray-700 font-bold text-sm mytransition hover:shadow"
+                  className="bg-white block py-1 px-3 rounded-full cursor-pointer text-gray-700 font-bold sm:text-sm text-xs mytransition hover:shadow"
                 >
                   {cat.name}
                 </Link>

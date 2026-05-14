@@ -16,11 +16,11 @@ function Tabs({
     { id: "settings", label: "الإعدادات" },
   ];
   return (
-    <div className="flex items-center gap-5">
+    <div className="flex items-center sm:gap-5 gap-3 sm:flex-nowrap flex-wrap justify-center">
       {tabs.map((t) => (
         <button
           onClick={() => setActiveTab(t.id)}
-          className={`text-white py-3 font-bold px-9 mytransition rounded-md shadow  
+          className={`text-white md:text-[15px] sm:text-sm text-xs sm:py-3 py-2 font-bold sm:px-9 px-6 mytransition rounded-md shadow  
             ${
               activeTab === t.id
                 ? "ring-transparent bg-cyan-500 scale-110 cursor-default"

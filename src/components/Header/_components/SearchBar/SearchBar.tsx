@@ -71,9 +71,9 @@ function SearchBar() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="bg-white px-10 py-7 h-fit w-full flex justify-center items-center gap-6 boxSearchBar"
+            className="bg-white lg:px-10 sm:px-5 px-2 md:py-7 py-4 h-fit w-full flex justify-center items-center md:gap-6 sm:gap-3 gap-1 boxSearchBar"
           >
-            <div className="w-[65%] relative">
+            <div className="lg:w-[65%] w-full relative">
               <SearchBarInput search={search} setSearch={setSearch} />
               {search.trim() && data !== null && (
                 <Results

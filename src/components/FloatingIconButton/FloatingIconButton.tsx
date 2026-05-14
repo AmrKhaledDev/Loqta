@@ -17,7 +17,7 @@ function FloatingIconButton({
   Icon: LucideIcon;
   loading: boolean;
   loadingText: string;
-  handle: (e: FormEvent<Element>) => Promise<Id | undefined>;
+  handle?: (e: FormEvent<Element>) => Promise<Id | undefined>;
 }) {
   return (
     <button

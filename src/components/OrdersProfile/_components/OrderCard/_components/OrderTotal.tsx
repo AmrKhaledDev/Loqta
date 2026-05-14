@@ -2,7 +2,7 @@ import { formatCurrency } from '@/lib/formatCurrency'
 // =========================================
 function OrderTotal({totalPrice}:{totalPrice:number}) {
   return (
-      <div className="flex items-center justify-between py-3 px-6 ring ring-gray-50/20 bg-white/5 rounded-lg mt-4">
+      <div className="flex items-center sm:flex-nowrap flex-wrap sm:gap-5 justify-between py-3 px-6 ring ring-gray-50/20 bg-white/5 rounded-lg mt-4">
         <h2 className="text-sm font-semibold">
           مجموع الطلب:
           <span className="text-xs font-bold">

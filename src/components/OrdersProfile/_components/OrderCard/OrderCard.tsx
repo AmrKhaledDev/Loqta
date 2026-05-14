@@ -7,7 +7,7 @@ import OrderStatus from "./_components/OrderStatus";
 // ======================================================
 function OrderCard({ order }: { order: OrderDbType }) {
   return (
-    <div className="p-4 rounded-lg relative pt-7 bg-white/5 ring ring-gray-50/20 w-full flex flex-col gap-2">
+    <div className="sm:p-4 p-2 rounded-lg relative pt-7 bg-white/5 ring ring-gray-50/20 w-full flex flex-col gap-2">
       <span className="text-xs font-semibold tracking-wider absolute -top-3 -right-1 ring ring-gray-50/20 bg-white/5 backdrop-blur py-1 px-4 rounded-full">
         {dayjs(order.createdAt).format("D/M/YYYY")}
       </span>

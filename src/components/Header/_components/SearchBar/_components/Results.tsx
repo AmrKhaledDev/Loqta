@@ -18,9 +18,13 @@ function Results({
       <TopResult search={search} />
       {products.length > 0 || categories.length > 0 ? (
         <>
-          <span className="w-full h-px bg-white rounded-full block" />
+          {products.length > 0 && (
+            <span className="w-full h-px bg-white rounded-full block" />
+          )}
           <ProductsSuggestions products={products} />
-          <span className="w-full h-px bg-white rounded-full block" />
+          {categories.length > 0 && (
+            <span className="w-full h-px bg-white rounded-full block" />
+          )}
           <CategoriesSuggestions categories={categories} />
         </>
       ) : (

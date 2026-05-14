@@ -30,7 +30,7 @@ function ProductActions({
     router.refresh();
   };
   return (
-    <div className="flex items-center gap-5">
+    <div className="flex items-center sm:gap-5 gap-3">
       <div className="flex items-center gap-2">
         <button
           disabled={productAcLoading}
@@ -53,7 +53,7 @@ function ProductActions({
         </button>
       </div>
       <button
-        className="size-8 flex items-center justify-center bg-red-500 cursor-pointer hover:scale-103 active:scale-97 rounded-full p-2 shadow"
+        className="sm:size-8 size-6 flex items-center justify-center bg-red-500 cursor-pointer hover:scale-103 active:scale-97 rounded-full sm:p-2 p-1 shadow"
         onClick={deleteProduct}
         disabled={productAcLoading}
       >

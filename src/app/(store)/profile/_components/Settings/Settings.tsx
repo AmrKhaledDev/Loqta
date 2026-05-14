@@ -34,7 +34,7 @@ function Settings({ userSession }: { userSession: User }) {
   return (
     <form
       onSubmit={handleEditProfile}
-      className="flex flex-col gap-2 text-white w-125"
+      className="flex flex-col gap-2 text-white sm:w-125 w-full"
     >
       {error && <AlertMessage type="error" message={error} />}
       <FormField
@@ -73,6 +73,7 @@ function Settings({ userSession }: { userSession: User }) {
       >
         {loading ? "جاري الحفظ . . . " : " حفظ"}
       </button>
+      
     </form>
   );
 }

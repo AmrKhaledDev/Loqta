@@ -18,8 +18,8 @@ function ItemCard({ item }: { item: UserProductDbType }) {
           className="size-17 p-2 bg-white rounded-md object-contain"
         />
         <div>
-          <h2 className="font-semibold text-sm">{item.product.name}</h2>
-          <p className="line-clamp-1 text-xs text-gray-300">
+          <h2 className="font-semibold sm:text-sm text-xs">{item.product.name}</h2>
+          <p className="sm:line-clamp-1 line-clamp-2 sm:text-xs text-[11px] text-gray-300">
             {item.product.description}
           </p>
           <p className="font-black text-cyan-400">
