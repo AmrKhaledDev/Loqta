@@ -1,23 +1,16 @@
 "use client";
 
-import { Dispatch, SetStateAction } from "react";
-// ==================================================
 function CheckBox({
-  state,
-  setState,
+  
   label,
 }: {
-  state: boolean | null;
-  setState:
-    | Dispatch<SetStateAction<boolean>>
-    | Dispatch<SetStateAction<boolean | null>>;
+  
   label: string;
 }) {
   return (
     <div className="flex items-center gap-2">
       <input
-        checked={state == true}
-        onChange={() => setState(!state)}
+       
         type="checkbox"
         id="isOnSale"
         className="size-4 cursor-pointer appearance-none border border-cyan-400 rounded

@@ -27,7 +27,11 @@ export const CreateProductSchema = z.object({
   isOnSale: z.boolean(),
   isOriginal: z.boolean().nullable().optional(),
   brandLogo: z.string().optional().nullable(),
-  brandWebsite: z.string().optional().nullable(),
+  brandWebsite: z
+    .string()
+    .url({ message: "رابط غير صحيح" })
+    .optional()
+    .nullable(),
   primaryImage: z
     .string({ message: "يجب رفع صورة للمنتج" })
     .trim()

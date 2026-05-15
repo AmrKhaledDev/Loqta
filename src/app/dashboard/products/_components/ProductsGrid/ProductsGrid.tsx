@@ -8,11 +8,9 @@ import { ProductDbType } from "@/lib/types";
 function ProductsGrid({
   products,
   setActionType,
-  setProduct,
 }: {
   products: ProductDbType[];
   setActionType: Dispatch<SetStateAction<"create" | "edit" | null>>;
-  setProduct: Dispatch<SetStateAction<ProductDbType | null>>;
 }) {
   return (
     <ul className="grid grid-cols-4 gap-3">
@@ -56,9 +54,7 @@ function ProductsGrid({
               </span>
             )}
             <ProductEdit
-              product={product}
               setActionType={setActionType}
-              setProduct={setProduct}
             />
           </li>
         );

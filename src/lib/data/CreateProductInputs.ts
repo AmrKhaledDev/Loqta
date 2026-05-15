@@ -1,28 +1,4 @@
-import { CreateProductInputsProps } from "../types";
-// ===================================================
-export const CreateProductInputs = ({
-  name,
-  setName,
-  nameError,
-  price,
-  setPrice,
-  priceError,
-  stock,
-  setStock,
-  stockError,
-  minStock,
-  setMinStock,
-  minStockError,
-  returnPolicy,
-  setReturnPolicy,
-  warranty,
-  setWarranty,
-  shippingInfo,
-  setShippingInfo,
-  description,
-  setDescription,
-  descriptionError,
-}: CreateProductInputsProps) => {
+export const CreateProductInputs = () => {
   return [
     {
       id: "name",
@@ -30,9 +6,6 @@ export const CreateProductInputs = ({
       placeholder: "أكتب إسم المنتج",
       type: "text",
       typeField: "input",
-      value: name,
-      onChange: setName,
-      error: nameError,
     },
     {
       id: "price",
@@ -40,38 +13,27 @@ export const CreateProductInputs = ({
       placeholder: "أكتب سعر للمنتج",
       type: "number",
       typeField: "input",
-      value: price,
-      onChange: setPrice,
-      error: priceError,
     },
     {
-      id: "stock",
+      id: "stock", 
       label: "كمية المنتج",
       placeholder: "أكتب كمية المنتج المخزنه",
       type: "number",
       typeField: "input",
-      value: stock,
-      onChange: setStock,
-      error: stockError,
     },
     {
-      id: "min_stock",
+      id: "minStock", 
       label: "أقل كمية",
       placeholder: "أكتب أقل كمية لهذا المنتج للتنبيه",
       type: "number",
       typeField: "input",
-      value: minStock,
-      onChange: setMinStock,
-      error: minStockError,
     },
     {
-      id: "return_policy",
+      id: "returnPolicy", 
       label: "سياسة الإرجاع ( اختياري )",
       placeholder: "أكتب أقصى مدة لإرجاع المنتج",
       type: "text",
       typeField: "input",
-      value: returnPolicy,
-      onChange: setReturnPolicy,
     },
     {
       id: "warranty",
@@ -79,8 +41,6 @@ export const CreateProductInputs = ({
       placeholder: "أكتب فترة الضمان الخاصة بالمنتج",
       type: "text",
       typeField: "input",
-      value: warranty,
-      onChange: setWarranty,
     },
     {
       id: "shippingInfo",
@@ -88,8 +48,6 @@ export const CreateProductInputs = ({
       placeholder: "أكتب فترة توصيل المنتج",
       type: "text",
       typeField: "input",
-      value: shippingInfo,
-      onChange: setShippingInfo,
     },
     {
       id: "description",
@@ -97,9 +55,6 @@ export const CreateProductInputs = ({
       placeholder: "أكتب وصف عن هذا المنتج",
       type: "text",
       typeField: "textarea",
-      value: description,
-      onChange: setDescription,
-      error: descriptionError,
     },
   ];
 };

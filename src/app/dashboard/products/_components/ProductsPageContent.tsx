@@ -20,7 +20,6 @@ function ProductsPageContent({
   const [dataSearch, setDataSearch] = useState<ProductDbType[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [actionType, setActionType] = useState<"edit" | "create" | null>(null);
-  const [product, setProduct] = useState<ProductDbType | null>(null);
   useEffect(() => {
     const FETCH_DATA = async () => {
       if (!search.trim() || search.length < 1) return;
@@ -41,7 +40,6 @@ function ProductsPageContent({
         title="إدارة المنتجات"
         buttonName="إضافة منتج جديد"
         setAction={setActionType}
-        setItem={setProduct}
       />
       <SearchBar value={search} setValue={setSearch} error={error} />
       {loading ? (
@@ -49,7 +47,6 @@ function ProductsPageContent({
       ) : (
         <ProductsGrid
           setActionType={setActionType}
-          setProduct={setProduct}
           products={productsList}
         />
       )}
@@ -58,7 +55,6 @@ function ProductsPageContent({
           actionType={actionType}
           setActionType={setActionType}
           categories={categories}
-          product={product}
         />
       )}
     </>

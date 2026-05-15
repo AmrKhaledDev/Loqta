@@ -15,7 +15,7 @@ function FloatingIconButton({
   bgColor: string;
   textColor: string;
   Icon: LucideIcon;
-  loading: boolean;
+  loading?: boolean;
   loadingText: string;
   handle?: (e: FormEvent<Element>) => Promise<Id | undefined>;
 }) {
