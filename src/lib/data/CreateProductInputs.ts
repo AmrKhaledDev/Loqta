@@ -3,12 +3,16 @@ import { CreateProductInputsProps } from "../types";
 export const CreateProductInputs = ({
   name,
   setName,
+  nameError,
   price,
   setPrice,
+  priceError,
   stock,
   setStock,
+  stockError,
   minStock,
   setMinStock,
+  minStockError,
   returnPolicy,
   setReturnPolicy,
   warranty,
@@ -17,6 +21,7 @@ export const CreateProductInputs = ({
   setShippingInfo,
   description,
   setDescription,
+  descriptionError,
 }: CreateProductInputsProps) => {
   return [
     {
@@ -27,6 +32,7 @@ export const CreateProductInputs = ({
       typeField: "input",
       value: name,
       onChange: setName,
+      error: nameError,
     },
     {
       id: "price",
@@ -36,6 +42,7 @@ export const CreateProductInputs = ({
       typeField: "input",
       value: price,
       onChange: setPrice,
+      error: priceError,
     },
     {
       id: "stock",
@@ -45,6 +52,7 @@ export const CreateProductInputs = ({
       typeField: "input",
       value: stock,
       onChange: setStock,
+      error: stockError,
     },
     {
       id: "min_stock",
@@ -54,6 +62,7 @@ export const CreateProductInputs = ({
       typeField: "input",
       value: minStock,
       onChange: setMinStock,
+      error: minStockError,
     },
     {
       id: "return_policy",
@@ -90,6 +99,7 @@ export const CreateProductInputs = ({
       typeField: "textarea",
       value: description,
       onChange: setDescription,
+      error: descriptionError,
     },
   ];
 };

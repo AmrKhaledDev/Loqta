@@ -6,23 +6,25 @@ import Link from "next/link";
 function ProductBrand({ product }: { product: ProductDbType }) {
   return (
     <div className="flex flex-col gap-1">
-      {product.brandLogo && product.brandWebsite && (
+      {product.brandLogo && (
         <>
           <Image
-            src="/test-brand-logo.png"
+            src={product.brandLogo}
             alt="brand logo"
             width={130}
             height={130}
           />
-          <Link
-            target="_blank"
-            className="text-blue-300 text-xs hover:underline font-semibold flex items-center gap-1"
-            href={product.brandWebsite}
-          >
-            <Link2 className="size-5" />
-            زيارة الموقع الرسمي للعلامة التجارية
-          </Link>
         </>
+      )}
+      {product.brandWebsite && (
+        <Link
+          target="_blank"
+          className="text-blue-300 text-xs hover:underline font-semibold flex items-center gap-1"
+          href={product.brandWebsite}
+        >
+          <Link2 className="size-5" />
+          زيارة الموقع الرسمي للعلامة التجارية
+        </Link>
       )}
     </div>
   );

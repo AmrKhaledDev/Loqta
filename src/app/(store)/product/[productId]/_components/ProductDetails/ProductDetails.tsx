@@ -3,8 +3,6 @@ import { BadgeCheck, ShoppingBag } from "lucide-react";
 import { useState } from "react";
 import ProductImage from "./_components/ProductImage";
 import ProductQuantity from "./_components/ProductQuantity";
-import { ProductDbType, UserSessionWithRelations } from "@/lib/types";
-import { Check } from "lucide-react";
 import { CreateUserProductAction } from "@/lib/Server_Actions/Create_Actions/CreateUserProduct.action";
 import { toast } from "react-toastify";
 import { redirect, useRouter } from "next/navigation";
@@ -12,6 +10,7 @@ import Loader from "@/components/Loader/Loader";
 import ProductInfo from "./_components/ProductInfo";
 import ProductImages from "./_components/ProductImages";
 import ProductBrand from "./_components/ProductBrand";
+import { ProductDbType, UserSessionWithRelations } from "@/lib/types";
 // ===============================================================
 function ProductDetails({
   product,

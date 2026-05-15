@@ -11,6 +11,6 @@ export const getCategoriesDash = Cache(
     });
     return data;
   },
-  ["categories"],
-  { revalidate: 3600, tags: ["categories"] },
+  ["categoriesDash"],
+  { revalidate: 3600, tags: ["categoriesDash"] },
 );

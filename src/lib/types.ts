@@ -89,12 +89,16 @@ export type CategoryDbType = Prisma.CategoryGetPayload<{
 export type CreateProductInputsProps = {
   name: string;
   setName: Dispatch<SetStateAction<string>>;
+  nameError?: string;
   price: string;
   setPrice: Dispatch<SetStateAction<string>>;
+  priceError?: string;
   stock: string;
   setStock: Dispatch<SetStateAction<string>>;
+  stockError?: string;
   minStock: string;
   setMinStock: Dispatch<SetStateAction<string>>;
+  minStockError?: string;
   returnPolicy: string;
   setReturnPolicy: Dispatch<SetStateAction<string>>;
   warranty: string;
@@ -103,4 +107,16 @@ export type CreateProductInputsProps = {
   setShippingInfo: Dispatch<SetStateAction<string>>;
   description: string;
   setDescription: Dispatch<SetStateAction<string>>;
+  descriptionError?: string;
+};
+export type ProductModalErrors = {
+  name?: string;
+  description?: string;
+  price?: string;
+  stock?: string;
+  minStock?: string;
+  categoryId?: string;
+  primaryImage?: string;
+  serverError?: string;
+  discountPrice?: string;
 };

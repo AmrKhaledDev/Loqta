@@ -1,5 +1,6 @@
 "use client";
 
+import DashAlertMessage from "@/app/dashboard/_components/DashAlertMessage/DashAlertMessage";
 import { CategoryDbType } from "@/lib/types";
 import { ChevronDown } from "lucide-react";
 import { Dispatch, SetStateAction } from "react";
@@ -10,24 +11,29 @@ function SelectCategory({
   showSelector,
   setCategoryId,
   categories,
+  error
 }: {
   setShowSelector: Dispatch<SetStateAction<boolean>>;
-  categoryId:string;
+  categoryId: string;
   showSelector: boolean;
   setCategoryId: Dispatch<SetStateAction<string>>;
   categories: CategoryDbType[];
+  error?:string
 }) {
-  const category = categories.find(cat=>cat.id === categoryId)
+  const category = categories.find((cat) => cat.id === categoryId);
   return (
     <div className="w-fit">
-      <div
-        onClick={() => setShowSelector(!showSelector)}
-        className="flex items-center justify-between w-90 py-2 rounded-full cursor-pointer ring ring-cyan-500 px-4 bg-white/10 shadow"
-      >
-        <h2 className={`${category ? "text-white" : "text-slate-300 "}`}>
-          {category ? category.name : "أختر صنف"}
-        </h2>
-        <ChevronDown className="text-slate-300" />
+      <div className="flex flex-col gap-2">
+        <div
+          onClick={() => setShowSelector(!showSelector)}
+          className="flex items-center justify-between w-90 py-2 rounded-full cursor-pointer ring ring-cyan-500 px-4 bg-white/10 shadow"
+        >
+          <h2 className={`${category ? "text-white" : "text-slate-300 "}`}>
+            {category ? category.name : "أختر صنف"}
+          </h2>
+          <ChevronDown className="text-slate-300" />
+        </div>
+        {error && <DashAlertMessage type="error" message={error} />}
       </div>
       {showSelector && (
         <div className="bg-white/10 p-2 max-h-40 overflow-y-auto rounded-xl ring ring-gray-50/30 mt-2 flex flex-col gap-1">

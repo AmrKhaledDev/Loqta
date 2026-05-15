@@ -65,6 +65,7 @@ model Product {
   warranty      String?
   returnPolicy  String?
   shippingInfo  String?
+  brandLogoIsImage Boolean?    @default(false)
   isOriginal    Boolean?
   category      Category       @relation(fields: [categoryId], references: [id], onDelete: Cascade)
   productImages ProductImage[]

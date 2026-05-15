@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { ProductDbType } from "@/lib/types";
 import ProductStats from "./_components/ProductStats";
 import ProductFooter from "./_components/ProductFooter";
 import ProductEdit from "./_components/ProductEdit";
 import { Dispatch, SetStateAction } from "react";
+import { ProductDbType } from "@/lib/types";
 // =========================================
 function ProductsGrid({
   products,
@@ -50,9 +50,11 @@ function ProductsGrid({
             </p>
             <ProductStats product={product} />
             <ProductFooter product={product} />
-            <span className="absolute top-2 right-2 py-1 px-3 font-bold text-xs bg-red-100 text-red-500 shadow rounded-full">
-              عليه خصم <span>{discountPercentage}%</span>
-            </span>
+            {product.isOnSale && (
+              <span className="absolute top-2 right-2 py-1 px-3 font-bold text-xs bg-red-100 text-red-500 shadow rounded-full">
+                عليه خصم <span>{discountPercentage}%</span>
+              </span>
+            )}
             <ProductEdit
               product={product}
               setActionType={setActionType}

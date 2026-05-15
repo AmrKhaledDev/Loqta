@@ -10,6 +10,9 @@ export const getProducts = Cache(
         category: true,
         opinions: true,
       },
+      orderBy:{
+        createdAt:"desc"
+      }
     });
     return data;
   },

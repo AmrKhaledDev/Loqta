@@ -74,7 +74,7 @@ export const CategoryAction = async (
       }
     }
     revalidateTag("categories", "");
-    revalidateTag("products", "");
+    revalidateTag("categoriesDash", "");
     return {
       success: true,
       message: `
@@ -84,9 +84,7 @@ export const CategoryAction = async (
           : type === "create"
             ? "تم إنشاء صنف جديد"
             : "تم حذف هذا الصنف"
-      }
-               
-              `,
+      }`,
     };
   } catch (error) {
     console.log(error);
