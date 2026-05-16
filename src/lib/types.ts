@@ -1,15 +1,6 @@
 import { Prisma } from "@prisma/client";
 import { Dispatch, SetStateAction } from "react";
 // ====================================
-export type LoginErrors = {
-  email?: string;
-  password?: string;
-  serverError?: string;
-};
-export type RegisterErrors = LoginErrors & {
-  name?: string;
-  confirmPassword?: string;
-};
 export type ProductDbType = Prisma.ProductGetPayload<{
   include: {
     productImages: true;
@@ -72,14 +63,6 @@ export type CategoriesOffers = Prisma.CategoryGetPayload<{
     };
   };
 }>;
-
-export type OrderErrors = {
-  fullName?: string;
-  address?: string;
-  city?: string;
-  phone?: string;
-  serverError?: string;
-};
 
 export type CategoryDbType = Prisma.CategoryGetPayload<{
   include: {

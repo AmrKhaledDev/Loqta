@@ -8,23 +8,25 @@ import { useRouter } from "next/navigation";
 import AlertMessage from "@/components/AlertMessage/AlertMessage";
 import FormField from "@/components/FormField/FormField";
 import ChangePassword from "./_components/ChangePassword";
+import { useForm } from "react-hook-form";
 // ===================================================================================
 function Settings({ userSession }: { userSession: User }) {
+  const { register, handleSubmit, watch, setValue } = useForm({
+    defaultValues: {
+      name: userSession.name,
+      phone: userSession.phone || "",
+      address: userSession.address || "",
+      city: userSession.city || "",
+    },
+  });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [name, setName] = useState(userSession.name || "");
-  const [phone, setPhone] = useState(userSession.phone || "");
-  const [address, setAddress] = useState(userSession.address || "");
-  const [city, setCity] = useState(userSession.city || "");
   const router = useRouter();
-  const handleEditProfile = async (e: FormEvent) => {
-    e.preventDefault();
+  const city = watch("city");
+  const handleEditProfile = async (data: any) => {
     setLoading(true);
     const result = await EditUserProfileAction({
-      name,
-      address,
-      city,
-      phone,
+      ...data,
       userId: userSession.id,
     });
     setLoading(false);
@@ -33,47 +35,44 @@ function Settings({ userSession }: { userSession: User }) {
   };
   return (
     <form
-      onSubmit={handleEditProfile}
+      onSubmit={handleSubmit(handleEditProfile)}
       className="flex flex-col gap-2 text-white sm:w-125 w-full"
     >
       {error && <AlertMessage type="error" message={error} />}
       <FormField
         type="text"
         placeholder="الاسم"
-        value={name}
-        onChange={setName}
         disabled={loading}
+        register={register}
+        id="name"
       />
-      <FormField
-        type="email"
-        placeholder="البريد الالكتروني"
-        value={userSession.email}
-        onChange={setName}
-        disabled={true}
-      />
+      <h2
+        className={`border select-none sm:text-[15px] text-sm bg-white/5 border-gray-50/10 text-gray-500 py-2 cursor-default px-4 rounded-md w-full`}
+      >
+        {userSession.email}
+      </h2>
       <ChangePassword disabled={loading} />
       <FormField
         type="number"
         placeholder="رقم الهاتف"
-        value={Number(phone)}
-        onChange={setPhone}
         disabled={loading}
+        register={register}
+        id="phone"
       />
       <FormField
         type="text"
         placeholder="العنوان"
-        value={address}
-        onChange={setAddress}
         disabled={loading}
+        register={register}
+        id="address"
       />
-      <SelectCity city={city} setCity={setCity} disabled={loading} />
+      <SelectCity value={city} setValue={setValue} disabled={loading} />
       <button
         disabled={loading}
         className="text-white bg-cyan-600 disabled:bg-gray-200 disabled:text-gray-400 py-2 rounded-md not-disabled:cursor-pointer mt-5 mytransition hover:bg-cyan-700 shadow"
       >
         {loading ? "جاري الحفظ . . . " : " حفظ"}
       </button>
-      
     </form>
   );
 }

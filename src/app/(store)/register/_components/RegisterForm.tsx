@@ -4,43 +4,35 @@ import AuthRedirect from "@/components/Auth/AuthRedirect/AuthRedirect";
 import ButtonSubmit from "@/components/Auth/ButtonSubmit/ButtonSubmit";
 import { UserPlus } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import AlertMessage from "@/components/AlertMessage/AlertMessage";
 import { motion } from "framer-motion";
-import { RegisterErrors } from "@/lib/types";
 import AuthIcon from "@/components/Auth/AuthIcon/AuthIcon";
 import { handleRegister } from "./handleRegister";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { RegisterSchema } from "@/lib/Zod_Schemas/Auth_Schemas/Register.schema";
 // ================================================================
 function RegisterForm() {
+  const {
+    reset,
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(RegisterSchema),
+  });
   const router = useRouter();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [errors, setErrors] = useState<RegisterErrors>({});
+  const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const submit = async (e: FormEvent) =>
-    handleRegister(
-      e,
-      setLoading,
-      setName,
-      setEmail,
-      setPassword,
-      setConfirmPassword,
-      router,
-      setErrors,
-      setSuccess,
-      name,
-      email,
-      password,
-      confirmPassword,
-    );
+  const submit = async (data: any) =>
+    handleRegister(data, setLoading, router, setError, setSuccess, reset)
   return (
     <motion.form
-      onSubmit={submit}
+      onSubmit={handleSubmit(submit)}
       initial={{ opacity: 1, y: 100 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
@@ -50,42 +42,40 @@ function RegisterForm() {
       <AuthIcon Icon={UserPlus} />
       <h1 className="font-semibold text-2xl">انشاء حساب</h1>
       <div className="w-full flex flex-col gap-3">
-        {errors.serverError && (
-          <AlertMessage type="error" message={errors.serverError} />
-        )}
+        {error && <AlertMessage type="error" message={error} />}
         {success && <AlertMessage type="success" message={success} />}
         <div className="w-full flex flex-col gap-3">
           <AuthFormField
             type="text"
             placeholder="الاسم الكامل"
-            value={name}
-            onChange={setName}
-            error={errors.name}
+            error={errors.name?.message}
+            id={"name"}
+            register={register}
           />
           <AuthFormField
             type="email"
             placeholder="البريد الإلكتروني"
-            value={email}
-            onChange={setEmail}
-            error={errors.email}
+            error={errors.email?.message}
+            id="email"
+            register={register}
           />
           <AuthFormField
             type={showPassword ? "text" : "password"}
             placeholder="كلمة السر"
             setShowPassword={setShowPassword}
             showPassword={showPassword}
-            value={password}
-            onChange={setPassword}
-            error={errors.password}
+            error={errors.password?.message}
+            id="password"
+            register={register}
           />
           <AuthFormField
             type={showConfirmPassword ? "text" : "password"}
             placeholder="تأكيد كلمة السر"
             setShowPassword={setShowConfirmPassword}
             showPassword={showConfirmPassword}
-            value={confirmPassword}
-            onChange={setConfirmPassword}
-            error={errors.confirmPassword}
+            error={errors.confirmPassword?.message}
+            id="confirmPassword"
+            register={register}
           />
         </div>
       </div>

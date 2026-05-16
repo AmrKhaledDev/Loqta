@@ -8,18 +8,18 @@ interface AuthFormFieldInterface {
   type: "password" | "email" | "text";
   setShowPassword?: Dispatch<SetStateAction<boolean>>;
   showPassword?: boolean;
-  onChange: Dispatch<SetStateAction<string>>;
-  value: string;
   error?: string;
+  register: any;
+  id: string;
 }
 function AuthFormField({
   placeholder,
   type,
   setShowPassword,
   showPassword,
-  onChange,
-  value,
   error,
+  register,
+  id,
 }: AuthFormFieldInterface) {
   return (
     <div className="flex flex-col gap-2">
@@ -27,8 +27,7 @@ function AuthFormField({
         className={`w-full border-2 relative focus-within:border-gray-50/40 hover:border-gray-50/40 mytransition rounded-md ${error ? "border-red-500/40" : "border-gray-50/15 "}`}
       >
         <input
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
+          {...register(id)}
           className="outline-none w-full py-2 px-4 cursor-pointer sm:text-[15px] text-sm"
           type={type}
           placeholder={placeholder}
@@ -46,12 +45,7 @@ function AuthFormField({
           ""
         )}
       </div>
-      {error && (
-        <AlertMessage
-          type="error"
-          message={error}
-        />
-      )}
+      {error && <AlertMessage type="error" message={error} />}
     </div>
   );
 }

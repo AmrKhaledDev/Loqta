@@ -1,39 +1,31 @@
-import { Dispatch, SetStateAction } from "react";
-import { OrderErrors } from "../types";
+import { FieldErrors } from "react-hook-form";
 // ======================================================
 export const orderInputs = (
-  fullName: string,
-  setFullName: Dispatch<SetStateAction<string>>,
-  errors: OrderErrors,
-  phone: string,
-  setPhone: Dispatch<SetStateAction<string>>,
-  address: string,
-  setAddress: Dispatch<SetStateAction<string>>,
+  errors: FieldErrors<{
+    fullName: string;
+    city: string;
+    address: string;
+    phone: string;
+  }>,
 ) => {
   return [
     {
-      id: "FULL_NAME",
-      value: fullName,
-      onChange: setFullName,
+      id: "fullName",
       placeholder: "الاسم الكامل",
       type: "text",
-      error: errors.fullName,
+      error: errors.fullName?.message,
     },
     {
-      id: "PHONE",
-      value: phone,
-      onChange: setPhone,
+      id: "phone",
       placeholder: "رقم الهاتف",
       type: "number",
-      error: errors.phone,
+      error: errors.phone?.message,
     },
     {
-      id: "ADDRESS",
-      value: address,
-      onChange: setAddress,
+      id: "address",
       placeholder: "العنوان الكامل",
       type: "text",
-      error: errors.address,
+      error: errors.address?.message,
     },
   ];
 };

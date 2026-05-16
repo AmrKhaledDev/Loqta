@@ -24,4 +24,5 @@ export const RegisterSchema = z
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "كلمتا السر غير متطابقتان",
+    path: ["confirmPassword"],
   });
