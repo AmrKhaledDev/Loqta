@@ -4,6 +4,7 @@ import { UserDashDbType } from "@/lib/types";
 import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import TdTable from "./TdTable";
 // =========================================================
 function DropDown({ u }: { u: UserDashDbType }) {
   const selectRole = [
@@ -35,7 +36,7 @@ function DropDown({ u }: { u: UserDashDbType }) {
     return () => document.removeEventListener("click", handle);
   }, []);
   return (
-    <td>
+    <TdTable>
       <div className="w-30 relative">
         {dropDown !== u.id && (
           <button
@@ -64,7 +65,7 @@ function DropDown({ u }: { u: UserDashDbType }) {
           </motion.div>
         )}
       </div>
-    </td>
+    </TdTable>
   );
 }
 

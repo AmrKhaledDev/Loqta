@@ -1,9 +1,10 @@
 import { UserDashDbType } from "@/lib/types";
 import Image from "next/image";
+import TdTable from "./TdTable";
 // ================================================
-function UserImage({u}:{u:UserDashDbType}) {
+function UserImage({ u }: { u: UserDashDbType }) {
   return (
-    <td className="p-3">
+    <TdTable>
       {u.image ? (
         <Image
           src={u.image}
@@ -17,7 +18,7 @@ function UserImage({u}:{u:UserDashDbType}) {
           {u.name.slice(0, 1)}
         </div>
       )}
-    </td>
+    </TdTable>
   );
 }
 
