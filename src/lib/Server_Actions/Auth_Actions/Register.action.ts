@@ -62,7 +62,8 @@ export const RegisterAction = async (
 
       return {
         success: false,
-        message: "فشل إرسال الإيميل، حاول مرة أخرى",
+        message:
+          "لم نتمكن من إرسال رمز التحقق إلى بريدك تأكد من الإنترنت أو أعد المحاولة",
       };
     }
 

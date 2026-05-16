@@ -17,12 +17,12 @@ function SearchBar({
         <Search className="size-6" />
       </button>
       <span className="h-6 w-px block bg-white/10 rounded-full" />
-      <div>
+      <div className="flex-1">
         <input
           value={value}
           onChange={(e) => setValue(e.target.value)}
           type="text"
-          className="h-full flex-1 outline-none text-xl placeholder:text-gray-400 cursor-pointer"
+          className="h-full w-full outline-none text-xl placeholder:text-gray-400 cursor-pointer"
           placeholder="عن ماذا تبحث ؟"
         />
         {error && <DashAlertMessage type="error" message={error} />}

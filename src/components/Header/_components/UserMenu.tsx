@@ -30,7 +30,7 @@ function UserMenu({ userSession }: { userSession: User }) {
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         className={`bg-white/5 ring buttonOpenMenu  ring-gray-50/20 rounded-full sm:p-2 p-1.5 cursor-pointer hover:bg-white/15 mytransition hover:scale-105 hover:shadow-xl ${isMenuOpen && "shadow-xl shadow-gray-50/20 bg-white/15 "}`}
       >
-        <User2 className="sm:size-5 size-4"/>
+        <User2 className="sm:size-5 size-4" />
       </button>
       {isMenuOpen && (
         <motion.div
@@ -45,9 +45,7 @@ function UserMenu({ userSession }: { userSession: User }) {
           <div className="flex items-center gap-2">
             {userSession.image ? (
               <Image
-                src={
-                  "https://i.pinimg.com/1200x/4a/87/fd/4a87fd3deb35395b73cbe656e00af4f3.jpg"
-                }
+                src={userSession.image}
                 alt="image"
                 width={50}
                 height={50}
@@ -59,7 +57,9 @@ function UserMenu({ userSession }: { userSession: User }) {
               </div>
             )}
             <div>
-              <h2 className="sm:text-sm text-xs font-semibold">{userSession.name}</h2>
+              <h2 className="sm:text-sm text-xs font-semibold">
+                {userSession.name}
+              </h2>
               <p className="sm:text-xs text-[11px] font-normal text-gray-200">
                 {userSession.email}
               </p>

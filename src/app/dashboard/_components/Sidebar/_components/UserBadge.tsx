@@ -10,7 +10,7 @@ function UserBadge({userSession}:{userSession:User}) {
           alt="your image"
           width={50}
           height={50}
-          className="rounded-full"
+          className="rounded-full shrink-0 size-10 object-cover"
         />
       ) : (
         <div className="size-10 rounded-full bgg-ip font-extrabold text-xl flex items-center justify-center">

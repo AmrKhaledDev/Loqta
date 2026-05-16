@@ -1,3 +1,5 @@
+import { CategoryDbType, ProductDbType } from "@/lib/types";
+import { Category } from "@prisma/client";
 import { Plus } from "lucide-react";
 import { Dispatch, SetStateAction } from "react";
 // ====================================
@@ -5,9 +7,12 @@ function DashSectionHead({
   setAction,
   title,
   buttonName,
+  setItem,
 }: {
   setAction: Dispatch<SetStateAction<"edit" | "create" | null>>;
-
+  setItem:
+    | Dispatch<SetStateAction<ProductDbType | null>>
+    | Dispatch<SetStateAction<Category | null>>;
   title: string;
   buttonName: string;
 }) {

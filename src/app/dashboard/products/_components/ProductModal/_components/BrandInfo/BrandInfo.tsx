@@ -3,7 +3,7 @@ import { Image as Image2 } from "lucide-react";
 import ProductModalFormField from "../ProductModalFormField";
 import SwitchField from "./_components/SwitchField";
 // =================================================================
-function BrandInfo() {
+function BrandInfo({ register }: { register:any}) {
   return (
     <div className="flex flex-col gap-3 my-2">
       <h2 className="font-bold text-xl mb-3">معلومات عن الشركة المصنعة</h2>
@@ -29,6 +29,7 @@ function BrandInfo() {
         placeholder="أدخل رابط الشركة المصنعة"
         type="text"
         typeField="input"
+        register={register}
       />
     </div>
   );

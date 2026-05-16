@@ -46,32 +46,33 @@ model User {
   userProducts  UserProduct[]
   likes         Like[]
   orders        Order[]
+  createdAt     DateTime      @default(now())
 
   @@map("users")
 }
 
 model Product {
-  id            String         @id @default(cuid())
-  name          String
-  price         Float
-  brandLogo     String?
-  brandWebsite  String?
-  discountPrice Float?
-  isOnSale      Boolean        @default(false)
-  stock         Float
-  min_stock     Float
-  description   String
-  categoryId    String
-  warranty      String?
-  returnPolicy  String?
-  shippingInfo  String?
-  brandLogoIsImage Boolean?    @default(false)
-  isOriginal    Boolean?
-  category      Category       @relation(fields: [categoryId], references: [id], onDelete: Cascade)
-  productImages ProductImage[]
-  createdAt     DateTime       @default(now())
-  opinions      Opinion[]
-  userProducts  UserProduct[]
+  id               String         @id @default(cuid())
+  name             String
+  price            Float
+  brandLogo        String?
+  brandWebsite     String?
+  discountPrice    Float?
+  isOnSale         Boolean        @default(false)
+  stock            Float
+  min_stock        Float
+  description      String
+  categoryId       String
+  warranty         String?
+  returnPolicy     String?
+  shippingInfo     String?
+  brandLogoIsImage Boolean?       @default(false)
+  isOriginal       Boolean?
+  category         Category       @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  productImages    ProductImage[]
+  createdAt        DateTime       @default(now())
+  opinions         Opinion[]
+  userProducts     UserProduct[]
 }
 
 model ProductImage {

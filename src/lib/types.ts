@@ -120,3 +120,11 @@ export type ProductModalErrors = {
   serverError?: string;
   discountPrice?: string;
 };
+
+export type UserDashDbType = Prisma.UserGetPayload<{
+  include: {
+    orders: { select: { totalPrice: true } };
+    userProducts: true;
+    _count: { select: { orders: true } };
+  };
+}>;

@@ -11,6 +11,7 @@ import CheckBox from "./_components/CheckBox";
 import IsOnSale from "./_components/IsOnSale";
 import BrandInfo from "./_components/BrandInfo/BrandInfo";
 import FloatingIconButton from "@/components/FloatingIconButton/FloatingIconButton";
+import { useForm } from "react-hook-form";
 // ================================================================================================
 function ProductModal({
   actionType,
@@ -21,6 +22,10 @@ function ProductModal({
   setActionType: Dispatch<SetStateAction<"edit" | "create" | null>>;
   categories: CategoryDbType[];
 }) {
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data: any) => {
+    console.log(data);
+  };
   useEffect(() => {
     const handle = (e: MouseEvent) => {
       if (e.target instanceof Element) {
@@ -37,7 +42,7 @@ function ProductModal({
       <div className="bg-white/20 boxCreateProduct flex flex-col gap-10 h-170 overflow-y-auto w-250 ring ring-gray-50/40 rounded-2xl p-5">
         <ModalHead actionType={actionType} setActionType={setActionType} />
         <ProductImages />
-        <form className="flex flex-col gap-3">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">
           {inputs.map((field) => (
             <ProductModalFormField
               key={field.id}
@@ -46,12 +51,13 @@ function ProductModal({
               placeholder={field.placeholder}
               type={field.type}
               typeField={field.typeField}
+              register={register}
             />
           ))}
           <SelectCategory categories={categories} />
           <IsOnSale />
           <CheckBox label="المنتج أصلي" />
-          <BrandInfo />
+          <BrandInfo register={register} />
           <FloatingIconButton
             bgColor="bg-cyan-500"
             label={actionType === "edit" ? "تعديل المنتج" : "إنشاء منتج جديد"}

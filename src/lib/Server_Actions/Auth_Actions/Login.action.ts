@@ -1,5 +1,7 @@
 "use server";
 import { signIn } from "@/auth";
+import { sendVerificationToken } from "@/lib/email/sendVerificationToken";
+import { generateVerificationToken } from "@/lib/generateVerificationToken";
 import { prisma } from "@/lib/prisma";
 import { LoginSchema } from "@/lib/Zod_Schemas/Auth_Schemas/Login.schema";
 import bcrypt from "bcryptjs";
@@ -28,6 +30,34 @@ export const LoginAction = async (
     );
     if (!passwordMatch)
       return { success: false, message: "كلمة المرور التي ادخلتها غير صحيحة" };
+    if (!existingUser.emailVerified) {
+      const verificationToken = await generateVerificationToken(
+        existingUser.email,
+      );
+      if (verificationToken.error)
+        return { success: false, message: verificationToken.error };
+      if (!verificationToken.token)
+        return {
+          success: false,
+          message: "لم نتمكن من توليد رمز تحقق حاول مرة أخرى",
+        };
+      try {
+        await sendVerificationToken(
+          existingUser.email,
+          verificationToken.token,
+        );
+        return {
+          success: true,
+          message: "تم إرسال رمز تحقق إلى بريدك الإلكتروني",
+        };
+      } catch (error) {
+        console.log(error)
+        return {
+          success: false,
+          message: "لم نتمكن من إرسال رمز التحقق إلى بريدك الإلكتروني",
+        };
+      }
+    }
     await signIn("credentials", {
       email: validation.data.email,
       password: validation.data.password,
