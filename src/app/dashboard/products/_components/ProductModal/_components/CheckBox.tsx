@@ -1,18 +1,23 @@
 "use client";
-
+import { CreateProductFieldsType } from "@/lib/types/ProductModalTypes/CreateProductFieldsType";
+import { RegisterType } from "@/lib/types/ProductModalTypes/RegisterType";
+import { Path } from "react-hook-form";
+// ======================================================================================
 function CheckBox({
-  
   label,
+  fieldName,
+  register,
 }: {
-  
   label: string;
+  fieldName: Path<CreateProductFieldsType>;
+  register: RegisterType;
 }) {
   return (
     <div className="flex items-center gap-2">
       <input
-       
         type="checkbox"
-        id="isOnSale"
+        {...register(fieldName)}
+        id={fieldName}
         className="size-4 cursor-pointer appearance-none border border-cyan-400 rounded
           checked:bg-cyan-400 relative
              checked:after:content-['✔']
@@ -25,7 +30,7 @@ function CheckBox({
              checked:after:-translate-x-1/2
             "
       />
-      <label htmlFor="isOnSale" className="font-bold">
+      <label htmlFor={fieldName} className="font-bold">
         {label}
       </label>
     </div>

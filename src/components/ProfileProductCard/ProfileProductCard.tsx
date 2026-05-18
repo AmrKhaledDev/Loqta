@@ -1,5 +1,5 @@
 import { formatCurrency } from "@/lib/formatCurrency";
-import { UserProductDbType } from "@/lib/types";
+import { UserProductDbType } from "@/lib/types/types";
 import Image from "next/image";
 // =====================================
 

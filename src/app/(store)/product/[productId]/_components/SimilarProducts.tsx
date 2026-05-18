@@ -1,5 +1,5 @@
 import Products from "@/components/Products/Products";
-import { ProductDbType } from "@/lib/types";
+import { ProductDbType } from "@/lib/types/types";
 import { User } from "@prisma/client";
 // ==========================================================
 function SimilarProducts({

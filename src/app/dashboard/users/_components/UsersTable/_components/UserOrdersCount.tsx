@@ -1,4 +1,4 @@
-import { UserDashDbType } from "@/lib/types";
+import { UserDashDbType } from "@/lib/types/types";
 // ==================================================================
 function UserOrdersCount({u}:{u:UserDashDbType}) {
   return (

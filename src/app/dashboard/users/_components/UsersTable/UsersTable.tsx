@@ -1,6 +1,6 @@
 "use client";
-import { UserDashDbType } from "@/lib/types";
-import Thead from "../Thead";
+import { UserDashDbType } from "@/lib/types/types";
+import Thead from "./_components/Thead";
 import DropDown from "./_components/DropDown";
 import UserImage from "./_components/UserImage";
 import UserName from "./_components/UserName";
@@ -10,10 +10,11 @@ import UserPhone from "./_components/UserPhone";
 import DeleteUserButton from "./_components/DeleteUserButton";
 import UserTotalSpending from "./_components/UserTotalSpending";
 import TableCountCell from "./_components/TableCountCell";
-import TdTable from "./_components/TdTable";
 import AccountState from "./_components/AccountState";
+import { useState } from "react";
 // ========================================
 function UsersTable({ users }: { users: UserDashDbType[] }) {
+  const [dropDown, setDropDown] = useState("");
   return (
     <div className="overflow-x-auto w-full rounded-lg">
       <table className="bg-white/5 ring ring-gray-50/10 min-w-300 w-full">
@@ -27,7 +28,7 @@ function UsersTable({ users }: { users: UserDashDbType[] }) {
               <UserImage u={u} />
               <UserName name={u.name} />
               <UserEmail email={u.email} />
-              <DropDown u={u} />
+              <DropDown u={u} dropDown={dropDown} setDropDown={setDropDown}/>
               <UserDate date={u.createdAt} />
               <DeleteUserButton />
               <UserPhone phone={u.phone} />

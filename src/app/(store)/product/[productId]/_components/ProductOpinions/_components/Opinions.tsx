@@ -1,5 +1,5 @@
 "use client";
-import { OpinionsDbType } from "@/lib/types";
+import { OpinionsDbType } from "@/lib/types/types";
 import { User } from "@prisma/client";
 import OpinionCard from "./OpinionCard/OpinionCard";
 import { useState } from "react";

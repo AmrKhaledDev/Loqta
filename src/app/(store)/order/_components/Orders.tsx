@@ -1,5 +1,5 @@
 import { formatCurrency } from "@/lib/formatCurrency";
-import { UserSessionWithRelations } from "@/lib/types";
+import { UserSessionWithRelations } from "@/lib/types/types";
 import Image from "next/image";
 // ================================================
 function Orders({userSession}:{userSession:UserSessionWithRelations}) {

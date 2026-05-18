@@ -1,4 +1,6 @@
 import DashAlertMessage from "@/app/dashboard/_components/DashAlertMessage/DashAlertMessage";
+import { CreateProductFieldsType } from "@/lib/types/ProductModalTypes/CreateProductFieldsType";
+import { Path } from "react-hook-form";
 // ========================================================================================
 function ProductModalFormField({
   type,
@@ -7,13 +9,15 @@ function ProductModalFormField({
   id,
   typeField,
   register,
+  error,
 }: {
   type: string;
   placeholder: string;
   label: string;
-  id: string;
+  id: Path<CreateProductFieldsType>;
   typeField: string;
   register: any;
+  error?: string;
 }) {
   return (
     <div className="flex flex-col gap-2">
@@ -38,6 +42,7 @@ function ProductModalFormField({
             id={id}
           />
         )}
+        {error && <DashAlertMessage type="error" message={error} />}
       </div>
     </div>
   );

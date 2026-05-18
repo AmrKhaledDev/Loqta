@@ -1,4 +1,4 @@
-import { ProductDbType } from "@/lib/types";
+import { ProductDbType } from "@/lib/types/types";
 // ==================================================
 function LowStockWarning({ product }: { product: ProductDbType }) {
   const formatStockCount = (num: number) => {

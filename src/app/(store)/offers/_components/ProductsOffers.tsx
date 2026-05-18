@@ -2,7 +2,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
-import { ProductDbType } from "@/lib/types";
+import { ProductDbType } from "@/lib/types/types";
 import Link from "next/link";
 import { User } from "@prisma/client";
 import ProductOfferImage from "./ProductOfferImage";

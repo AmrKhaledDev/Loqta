@@ -21,6 +21,7 @@ function FloatingIconButton({
 }) {
   return (
     <button
+    type="submit"
       onClick={handle}
       disabled={loading}
       className={`mt-4 py-3 disabled:bg-gray-300 group disabled:text-gray-500 w-60 pl-8 shadow-2xl relative mx-auto rounded-md ${bgColor} mytransition not-disabled:hover:scale-102 not-disabled:cursor-pointer font-semibold`}

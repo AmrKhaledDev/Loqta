@@ -1,4 +1,4 @@
-import { ProductDbType } from "@/lib/types";
+import { ProductDbType } from "@/lib/types/types";
 import ProductPrice from "./ProductPrice";
 // ============================================
 function ProductFooter({ product }: { product: ProductDbType }) {

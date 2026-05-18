@@ -1,4 +1,4 @@
-import { OrderDbType } from "@/lib/types";
+import { OrderDbType } from "@/lib/types/types";
 import { ClockFading, Truck, CheckCircle, XCircle } from "lucide-react";
 // ==================================================
 function OrderStatus({ order }: { order: OrderDbType }) {

@@ -1,7 +1,7 @@
 "use client";
 
 import { EditOpinionAction } from "@/lib/Server_Actions/Edit/EditOpinion.action";
-import { OpinionsDbType } from "@/lib/types";
+import { OpinionsDbType } from "@/lib/types/types";
 import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction, useState } from "react";
 import { toast } from "react-toastify";

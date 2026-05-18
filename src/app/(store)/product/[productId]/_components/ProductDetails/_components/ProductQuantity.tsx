@@ -1,5 +1,5 @@
 "use client";
-import { ProductDbType } from "@/lib/types";
+import { ProductDbType } from "@/lib/types/types";
 import { Minus, Plus } from "lucide-react";
 import { Dispatch, SetStateAction } from "react";
 import { toast } from "react-toastify";

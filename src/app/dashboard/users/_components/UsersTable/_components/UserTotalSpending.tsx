@@ -1,5 +1,5 @@
 import { formatCurrency } from "@/lib/formatCurrency";
-import { UserDashDbType } from "@/lib/types";
+import { UserDashDbType } from "@/lib/types/types";
 import TdUsersTable from "./TdTable";
 // ====================================================
 function UserTotalSpending({ u }: { u: UserDashDbType }) {

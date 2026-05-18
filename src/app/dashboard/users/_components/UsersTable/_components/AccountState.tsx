@@ -1,4 +1,4 @@
-import { UserDashDbType } from "@/lib/types";
+import { UserDashDbType } from "@/lib/types/types";
 import TdTable from "./TdTable";
 // ===========================================
 function AccountState({u}:{u:UserDashDbType}) {

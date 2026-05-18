@@ -3,7 +3,7 @@
 import { useState } from "react";
 import FilterButtons from "./FilterButtons";
 import Products from "@/components/Products/Products";
-import { ProductDbType } from "@/lib/types";
+import { ProductDbType } from "@/lib/types/types";
 import { Category, User } from "@prisma/client";
 // ==============================================================
 function ProductsWithFilter({

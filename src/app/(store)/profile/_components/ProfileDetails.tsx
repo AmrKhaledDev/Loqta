@@ -2,7 +2,7 @@
 import Tabs from "./Tabs";
 import { useState } from "react";
 import Settings from "./Settings/Settings";
-import { OrderDbType, UserProductDbType } from "@/lib/types";
+import { OrderDbType, UserProductDbType } from "@/lib/types/types";
 import UserProductsInCart from "./UserProductsInCart";
 import OrderProductsList from "./OrderProductsList";
 import { User } from "@prisma/client";

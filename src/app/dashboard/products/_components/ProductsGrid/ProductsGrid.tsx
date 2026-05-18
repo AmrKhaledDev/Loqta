@@ -3,14 +3,16 @@ import ProductStats from "./_components/ProductStats";
 import ProductFooter from "./_components/ProductFooter";
 import ProductEdit from "./_components/ProductEdit";
 import { Dispatch, SetStateAction } from "react";
-import { ProductDbType } from "@/lib/types";
+import { ProductDbType } from "@/lib/types/types";
 // =========================================
 function ProductsGrid({
   products,
   setActionType,
+  setEditProduct,
 }: {
   products: ProductDbType[];
   setActionType: Dispatch<SetStateAction<"create" | "edit" | null>>;
+  setEditProduct: Dispatch<SetStateAction<ProductDbType | null>>;
 }) {
   return (
     <ul className="grid grid-cols-4 gap-3">
@@ -54,7 +56,9 @@ function ProductsGrid({
               </span>
             )}
             <ProductEdit
+              setEditProduct={setEditProduct}
               setActionType={setActionType}
+              product={product}
             />
           </li>
         );

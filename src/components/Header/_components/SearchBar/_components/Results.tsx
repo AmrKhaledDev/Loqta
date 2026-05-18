@@ -1,7 +1,7 @@
 import TopResult from "./TopResult";
 import ProductsSuggestions from "./ProductsSuggestions";
 import CategoriesSuggestions from "./CategoriesSuggestions";
-import { ProductDbType } from "@/lib/types";
+import { ProductDbType } from "@/lib/types/types";
 import { Category } from "@prisma/client";
 // ======================================================
 function Results({

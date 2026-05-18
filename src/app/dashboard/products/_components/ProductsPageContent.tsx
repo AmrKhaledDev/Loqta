@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import DashSectionHead from "../../_components/DashSectionHead/DashSectionHead";
-import { CategoryDbType, ProductDbType } from "@/lib/types";
+import { CategoryDbType, ProductDbType } from "@/lib/types/types";
 import SearchBar from "../../_components/SearchBar/SearchBar";
 import ProductsGrid from "./ProductsGrid/ProductsGrid";
 import ProductModal from "./ProductModal/ProductModal";
@@ -15,6 +15,7 @@ function ProductsPageContent({
   products: ProductDbType[];
   categories: CategoryDbType[];
 }) {
+  const [editProduct, setEditProduct] = useState<ProductDbType | null>(null);
   const [search, setSearch] = useState("");
   const [error, setError] = useState("");
   const [dataSearch, setDataSearch] = useState<ProductDbType[] | null>(null);
@@ -34,18 +35,30 @@ function ProductsPageContent({
     FETCH_DATA();
   }, [search]);
   const productsList = search && dataSearch ? dataSearch : products;
+  useEffect(() => {
+    const handle = (e: MouseEvent) => {
+      if (e.target instanceof Element) {
+        if (!e.target.closest(".button, .boxCreateProduct"))
+          setActionType(null);
+      }
+    };
+    document.addEventListener("click", handle);
+    return () => document.removeEventListener("click", handle);
+  }, []);
   return (
     <>
       <DashSectionHead
         title="إدارة المنتجات"
         buttonName="إضافة منتج جديد"
         setAction={setActionType}
+        setItem={setEditProduct}
       />
       <SearchBar value={search} setValue={setSearch} error={error} />
       {loading ? (
         <ProductLoading />
       ) : (
         <ProductsGrid
+          setEditProduct={setEditProduct}
           setActionType={setActionType}
           products={productsList}
         />
@@ -55,6 +68,7 @@ function ProductsPageContent({
           actionType={actionType}
           setActionType={setActionType}
           categories={categories}
+          editProduct={editProduct}
         />
       )}
     </>

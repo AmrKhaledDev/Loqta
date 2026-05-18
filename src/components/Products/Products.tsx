@@ -1,5 +1,5 @@
 "use client";
-import { ProductDbType } from "@/lib/types";
+import { ProductDbType } from "@/lib/types/types";
 import ProductCard from "./_components/ProductCard/ProductCard";
 import { User } from "@prisma/client";
 import { motion } from "framer-motion";

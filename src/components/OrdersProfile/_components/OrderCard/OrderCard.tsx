@@ -1,4 +1,4 @@
-import { OrderDbType } from "@/lib/types";
+import { OrderDbType } from "@/lib/types/types";
 import dayjs from "dayjs";
 import OrderTotal from "./_components/OrderTotal";
 import Items from "./_components/Items";

@@ -5,7 +5,7 @@ import OpinionInput from "./_components/OpinionInput";
 import Rating from "./_components/Rating";
 import Opinions from "./_components/Opinions";
 import { User } from "@prisma/client";
-import { OpinionsDbType } from "@/lib/types";
+import { OpinionsDbType } from "@/lib/types/types";
 import { CreateOpinionAction } from "@/lib/Server_Actions/Create_Actions/CreateOpinion.action";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";

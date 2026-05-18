@@ -3,7 +3,7 @@
 import { Edit, Trash } from "lucide-react";
 import ButtonLike from "./ButtonLike";
 import { User } from "@prisma/client";
-import { OpinionsDbType } from "@/lib/types";
+import { OpinionsDbType } from "@/lib/types/types";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { DeleteOpinionAction } from "@/lib/Server_Actions/Delete/DeleteOpinion.action";
 import { toast } from "react-toastify";

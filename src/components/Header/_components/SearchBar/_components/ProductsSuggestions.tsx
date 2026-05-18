@@ -1,4 +1,4 @@
-import { ProductDbType } from "@/lib/types";
+import { ProductDbType } from "@/lib/types/types";
 import { Search } from "lucide-react";
 import Link from "next/link";
 // ==============================================

@@ -1,7 +1,7 @@
 "use client";
 import {useState } from "react";
 import SearchBar from "../../_components/SearchBar/SearchBar";
-import { UserDashDbType } from "@/lib/types";
+import { UserDashDbType } from "@/lib/types/types";
 import UsersTable from "./UsersTable/UsersTable";
 // ================================================================
 function UsersPageContent({ users }: { users: UserDashDbType[] }) {

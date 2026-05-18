@@ -1,4 +1,4 @@
-import { UserDashDbType } from "@/lib/types";
+import { UserDashDbType } from "@/lib/types/types";
 import Image from "next/image";
 import TdTable from "./TdTable";
 // ================================================

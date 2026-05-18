@@ -1,5 +1,5 @@
 import OrdersProfile from "@/components/OrdersProfile/OrdersProfile";
-import { OrderDbType } from "@/lib/types";
+import { OrderDbType } from "@/lib/types/types";
 
 // =================================================
 function OrderProductsList({ orders }: { orders: OrderDbType[] }) {

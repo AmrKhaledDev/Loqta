@@ -1,4 +1,4 @@
-import { ProductDbType } from "@/lib/types";
+import { ProductDbType } from "@/lib/types/types";
 import { Link2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";

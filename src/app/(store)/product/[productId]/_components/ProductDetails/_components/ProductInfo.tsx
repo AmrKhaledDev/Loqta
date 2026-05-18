@@ -1,5 +1,5 @@
 import { formatCurrency } from "@/lib/formatCurrency";
-import { ProductDbType } from "@/lib/types";
+import { ProductDbType } from "@/lib/types/types";
 import { CheckCircle2, CircleX } from "lucide-react";
 import ProductCategory from "./ProductCategory";
 // =============================================================

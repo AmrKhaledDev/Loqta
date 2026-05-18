@@ -10,7 +10,7 @@ import Loader from "@/components/Loader/Loader";
 import ProductInfo from "./_components/ProductInfo";
 import ProductImages from "./_components/ProductImages";
 import ProductBrand from "./_components/ProductBrand";
-import { ProductDbType, UserSessionWithRelations } from "@/lib/types";
+import { ProductDbType, UserSessionWithRelations } from "@/lib/types/types";
 // ===============================================================
 function ProductDetails({
   product,

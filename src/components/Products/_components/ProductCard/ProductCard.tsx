@@ -1,4 +1,4 @@
-import { ProductDbType } from "@/lib/types";
+import { ProductDbType } from "@/lib/types/types";
 import Image from "next/image";
 import { User } from "@prisma/client";
 import Link from "next/link";

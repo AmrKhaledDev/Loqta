@@ -1,4 +1,4 @@
-import { OrderDbType } from "@/lib/types";
+import { OrderDbType } from "@/lib/types/types";
 import OrderCard from "./_components/OrderCard/OrderCard";
 // =============================================
 function OrdersProfile({orders}:{orders:OrderDbType[]}) {

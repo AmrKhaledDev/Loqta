@@ -1,6 +1,6 @@
 import SectionHead from "@/components/SectionHead/SectionHead";
 import { prisma } from "@/lib/prisma";
-import { ProductDbType } from "@/lib/types";
+import { ProductDbType } from "@/lib/types/types";
 import { GetUserSession } from "@/lib/Sessions/GetUserSession";
 import Products from "@/components/Products/Products";
 import Link from "next/link";

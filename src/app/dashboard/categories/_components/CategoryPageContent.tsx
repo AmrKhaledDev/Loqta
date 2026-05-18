@@ -1,5 +1,5 @@
 "use client";
-import { CategoryDbType } from "@/lib/types";
+import { CategoryDbType } from "@/lib/types/types";
 import DashSectionHead from "../../_components/DashSectionHead/DashSectionHead";
 import SearchBar from "../../_components/SearchBar/SearchBar";
 import CategeoryCard from "./CategeoryCard";

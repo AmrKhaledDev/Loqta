@@ -1,4 +1,4 @@
-import { OrderDbType } from "@/lib/types";
+import { OrderDbType } from "@/lib/types/types";
 // =========================================================
 function OrderCustomerInfo({order}:{order:OrderDbType}) {
   const customerInfo = [

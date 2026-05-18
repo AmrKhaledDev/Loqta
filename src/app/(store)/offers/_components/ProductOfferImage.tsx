@@ -1,4 +1,4 @@
-import { ProductDbType } from "@/lib/types";
+import { ProductDbType } from "@/lib/types/types";
 import Image from "next/image";
 // ====================================
 function ProductOfferImage({product}:{product:ProductDbType}) {

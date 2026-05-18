@@ -2,7 +2,7 @@
 
 import ButtonAddToCart from "@/components/ButtonAddToCart/ButtonAddToCart";
 import { formatCurrency } from "@/lib/formatCurrency";
-import { ProductDbType } from "@/lib/types";
+import { ProductDbType } from "@/lib/types/types";
 import { User } from "@prisma/client";
 // ============================================
 function ProductCardFooter({

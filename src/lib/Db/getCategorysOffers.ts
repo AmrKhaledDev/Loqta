@@ -1,5 +1,5 @@
 import { Cache } from "../Cache/Cache";
-import { CategoriesOffers } from "../types";
+import { CategoriesOffers } from "../types/types";
 import { prisma } from "@/lib/prisma";
 // ===============================================
 

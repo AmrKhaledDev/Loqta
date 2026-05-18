@@ -1,4 +1,4 @@
-import { UserProductDbType } from "@/lib/types";
+import { UserProductDbType } from "@/lib/types/types";
 import ItemCard from "./ItemCard";
 // ===========================================
 function Items({items}:{items:UserProductDbType[]}) {

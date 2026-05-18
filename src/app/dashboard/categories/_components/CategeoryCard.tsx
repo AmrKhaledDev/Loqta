@@ -1,5 +1,5 @@
 "use client";
-import { CategoryDbType } from "@/lib/types";
+import { CategoryDbType } from "@/lib/types/types";
 import { Category } from "@prisma/client";
 import dayjs from "dayjs";
 import { Dispatch, SetStateAction } from "react";

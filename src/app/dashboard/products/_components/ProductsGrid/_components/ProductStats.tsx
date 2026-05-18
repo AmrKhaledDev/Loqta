@@ -1,4 +1,4 @@
-import { ProductDbType } from "@/lib/types";
+import { ProductDbType } from "@/lib/types/types";
 // ==============================================
 function ProductStats({ product }: { product: ProductDbType }) {
   const rating = product.opinions.reduce((acc, r) => acc + r.rating, 0);

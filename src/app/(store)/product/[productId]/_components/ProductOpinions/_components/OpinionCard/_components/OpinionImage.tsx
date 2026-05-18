@@ -1,4 +1,4 @@
-import { OpinionsDbType } from "@/lib/types";
+import { OpinionsDbType } from "@/lib/types/types";
 import Image from "next/image";
 // ===================================================
 function OpinionImage({opinion}:{opinion:OpinionsDbType}) {

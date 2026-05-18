@@ -55,7 +55,6 @@ model Product {
   id               String         @id @default(cuid())
   name             String
   price            Float
-  brandLogo        String?
   brandWebsite     String?
   discountPrice    Float?
   isOnSale         Boolean        @default(false)
@@ -66,8 +65,9 @@ model Product {
   warranty         String?
   returnPolicy     String?
   shippingInfo     String?
-  brandLogoIsImage Boolean?       @default(false)
-  isOriginal       Boolean?
+  brandLogoIsImage Boolean        @default(false)
+  brandLogoImage   String?
+  brandLogoLink    String?
   category         Category       @relation(fields: [categoryId], references: [id], onDelete: Cascade)
   productImages    ProductImage[]
   createdAt        DateTime       @default(now())

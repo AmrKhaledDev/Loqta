@@ -1,12 +1,20 @@
 "use client";
 
-import { UserDashDbType } from "@/lib/types";
+import { UserDashDbType } from "@/lib/types/types";
 import { ChevronDown } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import TdTable from "./TdTable";
 // =========================================================
-function DropDown({ u }: { u: UserDashDbType }) {
+function DropDown({
+  u,
+  dropDown,
+  setDropDown,
+}: {
+  dropDown: string;
+  u: UserDashDbType;
+  setDropDown: Dispatch<SetStateAction<string>>;
+}) {
   const selectRole = [
     { role: "USER", label: "مستخدم" },
     { role: "ADMIN", label: "مسؤول" },
@@ -24,7 +32,6 @@ function DropDown({ u }: { u: UserDashDbType }) {
       label: "بائع",
     },
   };
-  const [dropDown, setDropDown] = useState("");
   const userRole = roles[u.role];
   useEffect(() => {
     const handle = (e: MouseEvent) => {

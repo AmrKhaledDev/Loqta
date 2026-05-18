@@ -1,17 +1,27 @@
-"use client"
+"use client";
 
+import { ProductDbType } from "@/lib/types/types";
 import { Dispatch, SetStateAction } from "react";
 // ======================================================
 function ProductEdit({
   setActionType,
+  setEditProduct,
+  product,
 }: {
   setActionType: Dispatch<SetStateAction<"create" | "edit" | null>>;
+  setEditProduct: Dispatch<SetStateAction<ProductDbType | null>>;
+  product: ProductDbType;
 }) {
   return (
     <div className="absolute opacity-0 rounded-2xl mytransition border border-cyan-300/40 inset-0 bg-cyan-300/10 backdrop-blur-[2px] group-hover:opacity-100 flex items-center justify-center">
-      <button onClick={()=>{
-        setActionType("edit")
-      }} className="bg-white py-2 px-6 rounded-md shadow hover:scale-105 mytransition active:scale-95 cursor-pointer font-bold text-cyan-500">
+      <button
+        type="button"
+        onClick={() => {
+          setActionType("edit");
+          setEditProduct(product);
+        }}
+        className="bg-white button py-2 px-6 rounded-md shadow hover:scale-105 mytransition active:scale-95 cursor-pointer font-bold text-cyan-500"
+      >
         تعديل المنتج
       </button>
     </div>

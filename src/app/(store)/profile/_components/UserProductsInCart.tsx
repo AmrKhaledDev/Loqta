@@ -1,5 +1,5 @@
 import ProfileProductCard from "@/components/ProfileProductCard/ProfileProductCard";
-import { UserProductDbType } from "@/lib/types";
+import { UserProductDbType } from "@/lib/types/types";
 import Link from "next/link";
 import { CreditCard } from "lucide-react";
 // ================================================

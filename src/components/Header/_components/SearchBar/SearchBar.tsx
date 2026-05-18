@@ -7,7 +7,7 @@ import OpenSearchBar from "./_components/OpenSearchBar";
 import Results from "./_components/Results";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { ProductDbType } from "@/lib/types";
+import { ProductDbType } from "@/lib/types/types";
 import { Category } from "@prisma/client";
 import { usePathname } from "next/navigation";
 // ==============================

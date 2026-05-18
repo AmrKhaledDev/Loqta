@@ -1,4 +1,32 @@
-export const CreateProductInputs = () => {
+import { FieldErrors } from "react-hook-form";
+
+// ========================================================================================
+type FieldInputsErrors = FieldErrors<{
+    name: string;
+    price: string;
+    stock: string;
+    minStock: string;
+    description: string;
+    categoryId: string;
+    isOnSale: boolean;
+    primaryImage: string;
+    brandLogoIsImage: boolean;
+    returnPolicy?: string | null | undefined;
+    warranty?: string | null | undefined;
+    shippingInfo?: string | null | undefined;
+    discountPrice?: string | null | undefined;
+    brandLogo?: string | null | undefined;
+    brandWebsite?: string | null | undefined;
+    image1?: string | null | undefined;
+    image2?: string | null | undefined;
+    image3?: string | null | undefined;
+    primaryImageFile?: any;
+    image1File?: any;
+    image2File?: any;
+    image3File?: any;
+    brandLogoFile?: any;
+}>
+export const CreateProductInputs = (errors: FieldInputsErrors) => {
   return [
     {
       id: "name",
@@ -6,6 +34,7 @@ export const CreateProductInputs = () => {
       placeholder: "أكتب إسم المنتج",
       type: "text",
       typeField: "input",
+      error: errors.name?.message,
     },
     {
       id: "price",
@@ -13,23 +42,26 @@ export const CreateProductInputs = () => {
       placeholder: "أكتب سعر للمنتج",
       type: "number",
       typeField: "input",
+      error: errors.price?.message,
     },
     {
-      id: "stock", 
+      id: "stock",
       label: "كمية المنتج",
       placeholder: "أكتب كمية المنتج المخزنه",
       type: "number",
       typeField: "input",
+      error: errors.stock?.message,
     },
     {
-      id: "minStock", 
+      id: "minStock",
       label: "أقل كمية",
       placeholder: "أكتب أقل كمية لهذا المنتج للتنبيه",
       type: "number",
       typeField: "input",
+      error: errors.minStock?.message,
     },
     {
-      id: "returnPolicy", 
+      id: "returnPolicy",
       label: "سياسة الإرجاع ( اختياري )",
       placeholder: "أكتب أقصى مدة لإرجاع المنتج",
       type: "text",
@@ -55,6 +87,7 @@ export const CreateProductInputs = () => {
       placeholder: "أكتب وصف عن هذا المنتج",
       type: "text",
       typeField: "textarea",
+      error: errors.description?.message,
     },
   ];
 };

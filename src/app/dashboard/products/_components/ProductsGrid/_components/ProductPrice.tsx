@@ -1,5 +1,5 @@
 import { formatCurrency } from "@/lib/formatCurrency";
-import { ProductDbType } from "@/lib/types";
+import { ProductDbType } from "@/lib/types/types";
 // =====================================
 function ProductPrice({product}:{product:ProductDbType}) {
   return (

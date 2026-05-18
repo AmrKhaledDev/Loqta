@@ -1,5 +1,5 @@
 "use client"
-import { ProductDbType } from "@/lib/types";
+import { ProductDbType } from "@/lib/types/types";
 import Image from "next/image";
 import { Dispatch, SetStateAction } from "react";
 // ========================================
