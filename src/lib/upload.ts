@@ -12,6 +12,6 @@ export const upload = async (
     const res = await axios.post("/api/uploader", formData);
     return res.data;
   } catch (error) {
-    return { error: "حدث خطأ أثناء رفع الصور" };
+    return { error: "حدث خطأ أثناء رفع الصورة" };
   }
 };

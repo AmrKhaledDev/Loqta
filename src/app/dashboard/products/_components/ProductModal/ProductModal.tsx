@@ -12,7 +12,7 @@ import BrandInfo from "./_components/BrandInfo/BrandInfo";
 import FloatingIconButton from "@/components/FloatingIconButton/FloatingIconButton";
 import { Path, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CreateProductSchema } from "@/lib/Zod_Schemas/CreateProduct.schema";
+import { CreateProductSchema } from "@/lib/Zod_Schemas/Create_Schemas/CreateProduct.schema";
 import { CreateProductFieldsType } from "@/lib/types/ProductModalTypes/CreateProductFieldsType";
 import { CreateProductAction } from "@/lib/Server_Actions/Create_Actions/CreateProduct.action";
 import z from "zod";

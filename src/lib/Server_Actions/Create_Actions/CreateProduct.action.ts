@@ -1,7 +1,7 @@
 "use server";
 import { prisma } from "@/lib/prisma";
 import { GetUserSession } from "@/lib/Sessions/GetUserSession";
-import { CreateProductSchema } from "@/lib/Zod_Schemas/CreateProduct.schema";
+import { CreateProductSchema } from "@/lib/Zod_Schemas/Create_Schemas/CreateProduct.schema";
 import { revalidateTag } from "next/cache";
 import z from "zod";
 // =========================================

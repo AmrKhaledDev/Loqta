@@ -60,4 +60,13 @@ export const CreateProductSchema = z
         path: ["brandLogoLink"],
       });
     }
+  })
+  .superRefine((data, ctx) => {
+    if (Number(data.discountPrice) >= Number(data.price)) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "لا يمكن أن يكون السعر بعد الخصم أكبر أو يساوي السعر الأصلي ",
+        path: ["discountPrice"],
+      });
+    }
   });
