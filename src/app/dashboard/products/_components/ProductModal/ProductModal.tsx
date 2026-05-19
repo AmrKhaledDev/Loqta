@@ -14,11 +14,11 @@ import { Path, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CreateProductSchema } from "@/lib/Zod_Schemas/Create_Schemas/CreateProduct.schema";
 import { CreateProductFieldsType } from "@/lib/types/ProductModalTypes/CreateProductFieldsType";
-import { CreateProductAction } from "@/lib/Server_Actions/Create_Actions/CreateProduct.action";
 import z from "zod";
 import { upload } from "@/lib/upload";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import { ProductAction } from "@/lib/Server_Actions/Mutations/Product.action";
 // ================================================================================================
 function ProductModal({
   actionType,
@@ -59,7 +59,7 @@ function ProductModal({
       minStock: editProduct?.min_stock ? String(editProduct.min_stock) : "",
       shippingInfo: editProduct?.shippingInfo || "",
       categoryId: editProduct?.categoryId || categories[0].id,
-      brandLogoIsImage: editProduct?.brandLogoIsImage || true,
+      brandLogoIsImage: editProduct?.brandLogoIsImage ?? true,
       //  Prev
       primaryImage: editProduct?.productImages?.[0]?.image || "",
       image1: editProduct?.productImages?.[1]?.image || "",
@@ -78,7 +78,11 @@ function ProductModal({
   const categoryId = watch("categoryId");
   const isOnSale = watch("isOnSale");
   const brandLogoIsImage = watch("brandLogoIsImage");
-
+  const primaryImage = watch("primaryImage");
+  const image1 = watch("image1");
+  const image2 = watch("image2");
+  const image3 = watch("image3");
+  const brandLogoImage = watch("brandLogoImage");
   const handleCreateProduct = async (
     data: z.infer<typeof CreateProductSchema>,
   ) => {
@@ -92,9 +96,16 @@ function ProductModal({
         brandLogoFile,
         ...databaseData
       } = data;
-      const urlPrimaryImage: { error: string } | { url: string } =
-        await upload(primaryImageFile);
-      if ("error" in urlPrimaryImage)
+      if (!editProduct && !primaryImageFile)
+        return setError("primaryImage", {
+          type: "manual",
+          message: "برجاء رفع صورة للمنتج",
+        });
+      let urlPrimaryImage: { error: string } | { url: string } | null = null;
+      if (primaryImageFile) {
+        urlPrimaryImage = await upload(primaryImageFile);
+      }
+      if (urlPrimaryImage && "error" in urlPrimaryImage)
         return setError("primaryImage", {
           message: urlPrimaryImage.error,
         });
@@ -126,14 +137,18 @@ function ProductModal({
         }
         results[item.key] = res;
       }
-      const resultServer = await CreateProductAction({
-        ...databaseData,
-        primaryImage: urlPrimaryImage.url,
-        image1: results.image1?.url || "",
-        image2: results.image2?.url || "",
-        image3: results.imag3?.url || "",
-        brandLogoImage: results.brandLogo?.url,
-      });
+      const resultServer = await ProductAction(
+        {
+          ...databaseData,
+          primaryImage: urlPrimaryImage?.url ?? primaryImage,
+          image1: results.image1?.url ?? image1,
+          image2: results.image2?.url ?? image2,
+          image3: results.image3?.url ?? image3,
+          brandLogoImage: results.brandLogo?.url ?? brandLogoImage,
+        },
+        editProduct ? "EDIT" : "CREATE",
+        editProduct?.id || "",
+      );
       if (!resultServer.success)
         return toast.error(resultServer.message, { className: "toast-font" });
       if (!editProduct) reset();

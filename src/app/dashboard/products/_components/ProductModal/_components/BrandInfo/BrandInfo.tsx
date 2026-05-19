@@ -65,6 +65,7 @@ function BrandInfo({
                     type="button"
                     onClick={() => {
                       setPreview("");
+                      setValue("brandLogoImage","")
                       setValue("brandLogoFile", null);
                     }}
                     className="cursor-pointer button p-1 rounded-full bg-red-500 shadow hover:scale-105 active:scale-95 mytransition"

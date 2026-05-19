@@ -5,8 +5,10 @@ import { CreateProductSchema } from "@/lib/Zod_Schemas/Create_Schemas/CreateProd
 import { revalidateTag } from "next/cache";
 import z from "zod";
 // =========================================
-export const CreateProductAction = async (
+export const ProductAction = async (
   data: z.infer<typeof CreateProductSchema>,
+  type: "EDIT" | "CREATE",
+  productId?: string,
 ): Promise<{ success: boolean; message: string }> => {
   try {
     const userSession = await GetUserSession();
@@ -48,40 +50,74 @@ export const CreateProductAction = async (
     const filteredImages = images.filter((image): image is string =>
       Boolean(image),
     );
-    await prisma.$transaction(async (tx) => {
-      await tx.product.create({
-        data: {
-          name,
-          description,
-          categoryId,
-          warranty,
-          returnPolicy,
-          stock: parseFloat(stock),
-          min_stock: parseFloat(minStock),
-          isOnSale: isOnSale,
-          price: parseFloat(price),
-          brandLogoImage,
-          brandLogoLink,
-          brandWebsite,
-          shippingInfo,
-          discountPrice: discountPrice ? parseFloat(discountPrice) : null,
-          brandLogoIsImage: brandLogoIsImage,
-          productImages: {
-            createMany: {
-              data: filteredImages.map((image) => ({
-                image,
-              })),
+    const productData = {
+      name,
+      description,
+      categoryId,
+      warranty,
+      returnPolicy,
+      stock: parseFloat(stock),
+      min_stock: parseFloat(minStock),
+      isOnSale: isOnSale,
+      price: parseFloat(price),
+      brandLogoImage,
+      brandLogoLink,
+      brandWebsite,
+      shippingInfo,
+      discountPrice: discountPrice ? parseFloat(discountPrice) : null,
+      brandLogoIsImage: brandLogoIsImage,
+    };
+    if (type === "CREATE" && !productId) {
+      await prisma.$transaction(async (tx) => {
+        await tx.product.create({
+          data: {
+            ...productData,
+            productImages: {
+              createMany: {
+                data: filteredImages.map((image) => ({
+                  image,
+                })),
+              },
             },
           },
-        },
+        });
       });
-    });
+    }
+    if (type === "EDIT" && productId) {
+      await prisma.$transaction(async (tx) => {
+        await tx.product.update({
+          where: {
+            id: productId,
+          },
+          data: {
+            ...productData,
+            productImages: {
+              deleteMany: {},
+              createMany: {
+                data: filteredImages.map((image) => ({
+                  image,
+                })),
+              },
+            },
+          },
+        });
+      });
+    }
+    revalidateTag("getCategorysOffers", "");
     revalidateTag("categoriesDash", "");
     revalidateTag("categories", "");
     revalidateTag("products", "");
-    return { success: true, message: "تم إنشاء منتج جديد بنجاح" };
+    return {
+      success: true,
+      message: productId ? "تم تعديل المنتج" : "تم إنشاء منتج جديد بنجاح",
+    };
   } catch (error) {
     console.log(error);
-    return { success: false, message: "حدث خطأ أثناء إنشاء منتج جديد" };
+    return {
+      success: false,
+      message: productId
+        ? "حدث خطأ أثناء تعديل المنتج"
+        : "حدث خطأ أثناء إنشاء منتج جديد",
+    };
   }
 };
