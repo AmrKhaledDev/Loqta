@@ -1,5 +1,5 @@
 "use client";
-import {  useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Loader from "@/components/Loader/Loader";
 import { User } from "@prisma/client";
@@ -8,7 +8,7 @@ import SelectCity from "../../../../components/SelectCity/SelectCity";
 import { orderInputs } from "@/lib/data/OrderInputs";
 import { handleCreateOrder } from "./handleCreateOrder";
 import FormField from "@/components/FormField/FormField";
-import { useForm } from "react-hook-form";
+import { Path, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { OrderFormSchema } from "@/lib/Zod_Schemas/OrderForm.schema";
 // =========================================================================================
@@ -54,7 +54,14 @@ function OrderForm({ userSession }: { userSession: User }) {
           error={input.error}
           disabled={loading}
           register={register}
-          id={input.id}
+          id={
+            input.id as Path<{
+              fullName: string;
+              city: string;
+              address: string;
+              phone: string;
+            }>
+          }
         />
       ))}
       <SelectCity

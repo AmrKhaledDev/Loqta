@@ -13,6 +13,7 @@ import handleLogin from "./handleLogin";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginSchema } from "@/lib/Zod_Schemas/Auth_Schemas/Login.schema";
+import z from "zod";
 // ===================================================================
 function LoginForm() {
   const {
@@ -27,7 +28,7 @@ function LoginForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const submit = (data: any) => {
+  const submit = (data: z.infer<typeof LoginSchema>) => {
     handleLogin(data, setLoading, setError, setSuccess, router);
   };
   return (

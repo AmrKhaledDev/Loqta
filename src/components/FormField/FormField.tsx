@@ -1,8 +1,9 @@
 "use client";
 
 import AlertMessage from "@/components/AlertMessage/AlertMessage";
+import { FieldValues, Path, UseFormRegister } from "react-hook-form";
 // ========================================================
-function FormField({
+function FormField<T extends FieldValues>({
   type,
   placeholder,
   disabled,
@@ -14,8 +15,8 @@ function FormField({
   placeholder: string;
   disabled: boolean;
   error?: string;
-  register: any;
-  id:string
+  register: UseFormRegister<T>;
+  id: Path<T>;
 }) {
   return (
     <div className="flex flex-col gap-1">

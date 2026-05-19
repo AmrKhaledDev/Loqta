@@ -2,17 +2,18 @@
 import { Eye, EyeClosed } from "lucide-react";
 import { Dispatch, SetStateAction } from "react";
 import AlertMessage from "../../AlertMessage/AlertMessage";
+import { FieldValues, Path, UseFormRegister } from "react-hook-form";
 // ==========================================
-interface AuthFormFieldInterface {
+type AuthFormFieldInterface<T extends FieldValues> = {
   placeholder: string;
   type: "password" | "email" | "text";
   setShowPassword?: Dispatch<SetStateAction<boolean>>;
   showPassword?: boolean;
   error?: string;
-  register: any;
-  id: string;
-}
-function AuthFormField({
+  register: UseFormRegister<T>;
+  id: Path<T>;
+};
+function AuthFormField<T extends FieldValues>({
   placeholder,
   type,
   setShowPassword,
@@ -20,7 +21,7 @@ function AuthFormField({
   error,
   register,
   id,
-}: AuthFormFieldInterface) {
+}: AuthFormFieldInterface<T>) {
   return (
     <div className="flex flex-col gap-2">
       <div

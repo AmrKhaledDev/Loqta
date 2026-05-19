@@ -1,6 +1,4 @@
 import { LucideIcon } from "lucide-react";
-import { FormEvent } from "react";
-import { Id } from "react-toastify";
 // =========================================================
 function FloatingIconButton({
   label,
@@ -9,7 +7,6 @@ function FloatingIconButton({
   Icon,
   loading,
   loadingText,
-  handle,
 }: {
   label: string;
   bgColor: string;
@@ -17,12 +14,10 @@ function FloatingIconButton({
   Icon: LucideIcon;
   loading?: boolean;
   loadingText: string;
-  handle?: (e: FormEvent<Element>) => Promise<Id | undefined>;
 }) {
   return (
     <button
-    type="submit"
-      onClick={handle}
+      type="submit"
       disabled={loading}
       className={`mt-4 py-3 disabled:bg-gray-300 group disabled:text-gray-500 w-60 pl-8 shadow-2xl relative mx-auto rounded-md ${bgColor} mytransition not-disabled:hover:scale-102 not-disabled:cursor-pointer font-semibold`}
     >
