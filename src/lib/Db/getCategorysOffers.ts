@@ -21,6 +21,7 @@ export const getCategorysOffers = Cache(
           include: {
             productImages: true,
             category: true,
+            opinions: true,
           },
         },
       },

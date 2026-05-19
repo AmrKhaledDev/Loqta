@@ -59,6 +59,7 @@ export type CategoriesOffers = Prisma.CategoryGetPayload<{
       include: {
         productImages: true;
         category: true;
+        opinions: true;
       };
     };
   };

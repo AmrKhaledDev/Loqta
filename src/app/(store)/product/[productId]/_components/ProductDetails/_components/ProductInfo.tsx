@@ -1,6 +1,5 @@
 import { formatCurrency } from "@/lib/formatCurrency";
 import { ProductDbType } from "@/lib/types/types";
-import { CheckCircle2, CircleX } from "lucide-react";
 import ProductCategory from "./ProductCategory";
 // =============================================================
 function ProductInfo({ product }: { product: ProductDbType }) {
@@ -29,22 +28,6 @@ function ProductInfo({ product }: { product: ProductDbType }) {
               </span>
             </p>
           ),
-      )}
-      {(product.isOriginal == true || product.isOriginal == false) && (
-        <p
-          className={`flex items-center font-extrabold text-sm gap-1 ${product.isOriginal ? "text-green-500" : " text-red-500"}`}
-        >
-          {product.isOriginal == true && (
-            <>
-              منتج أصلي <CheckCircle2 className="size-5" strokeWidth={3} />
-            </>
-          )}
-          {product.isOriginal == false && (
-            <>
-              ليس منتج أصلي <CircleX className="size-5" strokeWidth={3} />
-            </>
-          )}
-        </p>
       )}
       <ProductCategory category={product.category.name} />
     </>

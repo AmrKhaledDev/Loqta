@@ -8,7 +8,7 @@ function ProductsSuggestions({ products }: { products: ProductDbType[] }) {
       {products.length > 0 && (
         <>
           <h2 className="text-gray-500 text-xs pr-3">اقتراحات المنتجات</h2>
-          <ul className="sm:h-30 h-35 overflow-y-auto">
+          <ul className={`sm:max-h-30 max-h-35 overflow-y-auto h-fit`}>
             {products.map((product) => (
               <li key={product.id}>
                 <Link dir="auto"

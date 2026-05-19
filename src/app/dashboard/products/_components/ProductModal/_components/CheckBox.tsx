@@ -1,6 +1,5 @@
 "use client";
 import { CreateProductFieldsType } from "@/lib/types/ProductModalTypes/CreateProductFieldsType";
-import { RegisterType } from "@/lib/types/ProductModalTypes/RegisterType";
 import { Path } from "react-hook-form";
 // ======================================================================================
 function CheckBox({
@@ -10,7 +9,7 @@ function CheckBox({
 }: {
   label: string;
   fieldName: Path<CreateProductFieldsType>;
-  register: RegisterType;
+  register: any;
 }) {
   return (
     <div className="flex items-center gap-2">

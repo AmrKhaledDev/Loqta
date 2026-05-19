@@ -20,6 +20,7 @@ async function Category({
         include: {
           productImages: true,
           category: true,
+          opinions:true
         },
       },
     },

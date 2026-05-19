@@ -44,6 +44,7 @@ async function Search({
       include: {
         productImages: true,
         category: true,
+        opinions: true,
       },
     });
   }
