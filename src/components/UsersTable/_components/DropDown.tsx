@@ -33,8 +33,8 @@ function DropDown({
     SELLER: {
       label: "بائع",
     },
-  } as any;
-  const userRole = roles[u.role];
+  } ;
+  const userRole = roles[u.role?.toUpperCase() as keyof typeof roles];
   useEffect(() => {
     const handle = (e: MouseEvent) => {
       if (e.target instanceof Element) {
@@ -59,7 +59,7 @@ function DropDown({
             onClick={() => setDropDown((prev) => (prev == u.id ? "" : u.id))}
             className="flex text-cyan-400 font-bold w-full buttonSelectRole items-center text-xs gap-4 py-1.5 mx-auto px-4  justify-between rounded-lg cursor-pointer bg-white/10 ring ring-gray-50/20"
           >
-            {userRole.label}
+            {userRole.label || "مستخدم"}
             <ChevronDown className="size-4 text-gray-300 pt-px" />
           </button>
         )}

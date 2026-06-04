@@ -43,7 +43,8 @@ async function Header() {
                   </span>
                 </Link>
                 <UserMenu userSession={userSession} />
-                {userSession.role === "ADMIN" && (
+                {(userSession.role === "ADMIN" ||
+                  userSession.role === "SUPER_ADMIN") && (
                   <Link
                     href={"/dashboard"}
                     className="sm:mr-7 sm:text-[15px] text-xs bg-white/15 hover:-rotate-3 ring hover:shadow-xl mytransition cursor-pointer font-bold ring-gray-50/30 sm:py-2 py-1.5 sm:px-6 px-4 rounded-md flex items-center gap-2 flex-row-reverse sm:text-sm"

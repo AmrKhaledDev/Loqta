@@ -6,27 +6,31 @@ function SearchBar({
   value,
   setValue,
   error,
+  placeholder,
 }: {
   value: string;
   setValue: Dispatch<SetStateAction<string>>;
   error: string;
+  placeholder?: string;
 }) {
   return (
-    <div className="h-13 rounded-full focus-within:ring-gray-50/30 mytransition focus-within:bg-white/10  overflow-hidden bg-white/5 ring ring-gray-50/15 flex items-center gap-3 shadow">
-      <button disabled={true} className="pr-4 text-gray-400">
-        <Search className="size-6" />
-      </button>
-      <span className="h-6 w-px block bg-white/10 rounded-full" />
-      <div className="flex-1">
-        <input
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          type="text"
-          className="h-full w-full outline-none text-xl placeholder:text-gray-400 cursor-pointer"
-          placeholder="عن ماذا تبحث ؟"
-        />
-        {error && <DashAlertMessage type="error" message={error} />}
+    <div className="flex flex-col gap-5">
+      <div className="h-13 rounded-full focus-within:ring-gray-50/30 mytransition focus-within:bg-white/10  overflow-hidden bg-white/5 ring ring-gray-50/15 flex items-center gap-3 shadow">
+        <button disabled={true} className="pr-4 text-gray-400">
+          <Search className="size-6" />
+        </button>
+        <span className="h-6 w-px block bg-white/10 rounded-full" />
+        <div className="flex-1">
+          <input
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            type="text"
+            className="h-full w-full outline-none text-xl placeholder:text-gray-400 cursor-pointer"
+            placeholder={placeholder || "عن ماذا تبحث ؟"}
+          />
+        </div>
       </div>
+      {error && <DashAlertMessage type="error" message={error} />}
     </div>
   );
 }

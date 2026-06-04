@@ -14,7 +14,9 @@ export default proxy(async (req) => {
     return NextResponse.redirect(new URL("/login", req.nextUrl.origin));
   if (
     pathname.startsWith("/dashboard") &&
-    (!userSession || userSession?.role !== "ADMIN")
+    (!userSession ||
+      userSession?.role == "USER" ||
+      userSession.role == "SELLER")
   )
     return NextResponse.redirect(new URL("/", req.nextUrl.origin));
 });
