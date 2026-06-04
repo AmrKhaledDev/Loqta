@@ -1,24 +1,30 @@
 "use client";
 import { UserDashDbType } from "@/lib/types/types";
-import Thead from "./_components/Thead";
-import DropDown from "./_components/DropDown";
+import { useState } from "react";
 import UserImage from "./_components/UserImage";
 import UserName from "./_components/UserName";
 import UserEmail from "./_components/UserEmail";
+import DropDown from "./_components/DropDown";
 import UserDate from "./_components/UserDate";
-import UserPhone from "./_components/UserPhone";
 import DeleteUserButton from "./_components/DeleteUserButton";
-import UserTotalSpending from "./_components/UserTotalSpending";
-import TableCountCell from "./_components/TableCountCell";
+import UserPhone from "./_components/UserPhone";
 import AccountState from "./_components/AccountState";
-import { useState } from "react";
+import Thead from "./_components/Thead";
+import UsersFields from "./_components/UsersFields/UsersFields";
+import { User } from "@prisma/client";
 // ========================================
-function UsersTable({ users }: { users: UserDashDbType[] }) {
+function UsersTable({
+  users,
+  usersType,
+}: {
+  users: UserDashDbType[] | User[];
+  usersType: "ADMINS" | "USERS";
+}) {
   const [dropDown, setDropDown] = useState("");
   return (
-    <div className="overflow-x-auto w-full rounded-lg">
-      <table className="bg-white/5 ring ring-gray-50/10 min-w-300 w-full">
-        <Thead />
+    <div className="overflow-x-auto min-w-300 rounded-lg">
+      <table className="bg-white/5 ring ring-gray-50/10  w-full">
+        <Thead usersType={usersType} />
         <tbody>
           {users.map((u) => (
             <tr
@@ -28,14 +34,14 @@ function UsersTable({ users }: { users: UserDashDbType[] }) {
               <UserImage u={u} />
               <UserName name={u.name} />
               <UserEmail email={u.email} />
-              <DropDown u={u} dropDown={dropDown} setDropDown={setDropDown}/>
+              <DropDown u={u} dropDown={dropDown} setDropDown={setDropDown} />
               <UserDate date={u.createdAt} />
-              <DeleteUserButton />
+              <DeleteUserButton userId={u.id} />
               <UserPhone phone={u.phone} />
-              <UserTotalSpending u={u} />
               <AccountState u={u} />
-              <TableCountCell value={u._count.orders} />
-              <TableCountCell value={u.userProducts.length} />
+              {usersType === "USERS" && (
+                <UsersFields user={u as UserDashDbType} />
+              )}
             </tr>
           ))}
         </tbody>

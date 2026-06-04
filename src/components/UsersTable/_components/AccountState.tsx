@@ -1,7 +1,7 @@
-import { UserDashDbType } from "@/lib/types/types";
 import TdTable from "./TdTable";
+import { User } from "@prisma/client";
 // ===========================================
-function AccountState({u}:{u:UserDashDbType}) {
+function AccountState({u}:{u:User}) {
   return (
     <TdTable>
       <span

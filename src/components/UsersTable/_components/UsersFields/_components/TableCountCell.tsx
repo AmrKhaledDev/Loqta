@@ -1,4 +1,4 @@
-import TdUsersTable from "./TdTable";
+import TdUsersTable from "../../TdTable";
 // ===============================================================
 function TableCountCell({ value }: { value: number }) {
   return (

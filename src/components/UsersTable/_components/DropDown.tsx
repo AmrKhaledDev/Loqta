@@ -1,10 +1,12 @@
 "use client";
 
-import { UserDashDbType } from "@/lib/types/types";
 import { ChevronDown } from "lucide-react";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { motion } from "framer-motion";
 import TdTable from "./TdTable";
+import { User } from "@prisma/client";
+import { EditRoleAction } from "@/lib/Server_Actions/Edit/EditRole.action";
+import { toast } from "react-toastify";
 // =========================================================
 function DropDown({
   u,
@@ -12,7 +14,7 @@ function DropDown({
   setDropDown,
 }: {
   dropDown: string;
-  u: UserDashDbType;
+  u: User;
   setDropDown: Dispatch<SetStateAction<string>>;
 }) {
   const selectRole = [
@@ -31,7 +33,7 @@ function DropDown({
     SELLER: {
       label: "بائع",
     },
-  };
+  } as any;
   const userRole = roles[u.role];
   useEffect(() => {
     const handle = (e: MouseEvent) => {
@@ -42,13 +44,20 @@ function DropDown({
     document.addEventListener("click", handle);
     return () => document.removeEventListener("click", handle);
   }, []);
+  const handleEditRole = async (role: "ADMIN" | "USER" | "SELLER") => {
+    setDropDown("");
+    const result = await EditRoleAction(role, u.id);
+    if (!result.success)
+      return toast.error(result.message, { className: "toast-font" });
+    toast.success(result.message, { className: "toast-font" });
+  };
   return (
     <TdTable>
       <div className="w-30 relative">
         {dropDown !== u.id && (
           <button
             onClick={() => setDropDown((prev) => (prev == u.id ? "" : u.id))}
-            className="flex w-full buttonSelectRole items-center text-xs gap-4 py-1.5 text-gray-200 mx-auto px-4  justify-between rounded-lg cursor-pointer bg-white/10 ring ring-gray-50/20"
+            className="flex text-cyan-400 font-bold w-full buttonSelectRole items-center text-xs gap-4 py-1.5 mx-auto px-4  justify-between rounded-lg cursor-pointer bg-white/10 ring ring-gray-50/20"
           >
             {userRole.label}
             <ChevronDown className="size-4 text-gray-300 pt-px" />
@@ -63,6 +72,9 @@ function DropDown({
           >
             {filteredSelectRole.map((role) => (
               <button
+                onClick={() =>
+                  handleEditRole(role.role as "ADMIN" | "USER" | "SELLER")
+                }
                 key={role.role}
                 className="cursor-pointer hover:text-cyan-400 mytransition hover:scale-105"
               >

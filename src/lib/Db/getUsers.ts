@@ -4,6 +4,11 @@ import { prisma } from "@/lib/prisma";
 export const getUsers = Cache(
   async () => {
     const data = await prisma.user.findMany({
+      where: {
+        role: {
+          in: ["USER", "SELLER"],
+        },
+      },
       include: {
         orders: {
           where: { status: "DELIVERED" },
@@ -13,8 +18,8 @@ export const getUsers = Cache(
           where: { status: "IN_CART" },
         },
         _count: {
-          select: { orders: true ,}
-        }
+          select: { orders: true },
+        },
       },
       orderBy: { createdAt: "asc" },
       take: 10,

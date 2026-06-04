@@ -9,8 +9,9 @@ datasource db {
 // =============================================== Enums
 enum Role {
   USER
-  ADMIN
   SELLER
+  ADMIN
+  SUPER_ADMIN
 }
 
 enum ProductStatus {

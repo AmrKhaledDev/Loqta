@@ -13,28 +13,41 @@ function CategeoryCard({
   setAction: Dispatch<SetStateAction<"edit" | "create" | null>>;
   setCategoryEdit: Dispatch<SetStateAction<Category | null>>;
 }) {
+  const categoryInfos = [
+    {
+      id: "category_name",
+      label: "إسم الصنف",
+      value: category.name,
+    },
+    {
+      id: "category_products",
+      label: "عدد المنتجات",
+      value: category.products.length,
+    },
+    {
+      id: "category_history",
+      label: "تاريخ الإنشاء",
+      value: dayjs(category.createdAt).format("D/M/YYYY"),
+    },
+  ];
   return (
-    <li className="ring ring-gray-50/20 hover:-translate-y-2 hover:scale-103 mytransition overflow-hidden pt-10 relative bg-white/5 rounded-2xl flex flex-col items-center gap-2">
-      <span className="absolute tracking-widest top-0 -right-1 py-2 px-6 ring ring-gray-50/25 rounded-bl-2xl text-xs font-black bg-white/10">
-        {dayjs(category.createdAt).format("D/M/YYYY")}
-      </span>
-      <h2 className="flex items-center gap-2 text-gray-400 font-normal">
-        إسم الصنف :
-        <span className="font-black text-white">{category.name}</span>
-      </h2>
-      <h2 className="flex items-center gap-2 text-gray-400 font-normal">
-        عدد المنتجات :
-        <span className="font-black text-white">
-          {category.products.length}
-        </span>
-      </h2>
-      <span className="w-full h-px bg-gray-50/10 rounded-full" />
+    <li className="ring ring-gray-50/20 p-4 hover:-translate-y-1 hover:scale-101 mytransition overflow-hidden relative bg-white/5 rounded-2xl flex flex-col items-center gap-2">
+      {categoryInfos.map((info) => (
+        <h2
+          key={info.id}
+          className="flex items-center gap-2 text-gray-400 font-normal"
+        >
+          {info.label}
+          <span className="font-black text-white">{info.value}</span>
+        </h2>
+      ))}
+      <span className="w-full h-px bg-white/5 rounded-full" />
       <button
         onClick={() => {
           setAction("edit");
           setCategoryEdit(category);
         }}
-        className="bg-white/5 w-full py-3 mt-1 cursor-pointer text-gray-400 hover:text-white hover:bg-white/10 mytransition font-semibold"
+        className="bg-white/5 w-full py-3 mt-1 cursor-pointer rounded-2xl text-gray-400 hover:text-white hover:bg-white/10 mytransition font-semibold"
       >
         تعديل الصنف
       </button>

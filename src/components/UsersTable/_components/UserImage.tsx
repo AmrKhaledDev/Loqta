@@ -1,8 +1,8 @@
-import { UserDashDbType } from "@/lib/types/types";
 import Image from "next/image";
 import TdTable from "./TdTable";
+import { User } from "@prisma/client";
 // ================================================
-function UserImage({ u }: { u: UserDashDbType }) {
+function UserImage({ u }: { u: User }) {
   return (
     <TdTable>
       {u.image ? (
