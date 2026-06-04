@@ -112,3 +112,13 @@ export type UserDashDbType = Prisma.UserGetPayload<{
     _count: { select: { orders: true } };
   };
 }>;
+export type OpinionDBType = Prisma.OpinionGetPayload<{
+  include: {
+    product: {
+      include: {
+        productImages: true;
+      };
+    };
+    user: true;
+  };
+}>;

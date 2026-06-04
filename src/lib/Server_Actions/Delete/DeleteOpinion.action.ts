@@ -21,9 +21,9 @@ export const DeleteOpinionAction = async (
     if (!opinion)
       return {
         success: false,
-        message: "الرأي المراد حذفه غير موجود في خوادمنا ",
+        message: "الرأي المراد حذفه غير موجود ",
       };
-    if (opinion.userId !== userSession.id)
+    if (opinion.userId!== userSession.id)
       return { success: false, message: "لا يمكنك حذف هذا الرأي" };
     await prisma.opinion.delete({
       where: {

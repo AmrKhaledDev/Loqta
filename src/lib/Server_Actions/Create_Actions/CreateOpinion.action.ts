@@ -1,6 +1,7 @@
 "use server";
 import { prisma } from "@/lib/prisma";
 import { GetUserSession } from "@/lib/Sessions/GetUserSession";
+import { revalidateTag } from "next/cache";
 // ==============================================
 export const CreateOpinionAction = async (
   opinion: string,
@@ -29,6 +30,7 @@ export const CreateOpinionAction = async (
         rating,
       },
     });
+    revalidateTag("opinions","")
     return { success: true, message: "تم نشر رأيك الخاص بهذا المنتج" };
   } catch (error) {
     console.log(error);
