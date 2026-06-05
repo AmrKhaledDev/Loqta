@@ -2,9 +2,7 @@
 import { prisma } from "@/lib/prisma";
 import { createHash, randomUUID } from "node:crypto";
 // ===============================================================
-export const generateVerificationToken = async (
-  email: string,
-): Promise<{ error?: string; token?: string }> => {
+export const generateVerificationToken = async (email: string) => {
   if (!email) return { error: "برجاء ادخال الايميل الخاص بك" };
   const token = randomUUID();
   const tokenHashed = createHash("sha256").update(token).digest("hex");
@@ -24,8 +22,8 @@ export const generateVerificationToken = async (
       });
     });
     return { token };
-  } catch (error) {
-    console.log(error);
+  } catch (err) {
+    console.log(err);
     return { error: "حدث خطأ أثناء انشاء رمز التحقق الخاص بك" };
   }
 };
