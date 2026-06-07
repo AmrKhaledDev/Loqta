@@ -1,3 +1,4 @@
+"use client"
 import { Search } from "lucide-react";
 import { Dispatch, SetStateAction } from "react";
 import DashAlertMessage from "../DashAlertMessage/DashAlertMessage";
@@ -7,11 +8,13 @@ function SearchBar({
   setValue,
   error,
   placeholder,
+  type
 }: {
   value: string;
   setValue: Dispatch<SetStateAction<string>>;
   error: string;
   placeholder?: string;
+  type?:"number" | "text" 
 }) {
   return (
     <div className="flex flex-col gap-5">
@@ -24,7 +27,7 @@ function SearchBar({
           <input
             value={value}
             onChange={(e) => setValue(e.target.value)}
-            type="text"
+            type={type || "text"}
             className="h-full w-full outline-none text-xl placeholder:text-gray-400 cursor-pointer"
             placeholder={placeholder || "عن ماذا تبحث ؟"}
           />

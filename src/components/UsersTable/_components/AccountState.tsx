@@ -1,4 +1,4 @@
-import TdTable from "./TdTable";
+import TdTable from "../../TdTable/TdTable";
 import { User } from "@prisma/client";
 // ===========================================
 function AccountState({u}:{u:User}) {

@@ -1,6 +1,6 @@
 import { formatCurrency } from "@/lib/formatCurrency";
 import { UserDashDbType } from "@/lib/types/types";
-import TdUsersTable from "../../TdTable";
+import TdUsersTable from "../../../../TdTable/TdTable";
 // ====================================================
 function UserTotalSpending({ u }: { u: UserDashDbType }) {
   const totalSpending = u.orders.reduce((acc, ord) => acc + ord.totalPrice, 0);

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import TdTable from "./TdTable";
+import TdTable from "../../TdTable/TdTable";
 import { User } from "@prisma/client";
 // ================================================
 function UserImage({ u }: { u: User }) {

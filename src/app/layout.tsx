@@ -5,8 +5,6 @@ import { ToastContainer } from "react-toastify";
 import { cn } from "@/lib/utils";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
-
-
 // ===============================================================
 const almarai = Almarai({
   subsets: ["arabic"],

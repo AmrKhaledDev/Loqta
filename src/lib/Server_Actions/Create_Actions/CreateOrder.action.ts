@@ -16,6 +16,16 @@ export const CreateOrderAction = async (
     const userSession = await GetUserSession();
     if (!userSession)
       return { success: false, message: "فشل انشاء طلبك تأكد من تسجيل دخولك" };
+    if (userSession.role === "ADMIN")
+      return {
+        success: false,
+        message: "يتعذر إنشاء طلبك حسابك حساب مسؤول ",
+      };
+    if (!userSession.emailVerified)
+      return {
+        success: false,
+        message: "فشل إنشاء طلبك برجاء تفعيل حسابك أولاً",
+      };
     const userProducts = await prisma.userProduct.findMany({
       where: {
         userId: userSession.id,
@@ -55,8 +65,7 @@ export const CreateOrderAction = async (
     if (userProducts.length >= 5)
       return {
         success: false,
-        message:
-          "عذراً، الحد الأقصى لأنواع المنتجات في الطلب الواحد هو 5 أنواع فقط.",
+        message: "عذراً، الحد الأقصى للمنتجات في الطلب الواحد هو 5 منتجات فقط.",
       };
 
     const totalQuantity = userProducts.reduce((acc, p) => acc + p.quantity, 0);
@@ -125,6 +134,7 @@ export const CreateOrderAction = async (
       }
     });
     revalidateTag("products", "");
+    revalidateTag("orders", "");
     return {
       success: true,
       message: "تم إنشاء طلبك بنجاح سيتم توصيله إليك في أسرع وقت",

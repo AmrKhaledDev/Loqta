@@ -12,7 +12,11 @@ export const ProductAction = async (
 ): Promise<{ success: boolean; message: string }> => {
   try {
     const userSession = await GetUserSession();
-    if (!userSession || userSession.role !== "ADMIN")
+    if (
+      !userSession ||
+      userSession.role == "USER" ||
+      userSession.role === "SELLER"
+    )
       return { success: false, message: "ليس لديك صلاحية إنشاء منتج" };
     const validation = CreateProductSchema.safeParse(data);
     if (!validation.success)

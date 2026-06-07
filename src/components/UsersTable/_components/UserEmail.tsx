@@ -1,4 +1,4 @@
-import TdTable from "./TdTable";
+import TdTable from "../../TdTable/TdTable";
 // ==================================================
 function UserEmail({ email }: { email: string }) {
   return (

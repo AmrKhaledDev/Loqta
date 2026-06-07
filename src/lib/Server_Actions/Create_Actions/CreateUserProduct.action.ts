@@ -10,7 +10,7 @@ export const CreateUserProductAction = async (
     if (!userId || !productId)
       return { success: false, message: "بيانات ناقصة" };
     const [user, product] = await Promise.all([
-      prisma.user.findUnique({ where: { id: userId }, select: { id: true } }),
+      prisma.user.findUnique({ where: { id: userId }, select: { id: true,emailVerified:true } }),
       prisma.product.findUnique({
         where: { id: productId },
         select: {
@@ -24,6 +24,7 @@ export const CreateUserProductAction = async (
     ]);
     if (!user) return { success: false, message: "برجاء تسجيل الدخول أولاً" };
     if (!product) return { success: false, message: "المنتج غير موجود" };
+    if(!user.emailVerified) return {success:false,message:"برجاء تفعيل حسابك أولاً"}
     if (product.stock < quantity)
       return {
         success: false,

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import TdTable from "./TdTable";
+import TdTable from "../../TdTable/TdTable";
 import { toast } from "react-toastify";
 import { DeleteUserAction } from "@/lib/Server_Actions/Delete/DeleteUser.action";
 import { User } from "@prisma/client";

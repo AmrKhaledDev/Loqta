@@ -3,7 +3,7 @@
 import { ChevronDown } from "lucide-react";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import { motion } from "framer-motion";
-import TdTable from "./TdTable";
+import TdTable from "../../TdTable/TdTable";
 import { User } from "@prisma/client";
 import { EditRoleAction } from "@/lib/Server_Actions/Edit/EditRole.action";
 import { toast } from "react-toastify";

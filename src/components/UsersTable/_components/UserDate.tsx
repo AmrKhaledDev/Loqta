@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import { CalendarDays } from "lucide-react";
-import TdTable from "./TdTable";
+import TdTable from "../../TdTable/TdTable";
 // ==============================================
 function UserDate({ date }: { date: Date }) {
   return (

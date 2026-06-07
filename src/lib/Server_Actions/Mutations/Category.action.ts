@@ -15,7 +15,7 @@ export const CategoryAction = async (
         success: false,
         message: "برجاء تسجيل الدخول لإنشاء صنف جديد أو تعديله",
       };
-    if (userSession.role !== "ADMIN")
+    if (userSession.role == "USER" || userSession.role == "SELLER")
       return {
         success: false,
         message: "ليس لديك صلاحية لتنفيذ هذا الإجراء",

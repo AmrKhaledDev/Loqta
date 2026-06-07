@@ -20,22 +20,30 @@ function ProfileDetails({
   purchasedOrders: OrderDbType[];
   userSession: User;
 }) {
-  const [activeTab, setActiveTab] = useState("purchased");
+  const [activeTab, setActiveTab] = useState("settings");
   return (
     <div className="flex items-center flex-col gap-10 justify-center">
       <ProfileImage userSession={userSession} />
       <div className="flex flex-col gap-10 items-center">
-        <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
-        {activeTab === "purchased" && (
-          <PurchasedOrders orders={purchasedOrders} />
-        )}
-        {activeTab === "ordered" && (
-          <OrderProductsList orders={ordersPending} />
+        <Tabs
+          userSession={userSession}
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+        />
+        {(userSession.role !== "ADMIN") && (
+          <>
+            {activeTab === "purchased" && (
+              <PurchasedOrders orders={purchasedOrders} />
+            )}
+            {activeTab === "ordered" && (
+              <OrderProductsList orders={ordersPending} />
+            )}
+            {activeTab === "cart" && (
+              <UserProductsInCart products={productsInCart} />
+            )}
+          </>
         )}
         {activeTab === "settings" && <Settings userSession={userSession} />}
-        {activeTab === "cart" && (
-          <UserProductsInCart products={productsInCart} />
-        )}
       </div>
     </div>
   );

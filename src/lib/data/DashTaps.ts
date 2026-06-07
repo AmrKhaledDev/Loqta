@@ -52,10 +52,4 @@ export const taps = [
     icon: Shield,
     href: "/dashboard/admins",
   },
-  {
-    id: "settings",
-    title: "الإعدادات",
-    icon: Settings,
-    href: "/dashboard/settings",
-  },
 ];

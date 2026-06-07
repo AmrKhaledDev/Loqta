@@ -19,7 +19,19 @@ export default proxy(async (req) => {
       userSession.role == "SELLER")
   )
     return NextResponse.redirect(new URL("/", req.nextUrl.origin));
+  if (
+    (pathname === "/dashboard/users" || pathname === "/dashboard/admins") &&
+    userSession?.role !== "SUPER_ADMIN"
+  )
+    return NextResponse.redirect(new URL("/dashboard", req.nextUrl.origin));
 });
 export const config = {
-  mathcer: ["/login", "/register", "/cart", "/profile", "/order"],
+  mathcer: [
+    "/login",
+    "/register",
+    "/cart",
+    "/profile",
+    "/order",
+    "/dashboard:path*",
+  ],
 };
