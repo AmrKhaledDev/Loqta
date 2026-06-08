@@ -105,7 +105,7 @@ export const EditOrderStatusAction = async (
     revalidateTag("products", "");
     return {
       success: true,
-      message: `تم تعديل حالة طلب ${currentOrder.order_num} من ${ORDER_STATUS_MAP[oldStatus].label} إلى ${ORDER_STATUS_MAP[newStatus].label}`,
+      message: `تم تعديل حالة طلب رقم ${currentOrder.order_num} من ${ORDER_STATUS_MAP[oldStatus].label} إلى ${ORDER_STATUS_MAP[newStatus].label}`,
     };
   } catch (error) {
     console.log(error);

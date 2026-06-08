@@ -5,7 +5,6 @@ import SearchBar from "../../_components/SearchBar/SearchBar";
 import { OrderDbType } from "@/lib/types/types";
 import Tabs from "./Tabs";
 import TableOrders from "./TableOrders/TableOrders";
-import { OrderStatus } from "@prisma/client";
 import axios from "axios";
 // =======================================================
 function OrdersPageContent({ orders }: { orders: OrderDbType[] }) {
@@ -13,15 +12,6 @@ function OrdersPageContent({ orders }: { orders: OrderDbType[] }) {
   const [error, setError] = useState("");
   const [result, setResult] = useState<OrderDbType[] | null>(null);
   const [activeTab, setActiveTab] = useState("PENDING");
-  const status = [
-    OrderStatus.PENDING,
-    OrderStatus.CANCELLED,
-    OrderStatus.CONFIRMED,
-    OrderStatus.DELIVERED,
-    OrderStatus.NO_ANSWER,
-    OrderStatus.REFUNDED,
-    OrderStatus.SHIPPED,
-  ];
   const filterdOrders = orders.filter((ord) => ord.status === activeTab);
   useEffect(() => {
     const FETCH_DATA = async () => {
@@ -48,14 +38,12 @@ function OrdersPageContent({ orders }: { orders: OrderDbType[] }) {
         type="number"
       />
       <Tabs
-        status={status}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         setValueSearch={setValue}
       />
       {finallyOrders.length > 0 ? (
         <TableOrders
-          status={status}
           orders={finallyOrders}
         />
       ) : (

@@ -1,23 +1,21 @@
 "use client";
 
+import { OrdersStatuses } from "@/lib/data/OrderStatuses";
 import { ORDER_STATUS_MAP } from "@/lib/data/OrderStatusMap";
-import { OrderStatus } from "@prisma/client";
 import { Dispatch, SetStateAction } from "react";
 // =================================================================
 function Tabs({
   activeTab,
   setActiveTab,
-  status,
   setValueSearch
 }: {
   activeTab: string;
   setActiveTab: Dispatch<SetStateAction<string>>;
-  status: OrderStatus[];
   setValueSearch:Dispatch<SetStateAction<string>>
 }) {
   return (
     <ul className="flex items-center gap-2 justify-center">
-      {status.map((tab) => {
+      {OrdersStatuses.map((tab) => {
         return (
           <li key={tab}>
             <button

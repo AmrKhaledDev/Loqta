@@ -5,7 +5,7 @@ function layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex">
       <Sidebar />
-      <main className="p-10 flex-1 mycontainer  text-white">{children}</main>
+      <main className="p-10 flex-1 mycontainer text-white">{children}</main>
     </div>
   );
 }

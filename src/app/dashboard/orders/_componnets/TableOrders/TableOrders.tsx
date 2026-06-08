@@ -9,16 +9,16 @@ import Thead from "./_components/Thead";
 import { OrderStatus } from "@prisma/client";
 import DropDown from "./_components/DropDown";
 import TdTable from "@/components/TdTable/TdTable";
+import { useState } from "react";
 // =======================================================================================
 function TableOrders({
   orders,
-  status,
 }: {
   orders: OrderDbType[];
-  status: OrderStatus[];
 }) {
+  const [dropDown, setDropDown] = useState("");
   return (
-    <div className="overflow-x-auto rounded-2xl w-200">
+    <div className="overflow-x-auto rounded-2xl w-full ">
       <table className="ring ring-gray-50/10 bg-white/5 w-full">
         <Thead />
         <tbody>
@@ -35,7 +35,11 @@ function TableOrders({
                   {ord.phone}
                 </p>
               </TdTable>
-              <DropDown ord={ord} status={status} />
+              <DropDown
+                dropDown={dropDown}
+                setDropDown={setDropDown}
+                ord={ord}
+              />
               <TdTable>
                 <p className="font-extrabold text-green-400">
                   {formatCurrency.format(ord.totalPrice)}
@@ -53,7 +57,8 @@ function TableOrders({
               </TdTable>
               <TdTable>
                 <Link
-                  href={""}
+                target="_blank"
+                  href={`/dashboard/orders/${ord.id}`}
                   className="bg-white/10 flex text-gray-400 hover:text-white mytransition group items-center gap-2 ring ring-gray-50/20 font-semibold shadow py-1 px-4 text-xs rounded-full"
                 >
                   تفاصيل
