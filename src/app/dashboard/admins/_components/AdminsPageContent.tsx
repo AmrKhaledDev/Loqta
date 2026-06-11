@@ -34,7 +34,7 @@ function AdminsPageContent({ admins: adminsProps }: { admins: User[] }) {
 
   return (
     <>
-      <h2 className="font-black text-3xl">إدارة المستخدمين</h2>
+      <h2 className="font-black text-3xl">إدارة المسؤولين</h2>
       <SearchBar value={value} setValue={setValue} error={error} />
       {admins.length > 0 && <UsersTable users={admins} usersType="ADMINS" />}
     </>

@@ -1,6 +1,10 @@
 import { getOpinions } from "@/lib/Db/getOpinions";
 import ReviewsPageContent from "./_components/ReviewsPageContent";
+import { Metadata } from "next";
 // ===================================================================
+export const metadata: Metadata = {
+  title: "لُقطة | تقييمات المستخدمين",
+};
 async function Reviews() {
   const opinions = await getOpinions();
   return (

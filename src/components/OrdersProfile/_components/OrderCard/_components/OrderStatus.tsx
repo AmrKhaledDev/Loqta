@@ -19,8 +19,12 @@ function OrderStatus({ order }: { order: OrderDbType }) {
       label: "تم التوصيل",
       icon: <CheckCircle className="size-4.5" />,
     },
-    CANCELED: {
+    CANCELLED: {
       label: "ملغي",
+      icon: <XCircle className="size-4.5" />,
+    },
+    NO_ANSWER: {
+      label: "لم يتم الرد",
       icon: <XCircle className="size-4.5" />,
     },
   };

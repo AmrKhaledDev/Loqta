@@ -32,7 +32,7 @@ function ReviewsPageContent({
   const opinions = value && result ? result : opinionsProps;
   return (
     <>
-      <SearchBar value={value} setValue={setValue} error={error} />
+      <SearchBar placeholder="ابحث بإسم المستخدم أو إسم المنتج" value={value} setValue={setValue} error={error} />
       {loading ? (
         <div className="flex justify-center items-center ">
           <Loader />

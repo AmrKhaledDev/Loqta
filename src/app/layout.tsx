@@ -3,8 +3,6 @@ import { Almarai, Geist } from "next/font/google";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import { cn } from "@/lib/utils";
-
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 // ===============================================================
 const almarai = Almarai({
   subsets: ["arabic"],
@@ -23,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" className={cn("h-full", almarai.className, "font-sans", geist.variable)}>
+    <html lang="ar" className={cn("h-full", almarai.className)}>
       <body
         dir="rtl"
         className="min-h-full flex flex-col bg-linear-to-r to-indigo-950 from-pink-950 [word-break:break-word]"

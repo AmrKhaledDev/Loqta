@@ -24,7 +24,7 @@ async function SingleOrder({ params }: { params: Promise<{ ordId: string }> }) {
   });
   if (!currentOrder) return redirect("/dashboard/orders");
   return (
-    <main className="flex flex-col gap-20">
+    <main className="flex flex-col gap-20 h-[89vh] justify-between">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl flex items-center gap-2">
           طلب رقم:
@@ -32,7 +32,7 @@ async function SingleOrder({ params }: { params: Promise<{ ordId: string }> }) {
         </h1>
         <OrderStatus currentOrder={currentOrder} />
       </div>
-      <div className="flex flex-col gap-10 p-4 ring ring-gray-50/10 bg-white/5 rounded-2xl">
+      <div className="flex flex-col gap-10 p-7 ring ring-gray-50/10 bg-white/5 rounded-2xl">
         <h2 className="text-3xl font-semibold font-mono text-center">
           تفاصيل عن الطلب
         </h2>

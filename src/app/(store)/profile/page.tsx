@@ -15,7 +15,7 @@ async function Profile() {
     where: {
       userId: userSession.id,
       status: {
-        in: ["PENDING", "SHIPPED", "CONFIRMED"],
+        in: ["PENDING", "SHIPPED", "CONFIRMED","CANCELLED","NO_ANSWER","REFUNDED"],
       },
     },
     include: {

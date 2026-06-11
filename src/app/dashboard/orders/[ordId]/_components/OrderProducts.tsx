@@ -15,10 +15,10 @@ function OrderProducts({currentOrder}:{currentOrder:OrderDbType}) {
             alt={item.product.name}
             width={400}
             height={400}
-            className="size-30 shadow p-2 bg-white rounded-2xl object-contain"
+            className="size-25 shadow p-2 bg-white rounded-2xl object-contain"
           />
           <div className="flex flex-col gap-1">
-            <h2 className="line-clamp-1 font-bold text-xl">
+            <h2 className="line-clamp-1 font-bold text-[18px]">
               {item.product.name}
             </h2>
             <p className="text-gray-300 font-normal flex items-center gap-2">

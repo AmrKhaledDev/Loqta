@@ -12,17 +12,16 @@ import { useRouter } from "next/navigation";
 function OpinionActions({
   userSession,
   opinion,
-  isEditOpinion,
   setIsEditOpinion,
+  isEditOpinion
 }: {
   userSession: User | null;
   opinion: OpinionsDbType;
-  isEditOpinion: string;
   setIsEditOpinion: Dispatch<SetStateAction<string>>;
+  isEditOpinion:string
 }) {
   const router = useRouter();
   const [deleteLoading, setDeleteLoading] = useState(false);
-  const [editLoading, setEditLoading] = useState(false);
   const DeleteOpinion = async () => {
     setDeleteLoading(true);
     const result = await DeleteOpinionAction(opinion.id);
@@ -33,7 +32,7 @@ function OpinionActions({
   useEffect(() => {
     const handle = (e: MouseEvent) => {
       if (e.target instanceof Element) {
-        if (!e.target.closest(".buttonEdit, boxEditOpinion"))
+        if (!e.target.closest(".buttonEdit, .boxEditOpinion"))
           setIsEditOpinion("");
       }
     };
@@ -43,33 +42,37 @@ function OpinionActions({
     };
   }, []);
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-4">
       <ButtonLike userSession={userSession} opinion={opinion} />
-      {userSession?.id === opinion.userId && (
-        <>
-          <button
-            onClick={DeleteOpinion || editLoading}
-            disabled={deleteLoading}
-            className="cursor-pointer hover:scale-103 mytransition active:scale-95 text-slate-500 hover:text-slate-400"
-          >
-            {deleteLoading ? (
-              <div className="border-2 size-3.5 rounded-full border-t-transparent border-red-600 animate-spin" />
-            ) : (
-              <Trash className="size-4" />
-            )}
-          </button>
-          <button
-            onClick={() =>
-              setIsEditOpinion((prev) =>
-                prev === opinion.id ? "" : opinion.id,
-              )
-            }
-            className="cursor-pointer buttonEdit hover:scale-103 mytransition active:scale-95 text-slate-500 hover:text-slate-400"
-          >
-            <Edit className="size-4" />
-          </button>
-        </>
-      )}
+      <div className="flex items-center gap-2">
+        {userSession?.id === opinion.userId && (
+          <>
+            <button
+              onClick={DeleteOpinion }
+              disabled={deleteLoading}
+              className="cursor-pointer hover:scale-103 mytransition active:scale-95 text-slate-300 hover:text-white"
+            >
+              {deleteLoading ? (
+                <div className="border-2 size-3.5 rounded-full border-t-transparent border-red-600 animate-spin" />
+              ) : (
+                <Trash className="size-4" />
+              )}
+            </button>
+            <button
+              onClick={() =>
+                setIsEditOpinion((prev) =>
+                  prev === opinion.id ? "" : opinion.id,
+                )
+              }
+            className={`cursor-pointer buttonEdit hover:scale-103 mytransition active:scale-95 text-slate-300 hover:text-white
+                ${isEditOpinion === opinion.id && "text-white"}
+              `}
+            >
+              <Edit className="size-4" />
+            </button>
+          </>
+        )}
+      </div>
     </div>
   );
 }

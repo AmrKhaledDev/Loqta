@@ -22,8 +22,8 @@ function UsersTable({
 }) {
   const [dropDown, setDropDown] = useState("");
   return (
-    <div className="overflow-x-auto min-w-300 rounded-lg">
-      <table className="bg-white/5 ring ring-gray-50/10  w-full">
+    <div className="overflow-x-auto w-full rounded-lg">
+      <table className="bg-white/5 ring ring-gray-50/10 w-full">
         <Thead usersType={usersType} />
         <tbody>
           {users.map((u) => (

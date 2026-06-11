@@ -22,11 +22,11 @@ async function Cart() {
       <div className="mycontainer section-flex">
         <SectionHead title="سلة التسوق الخاص بك" />
         {userSession.userProducts.length < 1 ? (
-          <p className="text-center text-gray-400">
+          <p className="text-center text-gray-400 font-normal">
             لا يوجد منتجات في السلة
             <Link
               href={"/categories"}
-              className="mr-1 font-semibold text-blue-400 underline hover:no-underline"
+              className="mr-1 font-semibold text-cyan-400 hover:underline"
             >
               تسوق الآن
             </Link>

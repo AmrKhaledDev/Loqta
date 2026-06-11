@@ -6,7 +6,6 @@ import dayjs from "dayjs";
 import { ArrowLeftCircle } from "lucide-react";
 import Link from "next/link";
 import Thead from "./_components/Thead";
-import { OrderStatus } from "@prisma/client";
 import DropDown from "./_components/DropDown";
 import TdTable from "@/components/TdTable/TdTable";
 import { useState } from "react";
@@ -62,7 +61,7 @@ function TableOrders({
                   className="bg-white/10 flex text-gray-400 hover:text-white mytransition group items-center gap-2 ring ring-gray-50/20 font-semibold shadow py-1 px-4 text-xs rounded-full"
                 >
                   تفاصيل
-                  <ArrowLeftCircle className="size-4 group-hover:translate-x-1 mytransition" />
+                  <ArrowLeftCircle className="size-4 group-hover:-translate-x-1 mytransition" />
                 </Link>
               </TdTable>
             </tr>

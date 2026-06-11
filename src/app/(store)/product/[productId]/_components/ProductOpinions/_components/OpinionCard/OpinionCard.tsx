@@ -6,6 +6,7 @@ import { Dispatch, SetStateAction } from "react";
 import OpinionActions from "./_components/OpinionActions";
 import OpinionImage from "./_components/OpinionImage";
 import BoxEditOpinion from "./_components/BoxEditOpinion";
+import dayjs from "dayjs";
 // ==============================================
 function OpinionCard({
   opinion,
@@ -21,13 +22,16 @@ function OpinionCard({
   return (
     <li
       key={opinion.id}
-      className="flex bg-black p-3 rounded-2xl w-180 ring ring-gray-50/10 gap-3 relative"
+      className="flex bg-black p-3 rounded-2xl w-150 ring ring-gray-50/10 gap-3 relative"
     >
       <OpinionImage opinion={opinion} />
       <div className="flex flex-col gap-2 flex-1">
-        <h2 className="text-[17px] capitalize text-white">
-          {opinion.user.name}
-        </h2>
+        <div className="flex items-center gap-5 justify-between">
+          <h2 className="text-[17px] capitalize text-white">
+            {opinion.user.name}
+          </h2>
+          <p className="font-mono text-xs font-semibold text-gray-400">{dayjs(opinion.createdAt).format("D/M/YYYY")}</p>
+        </div>
         {isEditOpinion === opinion.id ? (
           <BoxEditOpinion
             setIsEditOpinion={setIsEditOpinion}
@@ -50,9 +54,9 @@ function OpinionCard({
               ))}
           </div>
           <OpinionActions
-            isEditOpinion={isEditOpinion}
             setIsEditOpinion={setIsEditOpinion}
             opinion={opinion}
+            isEditOpinion={isEditOpinion}
             userSession={userSession}
           />
         </div>

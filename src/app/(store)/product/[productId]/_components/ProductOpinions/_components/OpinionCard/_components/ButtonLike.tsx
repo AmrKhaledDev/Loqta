@@ -32,7 +32,7 @@ function ButtonLike({
           if (!userSession) return router.push("/login");
           CreateLike();
         }}
-        className={`size-4.5 cursor-pointer ${isExistingLike ? "text-blue-300 fill-blue-900" : ""} `}
+        className={`size-4.5 cursor-pointer ${isExistingLike ? "text-white/80 fill-blue-700" : ""} `}
       />
       <span className="font-serif">{opinion.likes.length}</span>
     </button>

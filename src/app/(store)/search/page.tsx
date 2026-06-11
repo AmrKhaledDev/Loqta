@@ -64,12 +64,12 @@ async function Search({
         ) : (
           <div className="flex flex-col gap-10 items-center">
             <div className="flex flex-col gap-3 items-center">
-              <h2 className="text-4xl font-bold">لم يتم العثور على نتائج</h2>
-              <p className="text-gray-300 font-normal text-[17px]">
+              <h2 className="lg:text-4xl md:text-3xl text-2xl font-bold">لم يتم العثور على نتائج</h2>
+              <p className="text-gray-300 font-normal sm:text-[17px] text-sm">
                 لم نجد ما يطابق بحثك، جرب كلمات أخرى
               </p>
               <Link
-                className="bg-indigo-500 text-sm mt-3 hover:scale-105 mytransition shadow py-2 px-6 rounded-full w-fit"
+                className="ring ring-gray-50/20 bg-white/10 sm:text-sm text-xs mt-3 hover:scale-102 mytransition shadow py-2 px-6 rounded-full w-fit"
                 href={"/categories"}
               >
                 الذهاب لصفحة المنتجات
@@ -80,7 +80,7 @@ async function Search({
               alt="not found"
               width={400}
               height={400}
-              className="rounded-full animate-pulse p-3 bg-white size-90 object-cover shadow-2xl"
+              className="rounded-full animate-pulse p-3 bg-white md:size-90 sm:size-80 size-70 object-cover shadow-2xl"
             />
           </div>
         )}
