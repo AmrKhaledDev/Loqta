@@ -1,7 +1,7 @@
 "use client";
 
 import ButtonAddToCart from "@/components/ButtonAddToCart/ButtonAddToCart";
-import { formatCurrency } from "@/lib/formatCurrency";
+import { formatCurrency } from "@/lib/formates/formatCurrency";
 import { ProductDbType } from "@/lib/types/types";
 import { User } from "@prisma/client";
 // ============================================

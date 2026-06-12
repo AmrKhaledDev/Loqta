@@ -103,6 +103,8 @@ export const EditOrderStatusAction = async (
     });
     revalidateTag("orders", "");
     revalidateTag("products", "");
+    revalidateTag("ordersCount", "");
+    revalidateTag("totalSales", "");
     return {
       success: true,
       message: `تم تعديل حالة طلب رقم ${currentOrder.order_num} من ${ORDER_STATUS_MAP[oldStatus].label} إلى ${ORDER_STATUS_MAP[newStatus].label}`,

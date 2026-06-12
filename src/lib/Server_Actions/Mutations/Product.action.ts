@@ -111,6 +111,7 @@ export const ProductAction = async (
     revalidateTag("categoriesDash", "");
     revalidateTag("categories", "");
     revalidateTag("products", "");
+    revalidateTag("activeProductsCount", "");
     return {
       success: true,
       message: productId ? "تم تعديل المنتج" : "تم إنشاء منتج جديد بنجاح",

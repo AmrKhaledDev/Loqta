@@ -1,4 +1,4 @@
-import { formatCurrency } from "@/lib/formatCurrency";
+import { formatCurrency } from "@/lib/formates/formatCurrency";
 import { CreditCard } from "lucide-react";
 import Link from "next/link";
 // ====================================================

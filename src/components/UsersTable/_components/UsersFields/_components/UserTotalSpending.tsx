@@ -1,4 +1,4 @@
-import { formatCurrency } from "@/lib/formatCurrency";
+import { formatCurrency } from "@/lib/formates/formatCurrency";
 import { UserDashDbType } from "@/lib/types/types";
 import TdUsersTable from "../../../../TdTable/TdTable";
 // ====================================================

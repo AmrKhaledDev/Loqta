@@ -1,4 +1,4 @@
-import { formatCurrency } from "@/lib/formatCurrency";
+import { formatCurrency } from "@/lib/formates/formatCurrency";
 import { ProductDbType } from "@/lib/types/types";
 import ProductCategory from "./ProductCategory";
 // =============================================================

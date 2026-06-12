@@ -1,4 +1,4 @@
-import { formatCurrency } from '@/lib/formatCurrency'
+import { formatCurrency } from '@/lib/formates/formatCurrency'
 // =========================================
 function OrderTotal({totalPrice}:{totalPrice:number}) {
   return (

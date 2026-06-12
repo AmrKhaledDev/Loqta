@@ -46,6 +46,7 @@ export const EditRoleAction = async (
     });
     revalidateTag("users", "");
     revalidateTag("admins", "");
+    revalidateTag("newCustomers","")
     return {
       success: true,
       message:

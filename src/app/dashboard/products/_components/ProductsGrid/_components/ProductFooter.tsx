@@ -16,8 +16,8 @@ function ProductFooter({ product }: { product: ProductDbType }) {
         <ProductPrice product={product} />
         <div>
           <p className="text-slate-500 text-xs">المخزون</p>
-          <p className="text-green-400 font-black">
-            {formatQuantity(product.stock)}
+          <p className={`font-black ${product.stock > 0 ?"text-green-400 " :"text-red-500 "}`}>
+            {product.stock > 0 ?formatQuantity(product.stock) : "إنتهت الكمية"}
           </p>
         </div>
       </div>

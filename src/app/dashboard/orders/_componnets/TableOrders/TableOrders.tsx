@@ -1,6 +1,6 @@
 "use client";
 
-import { formatCurrency } from "@/lib/formatCurrency";
+import { formatCurrency } from "@/lib/formates/formatCurrency";
 import { OrderDbType } from "@/lib/types/types";
 import dayjs from "dayjs";
 import { ArrowLeftCircle } from "lucide-react";

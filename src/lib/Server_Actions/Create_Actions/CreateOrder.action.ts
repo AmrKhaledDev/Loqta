@@ -135,6 +135,9 @@ export const CreateOrderAction = async (
     });
     revalidateTag("products", "");
     revalidateTag("orders", "");
+    revalidateTag("ordersCount", "");
+    revalidateTag("totalSales", "");
+    revalidateTag("activeProductsCount", "");
     return {
       success: true,
       message: "تم إنشاء طلبك بنجاح سيتم توصيله إليك في أسرع وقت",
