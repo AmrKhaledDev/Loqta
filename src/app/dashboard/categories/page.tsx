@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import CategoryPageContent from "./_components/CategoryPageContent";
-import { getCategoriesDash } from "@/lib/Db/getCategoriesDash";
+import { getCategoriesDash } from "@/lib/Db/PublicCaches/getCategoriesDash";
 // ================================================
 export const metadata: Metadata = {
   title: "لُقطة | لوحة التحكم | الأصناف",

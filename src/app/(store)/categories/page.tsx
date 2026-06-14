@@ -1,7 +1,7 @@
 import SectionHead from "@/components/SectionHead/SectionHead";
 import ProductsWithFilter from "./_components/ProductsWithFilter";
-import { getCategories } from "@/lib/Db/getCategories";
-import { getProducts } from "@/lib/Db/getProducts";
+import { getCategories } from "@/lib/Db/PublicCaches/getCategories";
+import { getProducts } from "@/lib/Db/PublicCaches/getProducts";
 import { GetUserSession } from "@/lib/Sessions/GetUserSession";
 import { Metadata } from "next";
 // ====================================================

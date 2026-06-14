@@ -1,4 +1,4 @@
-import { getOpinions } from "@/lib/Db/getOpinions";
+import { getOpinions } from "@/lib/Db/PublicCaches/getOpinions";
 import ReviewsPageContent from "./_components/ReviewsPageContent";
 import { Metadata } from "next";
 // ===================================================================

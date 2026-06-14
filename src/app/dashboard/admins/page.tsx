@@ -1,4 +1,4 @@
-import { getAdmins } from "@/lib/Db/getAdmins";
+import { getAdmins } from "@/lib/Db/PublicCaches/getAdmins";
 import AdminsPageContent from "./_components/AdminsPageContent";
 import { Metadata } from "next";
 // ============================================================

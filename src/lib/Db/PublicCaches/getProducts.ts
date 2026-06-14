@@ -1,6 +1,6 @@
-import { Cache } from "../Cache/Cache";
+import { Cache } from "../../Cache/Cache";
 import { prisma } from "@/lib/prisma";
-import { ProductDbType } from "../types/types";
+import { ProductDbType } from "../../types/types";
 // ===============================================
 export const getProducts = Cache(
   async (): Promise<ProductDbType[]> => {

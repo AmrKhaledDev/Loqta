@@ -116,6 +116,8 @@ export const EditOrderStatusAction = async (
     revalidateTag("productOutOfStock", "");
     revalidateTag("topProducts", "");
     revalidateTag("stagnantProducts", "");
+    revalidateTag("accountsWithoutPurchases", "");
+    revalidateTag("activeCustomers", "");
     return {
       success: true,
       message: `تم تعديل حالة طلب رقم ${currentOrder.order_num} من ${ORDER_STATUS_MAP[oldStatus].label} إلى ${ORDER_STATUS_MAP[newStatus].label}`,

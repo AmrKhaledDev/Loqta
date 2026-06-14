@@ -68,6 +68,8 @@ export const RegisterAction = async (
       };
     }
     revalidateTag("newCustomers", "");
+    revalidateTag("totalAudiences", "");
+    revalidateTag("accountsWithoutPurchases", "");
     return {
       success: true,
       message: "تم إرسال رمز التحقق إلى بريدك الإلكتروني",

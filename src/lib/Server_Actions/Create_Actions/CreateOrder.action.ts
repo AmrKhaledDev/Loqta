@@ -146,7 +146,8 @@ export const CreateOrderAction = async (
     revalidateTag("productOutOfStock", "");
     revalidateTag("topProducts", "");
     revalidateTag("stagnantProducts", "");
-
+    revalidateTag("accountsWithoutPurchases","")
+    revalidateTag("activeCustomers","")
     return {
       success: true,
       message: "تم إنشاء طلبك بنجاح سيتم توصيله إليك في أسرع وقت",

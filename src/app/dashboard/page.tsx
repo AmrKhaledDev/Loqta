@@ -1,13 +1,16 @@
-import { getTotalSales } from "@/lib/Db/getTotalSales";
+import { getTotalSales } from "@/lib/Db/OverviewCaches/getTotalSales";
 import StatisticsContent from "./_components/Statistics_Components/StatisticsContent";
-import { getOrdersCount } from "@/lib/Db/getOrdersCount";
-import { getNewCustomers } from "@/lib/Db/getNewCustomers";
-import { getActiveProductsCount } from "@/lib/Db/getActiveProductsCount";
-import { getTotalInventory } from "@/lib/Db/getTotalInventory";
-import { getProductsLowStock } from "@/lib/Db/getProductsLowStock";
-import { getProductOutOfStock } from "@/lib/Db/getProductOutOfStock";
-import { getTopProducts } from "@/lib/Db/getTopProducts";
-import { getStagnantProducts } from "@/lib/Db/getStagnantProducts";
+import { getOrdersCount } from "@/lib/Db/OverviewCaches/getOrdersCount";
+import { getNewCustomers } from "@/lib/Db/OverviewCaches/getNewCustomers";
+import { getActiveProductsCount } from "@/lib/Db/OverviewCaches/getActiveProductsCount";
+import { getTotalInventory } from "@/lib/Db/Products_InventoryCaches/getTotalInventory";
+import { getProductsLowStock } from "@/lib/Db/Products_InventoryCaches/getProductsLowStock";
+import { getProductOutOfStock } from "@/lib/Db/Products_InventoryCaches/getProductOutOfStock";
+import { getTopProducts } from "@/lib/Db/Products_InventoryCaches/getTopProducts";
+import { getStagnantProducts } from "@/lib/Db/Products_InventoryCaches/getStagnantProducts";
+import { getTotalAudiences } from "@/lib/Db/AudienceAnalyticsCaches/getTotalAudiences";
+import { getActiveCustomers } from "@/lib/Db/AudienceAnalyticsCaches/getActiveCustomers";
+import { getAccountsWithoutPurchases } from "@/lib/Db/AudienceAnalyticsCaches/getAccountsWithoutPurchases";
 // ========================================================================================
 async function page() {
   // Overview
@@ -20,7 +23,11 @@ async function page() {
   const productsLowStock = await getProductsLowStock();
   const productOutOfStock = await getProductOutOfStock();
   const topProducts = await getTopProducts();
-  const stagnantProducts=  await getStagnantProducts()
+  const stagnantProducts = await getStagnantProducts();
+  // AudiencesAnalytics
+  const totalAudiences = await getTotalAudiences();
+  const activeCustomers = await getActiveCustomers();
+  const accountsWithoutPurchases = await getAccountsWithoutPurchases();
   return (
     <main className="flex-1 flex flex-col gap-35">
       <StatisticsContent
@@ -33,6 +40,9 @@ async function page() {
         productOutOfStock={productOutOfStock}
         topProducts={topProducts}
         stagnantProducts={stagnantProducts}
+        totalAudiences={totalAudiences}
+        activeCustomers={activeCustomers}
+        accountsWithoutPurchases={accountsWithoutPurchases}
       />
     </main>
   );

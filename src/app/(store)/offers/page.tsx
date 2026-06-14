@@ -3,7 +3,7 @@ import { GetUserSession } from "@/lib/Sessions/GetUserSession";
 import { Metadata } from "next";
 import ProductsOffers from "./_components/ProductsOffers";
 import { CategoriesOffers } from "@/lib/types/types";
-import { getCategorysOffers } from "@/lib/Db/getCategorysOffers";
+import { getCategorysOffers } from "@/lib/Db/PublicCaches/getCategorysOffers";
 // =================================================================
 export const metadata: Metadata = {
   title: "الخصومات",

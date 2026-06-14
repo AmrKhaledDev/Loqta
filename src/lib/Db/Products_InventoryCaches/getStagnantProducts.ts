@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
-import { Cache } from "../Cache/Cache";
-import { StagnantProduct } from "../types/types";
+import { Cache } from "@/lib/Cache/Cache";
+import { StagnantProduct } from "@/lib/types/types";
 // ========================================
 export const getStagnantProducts = Cache(
   async () => {

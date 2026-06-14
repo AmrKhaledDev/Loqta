@@ -1,4 +1,4 @@
-import { getUsers } from "@/lib/Db/getUsers";
+import { getUsers } from "@/lib/Db/PublicCaches/getUsers";
 import UsersPageContent from "./_components/UsersPageContent";
 import { Metadata } from "next";
 // ==============================================================

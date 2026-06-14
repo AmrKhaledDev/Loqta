@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
-import { Cache } from "../Cache/Cache";
+import { Cache } from "@/lib/Cache/Cache";
 // ==============================
 export const getTotalInventory = Cache(
   async () => {

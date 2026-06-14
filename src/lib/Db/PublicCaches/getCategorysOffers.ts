@@ -1,8 +1,7 @@
-import { Cache } from "../Cache/Cache";
-import { CategoriesOffers } from "../types/types";
+import { Cache } from "../../Cache/Cache";
+import { CategoriesOffers } from "../../types/types";
 import { prisma } from "@/lib/prisma";
 // ===============================================
-
 export const getCategorysOffers = Cache(
   async (): Promise<CategoriesOffers[]> => {
     const data = await prisma.category.findMany({

@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
-import { Cache } from "../Cache/Cache";
+import { Cache } from "../../Cache/Cache";
 // ====================================
 export const getNewCustomers = Cache(
   async () => {
@@ -13,6 +13,9 @@ export const getNewCustomers = Cache(
         emailVerified: true,
         role: {
           in: ["USER", "SELLER"],
+        },
+        orders: {
+          some: {},
         },
       },
     });

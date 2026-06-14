@@ -1,6 +1,6 @@
-import { getProducts } from "@/lib/Db/getProducts";
+import { getProducts } from "@/lib/Db/PublicCaches/getProducts";
 import ProductsPageContent from "./_components/ProductsPageContent";
-import { getCategoriesDash } from "@/lib/Db/getCategoriesDash";
+import { getCategoriesDash } from "@/lib/Db/PublicCaches/getCategoriesDash";
 // ==============================================================
 async function Products() {
   const products = await getProducts();

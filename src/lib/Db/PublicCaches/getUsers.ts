@@ -1,4 +1,4 @@
-import { Cache } from "../Cache/Cache";
+import { Cache } from "../../Cache/Cache";
 import { prisma } from "@/lib/prisma";
 // ===============================================
 export const getUsers = Cache(

@@ -1,4 +1,4 @@
-import { getOrders } from "@/lib/Db/getOrders";
+import { getOrders } from "@/lib/Db/PublicCaches/getOrders";
 import OrdersPageContent from "./_componnets/OrdersPageContent";
 // ========================================================================
 async function Orders() {

@@ -4,6 +4,7 @@ import Tabs from "./Tabs";
 import Overview from "./Overview/Overview";
 import Products_Inventory from "./Products_Inventory/Products_Inventory";
 import { StagnantProduct, TopProductType } from "@/lib/types/types";
+import AudienceAnalytics from "./AudienceAnalytics/AudienceAnalytics";
 // ================================================================================
 function StatisticsContent({
   // Overview
@@ -17,6 +18,10 @@ function StatisticsContent({
   productOutOfStock,
   topProducts,
   stagnantProducts,
+  // AudienceAnalytics
+  totalAudiences,
+  activeCustomers,
+  accountsWithoutPurchases,
 }: {
   // Overview
   totalSales: number;
@@ -29,6 +34,10 @@ function StatisticsContent({
   productOutOfStock: number;
   topProducts: TopProductType[];
   stagnantProducts: StagnantProduct[];
+  // AudienceAnalytics
+  totalAudiences: number;
+  activeCustomers: number;
+  accountsWithoutPurchases: number;
 }) {
   const [activeTab, setActiveTab] = useState("overview");
   return (
@@ -52,6 +61,13 @@ function StatisticsContent({
           productOutOfStock={productOutOfStock}
           topProducts={topProducts}
           stagnantProducts={stagnantProducts}
+        />
+      )}
+      {activeTab === "users&behavior" && (
+        <AudienceAnalytics
+          totalAudiences={totalAudiences}
+          activeCustomers={activeCustomers}
+          accountsWithoutPurchases={accountsWithoutPurchases}
         />
       )}
     </>

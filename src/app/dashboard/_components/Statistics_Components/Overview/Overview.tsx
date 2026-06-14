@@ -47,7 +47,7 @@ function Overview({
     },
   ];
   return (
-    <div>
+    <main>
       <ul className="grid grid-cols-4 gap-5">
         {KPI_CARDS.map((card) => (
           <li
@@ -62,7 +62,7 @@ function Overview({
           </li>
         ))}
       </ul>
-    </div>
+    </main>
   );
 }
 

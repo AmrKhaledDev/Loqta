@@ -1,20 +1,21 @@
+import { Cache } from "@/lib/Cache/Cache";
 import { prisma } from "@/lib/prisma";
-import { Cache } from "../Cache/Cache";
 // ==========================================
-export const getProductOutOfStock = Cache(
+export const getProductsLowStock = Cache(
   async () => {
     const productsCount = await prisma.product.count({
       where: {
         stock: {
-          lte: 0,
+          gt: 0,
+          lte: prisma.product.fields.min_stock,
         },
       },
     });
     return productsCount;
   },
-  ["productOutOfStock"],
+  ["productsLowStock"],
   {
     revalidate: 3600,
-    tags: ["productOutOfStock"],
+    tags: ["productsLowStock"],
   },
 );

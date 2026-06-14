@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
-import { Cache } from "../Cache/Cache";
-import { TopProductType } from "../types/types";
+import { Cache } from "@/lib/Cache/Cache";
+import { TopProductType } from "@/lib/types/types";
 // ==========================================
 export const getTopProducts = Cache(
   async () => {
