@@ -61,6 +61,9 @@ export const EditOrderStatusAction = async (
               stock: {
                 increment: item.quantity,
               },
+              salesCount: {
+                decrement: 1,
+              },
             },
           });
         }
@@ -81,6 +84,9 @@ export const EditOrderStatusAction = async (
             data: {
               stock: {
                 decrement: item.quantity,
+              },
+              salesCount: {
+                increment: 1,
               },
             },
           });
@@ -105,6 +111,11 @@ export const EditOrderStatusAction = async (
     revalidateTag("products", "");
     revalidateTag("ordersCount", "");
     revalidateTag("totalSales", "");
+    revalidateTag("inventoryStats", "");
+    revalidateTag("productsLowStock", "");
+    revalidateTag("productOutOfStock", "");
+    revalidateTag("topProducts", "");
+    revalidateTag("stagnantProducts", "");
     return {
       success: true,
       message: `تم تعديل حالة طلب رقم ${currentOrder.order_num} من ${ORDER_STATUS_MAP[oldStatus].label} إلى ${ORDER_STATUS_MAP[newStatus].label}`,

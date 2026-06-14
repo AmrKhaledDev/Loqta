@@ -47,7 +47,7 @@ function CategeoryCard({
           setAction("edit");
           setCategoryEdit(category);
         }}
-        className="bg-white/5 w-full py-3 mt-1 cursor-pointer rounded-2xl text-gray-400 hover:text-white hover:bg-white/10 mytransition font-semibold"
+        className="bg-white/5 ring ring-gray-50/10 shadow w-full py-3 mt-1 cursor-pointer rounded-2xl text-gray-400 hover:text-white hover:bg-white/10 mytransition font-semibold"
       >
         تعديل الصنف
       </button>

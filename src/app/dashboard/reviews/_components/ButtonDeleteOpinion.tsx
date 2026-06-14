@@ -19,7 +19,7 @@ function ButtonDeleteOpinion({ opinion }: { opinion: OpinionDBType }) {
     <button
       disabled={loading}
       onClick={handleDelete}
-      className="not-disabled:active:scale-95 mytransition not-disabled:hover:scale-102 text-red-500 ring ring-red-500 py-2 rounded-md not-disabled:cursor-pointer disabled:text-gray-400 font-semibold"
+      className="not-disabled:active:scale-95 mytransition text-xs not-disabled:hover:scale-102 text-red-500 ring ring-red-500 py-2 rounded-md not-disabled:cursor-pointer disabled:text-gray-400 font-semibold"
     >
       {loading ? "جاري الحذف . . ." : " حذف هذا التقييم"}
     </button>

@@ -9,7 +9,7 @@ function OpinionStars({opinion}:{opinion:OpinionDBType}) {
         .map((_, i) => (
           <Star
             key={i}
-            className={`size-4.5 
+            className={`size-3 
                         ${i + 1 <= opinion.rating ? "fill-yellow-400 text-yellow-400" : " text-slate-700"}
                         `}
           />

@@ -28,8 +28,9 @@ export const DeleteUserOpinionInDashAction = async (
         id: opinionId,
       },
     });
-    revalidateTag("opinions","")
-    return {success:true,message:"تم حذف التقييم بنجاح"}
+    revalidateTag("opinions", "");
+    revalidateTag("products", "");
+    return { success: true, message: "تم حذف التقييم بنجاح" };
   } catch (error) {
     console.log(error);
     return { success: false, message: "حدث خطأ أثناء حذف هذا التقييم" };

@@ -125,6 +125,9 @@ export const CreateOrderAction = async (
             stock: {
               decrement: p.quantity,
             },
+            salesCount: {
+              increment: 1,
+            },
           },
         });
         if (updatedProduct.count === 0)
@@ -138,6 +141,12 @@ export const CreateOrderAction = async (
     revalidateTag("ordersCount", "");
     revalidateTag("totalSales", "");
     revalidateTag("activeProductsCount", "");
+    revalidateTag("inventoryStats", "");
+    revalidateTag("productsLowStock", "");
+    revalidateTag("productOutOfStock", "");
+    revalidateTag("topProducts", "");
+    revalidateTag("stagnantProducts", "");
+
     return {
       success: true,
       message: "تم إنشاء طلبك بنجاح سيتم توصيله إليك في أسرع وقت",

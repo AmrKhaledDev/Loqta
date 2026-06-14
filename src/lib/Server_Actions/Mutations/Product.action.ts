@@ -112,6 +112,9 @@ export const ProductAction = async (
     revalidateTag("categories", "");
     revalidateTag("products", "");
     revalidateTag("activeProductsCount", "");
+    revalidateTag("inventoryStats", "");
+    revalidateTag("productsLowStock", "");
+    revalidateTag("productOutOfStock", "");
     return {
       success: true,
       message: productId ? "تم تعديل المنتج" : "تم إنشاء منتج جديد بنجاح",

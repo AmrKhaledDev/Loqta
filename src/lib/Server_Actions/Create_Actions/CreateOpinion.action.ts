@@ -31,6 +31,7 @@ export const CreateOpinionAction = async (
       },
     });
     revalidateTag("opinions","")
+    revalidateTag("products","")
     return { success: true, message: "تم نشر رأيك الخاص بهذا المنتج" };
   } catch (error) {
     console.log(error);

@@ -122,3 +122,26 @@ export type OpinionDBType = Prisma.OpinionGetPayload<{
     user: true;
   };
 }>;
+export type TopProductType = {
+  id: string;
+  product: Prisma.ProductGetPayload<{
+    select: {
+      name: true;
+      productImages: true;
+    };
+  }>;
+  totalQty: number;
+  totalRevenue: number;
+};
+
+export type StagnantProduct = Prisma.ProductGetPayload<{
+  select: {
+    id: true;
+    name: true;
+    price: true;
+    stock: true;
+    productImages: true;
+    createdAt: true;
+    salesCount: true;
+  };
+}>;
