@@ -37,9 +37,8 @@ export const EditUserImageProfileAction = async (
         image,
       },
     });
-    revalidateTag("getUsers", "");
-    revalidateTag("getAdmins", "");
-    revalidateTag("getSellers", "");
+    revalidateTag("users", "");
+    revalidateTag("admins", "");
     return {
       success: true,
       message: "تم تعديل صورتك بنجاح سيتم عرضها عند كتابة رأي",

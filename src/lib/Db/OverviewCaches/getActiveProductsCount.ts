@@ -5,6 +5,7 @@ export const getActiveProductsCount = Cache(
   async () => {
     const activeProductsCount = await prisma.product.count({
       where: {
+        isDeleted: false,
         stock: {
           gte: 1,
         },

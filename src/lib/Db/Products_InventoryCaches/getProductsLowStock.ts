@@ -5,6 +5,7 @@ export const getProductsLowStock = Cache(
   async () => {
     const productsCount = await prisma.product.count({
       where: {
+        isDeleted:false,
         stock: {
           gt: 0,
           lte: prisma.product.fields.min_stock,

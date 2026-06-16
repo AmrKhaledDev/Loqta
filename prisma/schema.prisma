@@ -75,6 +75,7 @@ model Product {
   opinions         Opinion[]
   userProducts     UserProduct[]
   salesCount       Int            @default(0)
+  isDeleted        Boolean        @default(false)
 }
 
 model ProductImage {
@@ -128,18 +129,20 @@ model UserProduct {
 }
 
 model Order {
-  id         String        @id @default(cuid())
-  order_num  Int           @default(autoincrement())
-  userId     String
-  user       User          @relation(fields: [userId], references: [id])
-  totalPrice Float
-  address    String
-  phone      String
-  city       String
-  fullName   String
-  status     OrderStatus   @default(PENDING)
-  items      UserProduct[]
-  createdAt  DateTime      @default(now())
+  id           String        @id @default(cuid())
+  order_num    Int           @default(autoincrement())
+  userId       String
+  user         User          @relation(fields: [userId], references: [id])
+  totalPrice   Float
+  address      String
+  phone        String
+  city         String
+  fullName     String
+  status       OrderStatus   @default(PENDING)
+  items        UserProduct[]
+  createdAt    DateTime      @default(now())
+  cancelReason String?
+  isCanceled   Boolean       @default(false)
 }
 
 model VerificationToken {

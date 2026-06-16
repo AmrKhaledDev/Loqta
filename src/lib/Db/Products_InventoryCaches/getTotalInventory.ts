@@ -5,6 +5,7 @@ export const getTotalInventory = Cache(
   async () => {
     const products = await prisma.product.findMany({
       where: {
+        isDeleted: false,
         stock: {
           gte: 1,
         },

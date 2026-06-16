@@ -17,6 +17,7 @@ function OrderCard({ order }: { order: OrderDbType }) {
       <OrderStatus order={order} />
       <OrderCustomerInfo order={order} />
       <Items items={order.items} />
+      {order.cancelReason && <p className="text-red-500 font-bold text-xs">{order.cancelReason}</p>}
       <OrderTotal totalPrice={Number(order.totalPrice)} />
     </div>
   );

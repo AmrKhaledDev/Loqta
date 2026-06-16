@@ -1,5 +1,6 @@
 "use server";
 import { prisma } from "@/lib/prisma";
+import { revalidateTag } from "next/cache";
 // =====================================
 interface Data {
   name?: string;
@@ -33,6 +34,8 @@ export const EditUserProfileAction = async (
         phone: phone || user.phone,
       },
     });
+    revalidateTag("users", "");
+    revalidateTag("admins", "");
     return { success: true, message: "تم تعديل بياناتك بنجاح" };
   } catch (error) {
     console.log(error);

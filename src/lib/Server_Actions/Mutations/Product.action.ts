@@ -88,23 +88,34 @@ export const ProductAction = async (
       });
     }
     if (type === "EDIT" && productId) {
-      await prisma.$transaction(async (tx) => {
-        await tx.product.update({
-          where: {
-            id: productId,
-          },
-          data: {
-            ...productData,
-            productImages: {
-              deleteMany: {},
-              createMany: {
-                data: filteredImages.map((image) => ({
-                  image,
-                })),
-              },
+      const product = await prisma.product.findUnique({
+        where: {
+          id: productId,
+        },
+        select: { isDeleted: true },
+      });
+      if (!product)
+        return { success: false, message: "المنتج المراد تعديله غير موجود" };
+      if (product.isDeleted)
+        return {
+          success: false,
+          message: "لا يمكنك تعديل هذا المنتج (تم حذفه)",
+        };
+      await prisma.product.update({
+        where: {
+          id: productId,
+        },
+        data: {
+          ...productData,
+          productImages: {
+            deleteMany: {},
+            createMany: {
+              data: filteredImages.map((image) => ({
+                image,
+              })),
             },
           },
-        });
+        },
       });
     }
     revalidateTag("getCategorysOffers", "");

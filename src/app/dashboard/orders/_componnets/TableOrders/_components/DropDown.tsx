@@ -41,7 +41,9 @@ function DropDown({
     <TdTable>
       <button
         onClick={() => setDropDown((prev) => (prev === ord.id ? "" : ord.id))}
-        className="flex buttonDropDown items-center shadow font-semibold text-gray-300 gap-5 text-xs ring ring-gray-50/20 bg-white/5 rounded-2xl cursor-pointer py-1.5 px-2"
+        className={`flex buttonDropDown items-center shadow font-semibold gap-5 text-xs ring ring-gray-50/20 bg-white/5 rounded-2xl cursor-pointer py-1.5 px-2
+          ${ord.isCanceled ? "text-red-500 " : "text-gray-300 "}
+          `}
       >
         {ORDER_STATUS_MAP[ord.status].label}
         <ChevronDown

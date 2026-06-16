@@ -13,6 +13,9 @@ function CategeoryCard({
   setAction: Dispatch<SetStateAction<"edit" | "create" | null>>;
   setCategoryEdit: Dispatch<SetStateAction<Category | null>>;
 }) {
+  const activeProducts = category.products.filter(
+    (product) => product.isDeleted === false,
+  );
   const categoryInfos = [
     {
       id: "category_name",
@@ -22,7 +25,7 @@ function CategeoryCard({
     {
       id: "category_products",
       label: "عدد المنتجات",
-      value: category.products.length,
+      value: activeProducts.length,
     },
     {
       id: "category_history",

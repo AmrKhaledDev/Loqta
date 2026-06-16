@@ -25,7 +25,11 @@ export async function GET(req: NextRequest) {
         },
       },
     });
-    return NextResponse.json(orders, { status: 200 });
+    if (orders.length > 0) {
+      return NextResponse.json(orders, { status: 200 });
+    } else {
+      return NextResponse.json([], { status: 200 });
+    }
   } catch (error) {
     console.log(error);
     return NextResponse.json(

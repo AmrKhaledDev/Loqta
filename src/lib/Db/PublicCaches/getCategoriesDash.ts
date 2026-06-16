@@ -6,7 +6,11 @@ export const getCategoriesDash = Cache(
   async (): Promise<Category[]> => {
     const data = await prisma.category.findMany({
       include: {
-        products: true,
+        products: {
+          where: {
+            isDeleted: false,
+          },
+        },
       },
     });
     return data;

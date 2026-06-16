@@ -148,6 +148,7 @@ export const CreateOrderAction = async (
     revalidateTag("stagnantProducts", "");
     revalidateTag("accountsWithoutPurchases","")
     revalidateTag("activeCustomers","")
+    revalidateTag("users","")
     return {
       success: true,
       message: "تم إنشاء طلبك بنجاح سيتم توصيله إليك في أسرع وقت",

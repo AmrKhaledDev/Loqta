@@ -22,6 +22,9 @@ export const getCategorysOffers = Cache(
             category: true,
             opinions: true,
           },
+          where: {
+            isDeleted: false,
+          },
         },
       },
     });

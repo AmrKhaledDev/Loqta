@@ -1,5 +1,6 @@
 "use server";
 import { prisma } from "@/lib/prisma";
+import { revalidateTag } from "next/cache";
 // ====================================================
 export const CreateUserProductAction = async (
   userId: string,
@@ -10,7 +11,10 @@ export const CreateUserProductAction = async (
     if (!userId || !productId)
       return { success: false, message: "بيانات ناقصة" };
     const [user, product] = await Promise.all([
-      prisma.user.findUnique({ where: { id: userId }, select: { id: true,emailVerified:true } }),
+      prisma.user.findUnique({
+        where: { id: userId },
+        select: { id: true, emailVerified: true },
+      }),
       prisma.product.findUnique({
         where: { id: productId },
         select: {
@@ -19,12 +23,15 @@ export const CreateUserProductAction = async (
           price: true,
           isOnSale: true,
           discountPrice: true,
+          isDeleted: true,
         },
       }),
     ]);
     if (!user) return { success: false, message: "برجاء تسجيل الدخول أولاً" };
     if (!product) return { success: false, message: "المنتج غير موجود" };
-    if(!user.emailVerified) return {success:false,message:"برجاء تفعيل حسابك أولاً"}
+    if (!user.emailVerified)
+      return { success: false, message: "برجاء تفعيل حسابك أولاً" };
+    if(product.isDeleted) return {success:false,message:"تم حذف هذا المنتج من المتجر لا يمكنك إضافته"}
     if (product.stock < quantity)
       return {
         success: false,
@@ -65,6 +72,7 @@ export const CreateUserProductAction = async (
         },
       });
     }
+    revalidateTag("users", "");
     return {
       success: true,
       message: existingItem

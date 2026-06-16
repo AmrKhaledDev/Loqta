@@ -2,8 +2,9 @@
 
 import { ProductDbType } from "@/lib/types/types";
 import { Dispatch, SetStateAction } from "react";
+import ButtonDeleteProduct from "./ButtonDeleteProduct";
 // ======================================================
-function ProductEdit({
+function ProductActions({
   setActionType,
   setEditProduct,
   product,
@@ -13,7 +14,7 @@ function ProductEdit({
   product: ProductDbType;
 }) {
   return (
-    <div className="absolute opacity-0 rounded-2xl mytransition border border-cyan-300/40 inset-0 bg-cyan-300/10 backdrop-blur-[2px] group-hover:opacity-100 flex items-center justify-center">
+    <div className="absolute opacity-0 flex flex-col gap-3 rounded-2xl mytransition border border-cyan-300/40 inset-0 bg-cyan-300/10 backdrop-blur-[2px] group-hover:opacity-100 items-center justify-center">
       <button
         type="button"
         onClick={() => {
@@ -24,8 +25,12 @@ function ProductEdit({
       >
         تعديل المنتج
       </button>
+      <ButtonDeleteProduct
+        productId={product.id}
+        setActionType={setActionType}
+      />
     </div>
   );
 }
 
-export default ProductEdit;
+export default ProductActions;

@@ -21,13 +21,15 @@ function OrdersPageContent({ orders }: { orders: OrderDbType[] }) {
       );
       const data: { error: string } | OrderDbType[] = res.data;
       if ("error" in data) return setError(data.error);
+      if (data.length === 0) return setResult([]);
       const [order] = data;
       setActiveTab(order.status);
       setResult(data);
     };
     FETCH_DATA();
   }, [value]);
-  const finallyOrders = value && result ? result : filterdOrders;
+  const finallyOrders =
+    value && result && result.length > 0 ? result : filterdOrders;
   return (
     <>
       <SearchBar
@@ -43,9 +45,7 @@ function OrdersPageContent({ orders }: { orders: OrderDbType[] }) {
         setValueSearch={setValue}
       />
       {finallyOrders.length > 0 ? (
-        <TableOrders
-          orders={finallyOrders}
-        />
+        <TableOrders orders={finallyOrders} />
       ) : (
         <p className="text-center text-2xl font-normal text-gray-400 mt-5">
           لا يوجد طلبات حالياً

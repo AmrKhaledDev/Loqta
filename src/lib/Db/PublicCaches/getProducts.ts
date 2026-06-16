@@ -10,9 +10,12 @@ export const getProducts = Cache(
         category: true,
         opinions: true,
       },
-      orderBy:{
-        createdAt:"desc"
-      }
+      orderBy: {
+        createdAt: "desc",
+      },
+      where: {
+        isDeleted: false,
+      },
     });
     return data;
   },

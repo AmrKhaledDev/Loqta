@@ -8,6 +8,7 @@ export const getStagnantProducts = Cache(
     date.setDate(date.getDate() - 20);
     const stagnantProducts: StagnantProduct[] = await prisma.product.findMany({
       where: {
+        isDeleted: false,
         salesCount: {
           lte: 1,
         },

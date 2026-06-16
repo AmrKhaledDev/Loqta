@@ -5,7 +5,7 @@ export const getOrders = Cache(
   async () => {
     const orders = await prisma.order.findMany({
       orderBy: {
-        createdAt: "desc",
+        order_num:"asc"
       },
       include: {
         items: {

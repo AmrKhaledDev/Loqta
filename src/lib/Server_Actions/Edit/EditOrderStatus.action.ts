@@ -27,6 +27,7 @@ export const EditOrderStatusAction = async (
             quantity: true,
           },
         },
+        isCanceled: true,
         order_num: true,
       },
     });
@@ -34,6 +35,11 @@ export const EditOrderStatusAction = async (
       return {
         success: false,
         message: "يتعذر تغيير حالة الطلب (الطلب غير موجود)",
+      };
+    if (currentOrder.isCanceled)
+      return {
+        success: false,
+        message: "لا يمكنك تغيير حالة هذا الطلب بسبب أنه تم حذف منتجاته",
       };
     const oldStatus = currentOrder.status;
     const activeStatus: OrderStatus[] = [

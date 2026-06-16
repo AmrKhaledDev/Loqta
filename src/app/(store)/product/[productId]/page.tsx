@@ -19,10 +19,11 @@ export async function generateMetadata({
     where: {
       id: productId,
     },
-    select: { name: true, description: true },
+    select: { name: true, description: true, isDeleted: true },
   });
   if (!product)
     return { title: "المنتج غير موجود", description: "هذا المنتج غير موجود" };
+  if (product.isDeleted) return { title: "تم حذف هذا المنتج" };
   return {
     title: product.name,
     description: product.description,
@@ -44,8 +45,11 @@ async function Product({ params }: { params: Promise<{ productId: string }> }) {
             include: {
               productImages: true,
               category: true,
-              opinions:true
+              opinions: true,
             },
+            where:{
+              isDeleted:false
+            }
           },
         },
       },
@@ -65,6 +69,7 @@ async function Product({ params }: { params: Promise<{ productId: string }> }) {
     },
   });
   if (!product) return redirect("/categories");
+  if (product.isDeleted) return redirect("/categories");
   return (
     <main className="section-p text-white">
       <div className="mycontainer flex flex-col gap-20">

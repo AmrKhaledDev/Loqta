@@ -7,7 +7,7 @@ export const getCategories = Cache(
     const data = await prisma.category.findMany({
       where: {
         products: {
-          some: {},
+          some: { isDeleted: false },
         },
       },
       include: {
