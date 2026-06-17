@@ -37,6 +37,7 @@ export async function GET(req: NextRequest) {
               },
             },
           ],
+          isDeleted:false
         },
         select: {
           id: true,
@@ -62,7 +63,9 @@ export async function GET(req: NextRequest) {
             mode: "insensitive",
           },
           products: {
-            some: {},
+            some: {
+              isDeleted:false
+            },
           },
         },
         orderBy: {

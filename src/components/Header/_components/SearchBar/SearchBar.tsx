@@ -15,7 +15,6 @@ function SearchBar() {
   const pathname = usePathname();
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [search, setSearch] = useState("");
-  const [loading, setLoading] = useState(false);
   const [data, setData] = useState<{
     products: ProductDbType[];
     categories: Category[];
@@ -41,14 +40,12 @@ function SearchBar() {
   useEffect(() => {
     const FETCH_DATA = async () => {
       if (!search.trim()) return;
-      setLoading(true);
       const res = await axios.get(
         `/api/search?q=${encodeURIComponent(search)}`,
       );
       const data = res.data as
         | { products: ProductDbType[]; categories: Category[] }
         | { error: string };
-      setLoading(false);
       if ("error" in data)
         return toast.error(data.error, { className: "toast-font" });
       setData(data);

@@ -81,7 +81,7 @@ function CategoryModal({
           <button
             onClick={handleSubmit}
             disabled={loading}
-            className="w-full py-3 rounded-2xl flex items-center justify-center shadow not-disabled:cursor-pointer not-disabled:hover:translate-y-1 mytransition not-disabled:bg-cyan-500 disabled:bg-gray-100 font-semibold"
+            className="w-full py-3 rounded-2xl flex items-center justify-center shadow not-disabled:cursor-pointer not-disabled:hover:translate-y-1 mytransition not-disabled:bg-cyan-500 disabled:bg-gray-400 font-semibold"
           >
             {loading ? <Loader /> : "حفظ الصنف"}
           </button>

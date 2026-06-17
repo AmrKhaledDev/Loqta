@@ -22,6 +22,9 @@ async function Category({
           category: true,
           opinions:true
         },
+        where:{
+          isDeleted:false
+        }
       },
     },
   });

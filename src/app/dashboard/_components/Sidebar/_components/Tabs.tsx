@@ -5,7 +5,7 @@ import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 // ===================================================
-function Taps({ userSession }: { userSession: User }) {
+function Tabs({ userSession }: { userSession: User }) {
   const pathname = usePathname();
   return (
     <ul className="flex flex-col gap-2 w-full">
@@ -15,7 +15,7 @@ function Taps({ userSession }: { userSession: User }) {
           <li key={tap.id} className="w-full">
             <Link
               href={tap.href}
-              className={`flex items-center hover:shadow-2xl shadow-cyan-50/20 hover:scale-105 hover:bg-cyan-500 group mytransition text-shadow-2xs justify-between text-sm  rounded-lg p-3 w-full font-semibold  
+              className={`flex items-center shadow hover:shadow-2xl shadow-cyan-50/20 hover:scale-105 hover:bg-cyan-500 group mytransition text-shadow-2xs justify-between text-sm  rounded-lg p-3 w-full font-semibold  
               ${pathname == tap.href ? "bg-cyan-500 shadow-2xl scale-105 cursor-default" : "ring ring-gray-50/30 bg-white/10"}`}
             >
               <tap.icon
@@ -36,4 +36,4 @@ function Taps({ userSession }: { userSession: User }) {
   );
 }
 
-export default Taps;
+export default Tabs;

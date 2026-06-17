@@ -40,7 +40,7 @@ function ButtonAddToCart({
     <button
       disabled={loading}
       onClick={AddToCart}
-      className="flex items-center justify-center cursor-pointer hover:scale-105 mytransition not-disabled:bgg-ip sm:py-2 py-1.5 px-4 rounded-md gap-2 font-semibold text-sm"
+      className="flex items-center justify-center not-disabled:cursor-pointer not-disabled:hover:scale-105 mytransition not-disabled:bgg-ip sm:py-2 py-1.5 px-4 rounded-md gap-2 font-semibold text-sm"
     >
       {loading ? (
         <Loader />

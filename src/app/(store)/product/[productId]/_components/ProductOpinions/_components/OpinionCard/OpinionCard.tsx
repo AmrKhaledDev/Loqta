@@ -27,7 +27,7 @@ function OpinionCard({
       <OpinionImage opinion={opinion} />
       <div className="flex flex-col gap-2 flex-1">
         <div className="flex items-center gap-5 justify-between">
-          <h2 className="text-[17px] capitalize text-white">
+          <h2 className="text-[17px] capitalize text-white font-bold">
             {opinion.user.name}
           </h2>
           <p className="font-mono text-xs font-semibold text-gray-400">{dayjs(opinion.createdAt).format("D/M/YYYY")}</p>

@@ -77,7 +77,7 @@ function StagnantProducts({
           </table>
         </div>
       ) : (
-        <p className="text-yellow-600 flex items-center gap-2 border border-yellow-600 mx-auto font-semibold w-fit px-10 rounded text-xs py-1.5 text-center">
+        <p className="text-yellow-600 flex items-center gap-2 border border-yellow-600 mx-auto font-semibold w-fit px-10 rounded-sm text-xs py-1.5 text-center">
           <AlertCircle className="size-4.5" />
           حالياً لا يوجد منتجات راكدة
         </p>

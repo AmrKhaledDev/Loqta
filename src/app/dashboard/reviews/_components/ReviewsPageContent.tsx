@@ -34,7 +34,7 @@ function ReviewsPageContent({
     <>
       <SearchBar placeholder="ابحث بإسم المستخدم أو إسم المنتج" value={value} setValue={setValue} error={error} />
       {loading ? (
-        <div className="flex justify-center items-center ">
+        <div className="flex justify-center items-center h-[65vh] ">
           <Loader />
         </div>
       ) : (

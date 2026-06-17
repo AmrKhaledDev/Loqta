@@ -39,6 +39,7 @@ async function Search({
             },
           },
         ],
+        isDeleted:false
       },
       take: 9,
       include: {
@@ -62,26 +63,19 @@ async function Search({
             <Products products={SuggestedProducts} userSession={userSession} />
           </>
         ) : (
-          <div className="flex flex-col gap-10 items-center">
-            <div className="flex flex-col gap-3 items-center">
+          <div className="flex flex-col gap-10 items-center h-[80vh] justify-center">
+            <div className="flex flex-col gap-5 items-center">
               <h2 className="lg:text-4xl md:text-3xl text-2xl font-bold">لم يتم العثور على نتائج</h2>
               <p className="text-gray-300 font-normal sm:text-[17px] text-sm">
                 لم نجد ما يطابق بحثك، جرب كلمات أخرى
               </p>
               <Link
-                className="ring ring-gray-50/20 bg-white/10 sm:text-sm text-xs mt-3 hover:scale-102 mytransition shadow py-2 px-6 rounded-full w-fit"
+                className="ring ring-gray-50/20 bg-white/10 sm:text-sm text-xs hover:scale-102 mytransition shadow py-2 px-6 rounded-full w-fit"
                 href={"/categories"}
               >
                 الذهاب لصفحة المنتجات
               </Link>
             </div>
-            <Image
-              src={"/not-found.jpg"}
-              alt="not found"
-              width={400}
-              height={400}
-              className="rounded-full animate-pulse p-3 bg-white md:size-90 sm:size-80 size-70 object-cover shadow-2xl"
-            />
           </div>
         )}
       </div>

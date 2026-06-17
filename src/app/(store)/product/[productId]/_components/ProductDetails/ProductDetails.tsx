@@ -1,5 +1,5 @@
 "use client";
-import { BadgeCheck, ShoppingBag } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 import { useState } from "react";
 import ProductImage from "./_components/ProductImage";
 import ProductQuantity from "./_components/ProductQuantity";
@@ -23,7 +23,7 @@ function ProductDetails({
     product.productImages[0].image,
   );
   const router = useRouter();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
   const existingItem = userSession?.userProducts.find(
     (p) => p.productId === product.id,
@@ -43,7 +43,6 @@ function ProductDetails({
   };
   return (
     <div className="ring ring-gray-50/20 bg-white/5 p-5 rounded-2xl gap-4 min-h-100 flex flex-col">
-      {existingItem && <BadgeCheck className="size-8 text-green-400 animate-pulse"/>}
       <div className="flex justify-between gap-6">
         <div className="flex gap-2">
           {product.productImages.length > 1 && (
@@ -75,7 +74,7 @@ function ProductDetails({
             <button
               disabled={loading}
               onClick={handle}
-              className="py-2 not-disabled:bgg-ip disabled:bg-gray-100 select-none rounded not-disabled:cursor-pointer flex items-center gap-2 justify-center font-semibold"
+              className="py-2 not-disabled:bgg-ip disabled:bg-gray-400 select-none rounded not-disabled:cursor-pointer flex items-center gap-2 justify-center font-semibold"
             >
               {loading ? (
                 <Loader />

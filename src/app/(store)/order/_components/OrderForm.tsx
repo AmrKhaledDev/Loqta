@@ -72,7 +72,7 @@ function OrderForm({ userSession }: { userSession: User }) {
       />
       <button
         disabled={loading}
-        className="not-disabled:bgg-ip flex items-center disabled:bg-gray-500 gap-5 justify-center py-3 active:scale-96 mytransition rounded shadow not-disabled:cursor-pointer"
+        className="not-disabled:bgg-ip flex items-center disabled:bg-gray-400 gap-5 justify-center py-3 active:scale-96 mytransition rounded shadow not-disabled:cursor-pointer"
       >
         {loading ? (
           <>

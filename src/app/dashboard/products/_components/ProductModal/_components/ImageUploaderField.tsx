@@ -11,7 +11,6 @@ function ImageUploaderField({
 }) {
   return (
     <div className="relative w-full h-full bg-white">
-      {/* <Image src={valuePrev} alt="image" fill className="object-contain" /> */}
       <span className="absolute inset-0 block bg-black/20 z-50" />
       <div
         className={`absolute  z-60 flex items-center gap-3
