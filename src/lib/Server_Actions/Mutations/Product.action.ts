@@ -2,6 +2,7 @@
 import { prisma } from "@/lib/prisma";
 import { GetUserSession } from "@/lib/Sessions/GetUserSession";
 import { CreateProductSchema } from "@/lib/Zod_Schemas/Create_Schemas/CreateProduct.schema";
+import { Role } from "@prisma/client";
 import { revalidateTag } from "next/cache";
 import z from "zod";
 // =========================================
@@ -12,11 +13,8 @@ export const ProductAction = async (
 ): Promise<{ success: boolean; message: string }> => {
   try {
     const userSession = await GetUserSession();
-    if (
-      !userSession ||
-      userSession.role == "USER" ||
-      userSession.role === "SELLER"
-    )
+    const suportedRoles: Role[] = ["ADMIN", "SUPER_ADMIN"];
+    if (!userSession || !suportedRoles.includes(userSession.role))
       return { success: false, message: "ليس لديك صلاحية إنشاء منتج" };
     const validation = CreateProductSchema.safeParse(data);
     if (!validation.success)

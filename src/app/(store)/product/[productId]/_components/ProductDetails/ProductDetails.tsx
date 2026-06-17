@@ -23,7 +23,7 @@ function ProductDetails({
     product.productImages[0].image,
   );
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const existingItem = userSession?.userProducts.find(
     (p) => p.productId === product.id,
