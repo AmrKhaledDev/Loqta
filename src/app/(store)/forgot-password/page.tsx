@@ -7,7 +7,7 @@ export const metadata :Metadata = {
 }
 function ForgotPassword() {
   return (
-    <main className="text-white pt-30">
+    <main className="text-white pt-30 min-h-[70vh] flex items-center justify-center">
       <ForgotPasswordForm />
     </main>
   );

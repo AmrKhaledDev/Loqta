@@ -22,27 +22,27 @@ function ForgotPasswordForm() {
   return (
     <form
       onSubmit={handleSendVerificationToken}
-      className="w-100 ring ring-gray-50/20 flex flex-col gap-5 bg-white/5 rounded-2xl p-5 mx-auto"
+      className="md:w-150 sm:w-120 w-[95%] ring ring-gray-50/15 md:min-h-80 sm:min-h-70 min-h-65 flex flex-col gap-5 bg-white/5 rounded-2xl sm:p-8 p-4 mx-auto justify-between"
     >
-      <div className="flex flex-col items-center gap-2">
-        <h2 className="font-bold text-2xl">نسيت كلمة مروري</h2>
-        <p className="text-sm font-normal text-gray-300">
-          أدخل الإيميل وسيتم إرسال رابط تحقق خاص بك.
+      <div className="flex flex-col items-center gap-4">
+        <h2 className="font-bold md:text-3xl text-2xl">نسيت كلمة السر ؟</h2>
+        <p className="font-normal text-gray-300 text-center md:text-[15px] text-sm">
+         أدخل البريد الإلكتروني الخاص بك وسيتم إرسال رابط إعادة تعيين كلمة السر إلى بريدك الإلكتروني. 
         </p>
       </div>
       <input
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         type="email"
-        className="border border-gray-50/20 rounded-xl outline-none focus:border-cyan-300 mytransition cursor-pointer py-2 px-4"
-        placeholder="البريد الإلكتروني"
+        className="border shadow sm:text-[15px] text-sm border-gray-50/20 rounded-lg outline-none focus:border-gray-50/50 mytransition cursor-pointer py-3 px-4"
+        placeholder="اكتب بريدك الإلكتروني"
       />
       {error && <AlertMessage type="error" message={error} />}
       {success && <AlertMessage type="success" message={success} />}
       <button
         type="submit"
         disabled={loading}
-        className="bg-cyan-600 rounded-xl disabled:bg-gray-300 disabled:text-gray-500 not-disabled:hover:scale-103 not-disabled:hover:bg-cyan-400 mytransition not-disabled:cursor-pointer shadow py-4 font-semibold"
+        className="bg-cyan-600 rounded-xl md:text-[15px] text-sm disabled:bg-gray-300 disabled:text-gray-500 not-disabled:hover:scale-101 not-disabled:hover:bg-cyan-500 mytransition not-disabled:cursor-pointer shadow py-4 font-semibold"
       >
         {loading ? "برجاء الإنتظار . . ." : " إرسال الرابط"}
       </button>
