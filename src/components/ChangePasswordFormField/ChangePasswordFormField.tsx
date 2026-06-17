@@ -19,8 +19,8 @@ function ChangePasswordFormField<T extends FieldValues>({
   register: UseFormRegister<T>;
 }) {
   return (
-    <div className="flex flex-col gap-1.5">
-      <label className="w-fit" htmlFor="password">
+    <div className="flex flex-col gap-2">
+      <label className="w-fit" htmlFor={id}>
         {label}
       </label>
       <div className="flex flex-col gap-1">

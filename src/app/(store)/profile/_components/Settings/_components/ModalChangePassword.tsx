@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import { Repeat2 } from "lucide-react";
 import { Path, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import ChangePasswordFormField from "./ChangePasswordFormField";
+import ChangePasswordFormField from "../../../../../../components/ChangePasswordFormField/ChangePasswordFormField";
 import z from "zod";
 // ======================================================
 function ModalChangePassword({
