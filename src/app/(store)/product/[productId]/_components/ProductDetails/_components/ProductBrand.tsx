@@ -5,20 +5,19 @@ import Link from "next/link";
 // ============================================
 function ProductBrand({ product }: { product: ProductDbType }) {
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-2">
       {(product.brandLogoLink || product.brandLogoImage) && (
-        <>
-          <Image
-            src={
-              product.brandLogoIsImage
-                ? product.brandLogoImage || ""
-                : product.brandLogoLink || ""
-            }
-            alt="brand logo"
-            width={130}
-            height={130}
-          />
-        </>
+        <Image
+          src={
+            product.brandLogoIsImage
+              ? product.brandLogoImage || ""
+              : product.brandLogoLink || ""
+          }
+          alt="brand logo"
+          width={130}
+          height={130}
+          className="md:w-55 sm:w-50 w-45"
+        />
       )}
       {product.brandWebsite && (
         <Link

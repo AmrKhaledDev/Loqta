@@ -42,9 +42,9 @@ function ProductDetails({
     router.refresh();
   };
   return (
-    <div className="ring ring-gray-50/20 bg-white/5 p-5 rounded-2xl gap-4 min-h-100 flex flex-col">
-      <div className="flex justify-between gap-6">
-        <div className="flex gap-2">
+    <div className="ring ring-gray-50/20 bg-white/5 sm:p-5 p-3 rounded-2xl gap-4 min-h-100 flex flex-col">
+      <div className="flex justify-between lg:flex-row flex-col gap-6">
+        <div className="flex gap-2 lg:flex-row flex-col-reverse">
           {product.productImages.length > 1 && (
             <ProductImages
               product={product}

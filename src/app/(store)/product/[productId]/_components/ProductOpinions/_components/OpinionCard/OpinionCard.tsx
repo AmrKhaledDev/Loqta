@@ -22,7 +22,7 @@ function OpinionCard({
   return (
     <li
       key={opinion.id}
-      className="flex bg-black p-3 rounded-2xl w-150 ring ring-gray-50/10 gap-3 relative"
+      className="flex bg-black p-3 rounded-2xl sm:w-150 w-full ring ring-gray-50/10 gap-3 relative"
     >
       <OpinionImage opinion={opinion} />
       <div className="flex flex-col gap-2 flex-1">

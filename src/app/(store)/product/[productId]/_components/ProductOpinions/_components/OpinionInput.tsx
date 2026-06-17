@@ -15,7 +15,7 @@ function OpinionInput({
   handle: () => Promise<Id | undefined>;
 }) {
   return (
-    <div className="flex flex-1 items-center justify-between focus-within:border-gray-50/40 mytransition border border-gray-50/20 bg-white/5 rounded-md overflow-hidden">
+    <div className="flex md:w-fit w-full flex-1 items-center justify-between focus-within:border-gray-50/40 mytransition border border-gray-50/20 bg-white/5 rounded-md overflow-hidden">
       <input
         onKeyDown={(e) => {
           if (e.key === "Enter") handle();

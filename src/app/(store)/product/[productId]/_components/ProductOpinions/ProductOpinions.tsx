@@ -43,7 +43,7 @@ function ProductOpinions({
       </h2>
       <div className="flex flex-col gap-4">
         {userSession && (
-          <div className="flex items-center gap-10 flex-1">
+          <div className="flex md:items-center lg:gap-10 gap-5 md:flex-row flex-col flex-1">
             <OpinionInput
               disabled={loading}
               value={opinion}

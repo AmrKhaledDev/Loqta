@@ -11,7 +11,7 @@ function ProductImages({
   setProductImage: Dispatch<SetStateAction<string>>;
 }) {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex lg:flex-col gap-2 flex-row sm:flex-nowrap flex-wrap">
       {product.productImages.map((image) => (
         <Image
           onClick={() => setProductImage(image.image)}
