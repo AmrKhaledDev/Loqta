@@ -52,6 +52,7 @@ function ProductsPageContent({
         buttonName="إضافة منتج جديد"
         setAction={setActionType}
         setItem={setEditProduct}
+        categories={categories}
       />
       <SearchBar value={search} setValue={setSearch} error={error} />
       {loading ? (
@@ -63,7 +64,7 @@ function ProductsPageContent({
           products={productsList}
         />
       )}
-      {actionType !== null && (
+      {actionType !== null && categories.length > 0 && (
         <ProductModal
           actionType={actionType}
           setActionType={setActionType}

@@ -58,7 +58,7 @@ function ProductModal({
       price: editProduct?.price ? String(editProduct.price) : "",
       minStock: editProduct?.min_stock ? String(editProduct.min_stock) : "",
       shippingInfo: editProduct?.shippingInfo || "",
-      categoryId: editProduct?.categoryId || categories[0].id,
+      categoryId: editProduct?.categoryId || categories?.[0]?.id || "",
       brandLogoIsImage: editProduct?.brandLogoIsImage ?? true,
       //  Prev
       primaryImage: editProduct?.productImages?.[0]?.image || "",
