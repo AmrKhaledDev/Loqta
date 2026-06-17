@@ -6,10 +6,14 @@ import Link from "next/link";
 function ProductBrand({ product }: { product: ProductDbType }) {
   return (
     <div className="flex flex-col gap-1">
-      {product.brandLogoImage && (
+      {(product.brandLogoLink || product.brandLogoImage) && (
         <>
           <Image
-            src={product.brandLogoImage}
+            src={
+              product.brandLogoIsImage
+                ? product.brandLogoImage || ""
+                : product.brandLogoLink || ""
+            }
             alt="brand logo"
             width={130}
             height={130}
