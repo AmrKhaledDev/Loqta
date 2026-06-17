@@ -67,6 +67,7 @@ export const RegisterAction = async (
           "لم نتمكن من إرسال رمز التحقق إلى بريدك تأكد من الإنترنت أو أعد المحاولة",
       };
     }
+    revalidateTag("users", "");
     return {
       success: true,
       message: "تم إرسال رمز التحقق إلى بريدك الإلكتروني",
