@@ -45,7 +45,7 @@ function ProductCard({
       <ProductCardFooter userSession={userSession} product={product} />
       <LowStockWarning product={product} />
       {product.stock > 0 && product.isOnSale &&  (
-        <span className="absolute top-1 shadow left-1 bg-red-500 py-1 px-3 rounded-full font-extrabold text-xs">
+        <span className="absolute top-2 shadow left-2 bg-red-100 text-red-500 py-1 px-3 rounded-full font-extrabold text-xs">
           خصم {discountPercentage}%
         </span>
       )}

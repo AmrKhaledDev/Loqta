@@ -52,7 +52,7 @@ function ProductsOffers({
               </p>
               <ProductCardFooter userSession={userSession} product={p} />
               <LowStockWarning product={p} />
-              <span className="absolute top-1 shadow left-1 bg-red-500 sm:py-1 py-0.5 px-3 rounded-full font-extrabold sm:text-xs text-[10px]">
+              <span className="absolute top-2 shadow left-2 bg-red-100 text-red-500 sm:py-1 py-0.5 px-3 rounded-full font-extrabold sm:text-xs text-[10px]">
                 خصم {discountPercentage || 0}%
               </span>
             </SwiperSlide>
