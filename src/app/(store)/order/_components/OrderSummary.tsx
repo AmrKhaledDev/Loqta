@@ -27,7 +27,7 @@ function OrderSummary({
       {orderSummary.map((s) => (
         <h2
           key={s.id}
-          className="text-sm font-semibold flex items-center gap-2"
+          className="sm:text-sm text-xs font-semibold flex items-center gap-2"
         >
           {s.label}
           <span className="font-semibold text-sm ring ring-gray-50/20 bg-white/5 rounded-full py-1 px-6">
@@ -35,15 +35,15 @@ function OrderSummary({
           </span>
         </h2>
       ))}
-      <div className="flex items-center gap-3">
-        <p>
+      <div className="flex items-center gap-3 flex-wrap">
+        <p className="sm:text-[15px] text-sm">
           المجموع الكُلي
           <span className="text-xs mr-1 font-semibold">
             (شامل الضريبة ومصاريف الشحن)
           </span>
           :
         </p>
-        <span className="font-semibold text-xl ring ring-gray-50/20 bg-white/5 rounded-full py-2 px-6 shadow">
+        <span className="font-semibold shrink-0 sm:text-xl ring ring-gray-50/20 bg-white/5 rounded-full py-2 px-6 shadow">
           {formatCurrency.format(subTotal ? Number(finalTotal) : 0)}
         </span>
       </div>

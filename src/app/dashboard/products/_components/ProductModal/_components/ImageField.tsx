@@ -88,6 +88,7 @@ function ImageField({
           type="file"
           id={fieldNamePrev}
           hidden
+          accept="image/*"
         />
       </div>
       {error && <DashAlertMessage type="error" message={error} />}

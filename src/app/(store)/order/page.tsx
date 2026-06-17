@@ -24,7 +24,7 @@ async function Order() {
         {userSession.userProducts.length > 0 ? (
           <Link
             href={"/cart"}
-            className="ring ring-gray-50/20 flex items-center gap-3 py-3 px-10 hover:bg-white/15 mytransition hover:ring-gray-50/35 rounded-md w-fit font-semibold bg-white/5"
+            className="ring ring-gray-50/20 sm:text-[15px] text-sm flex items-center gap-3 sm:py-3 py-1.5 sm:px-10 px-6 hover:bg-white/15 mytransition hover:ring-gray-50/35 rounded-md w-fit font-semibold bg-white/5"
           >
             تعديل المنتجات <ShoppingBag />
           </Link>
@@ -36,8 +36,8 @@ async function Order() {
             إضافة منتجات <ShoppingBag />
           </Link>
         )}
-        <div className="flex gap-10">
-          <div className="w-150 flex flex-col gap-5">
+        <div className="flex lg:gap-10 gap-5 md:flex-row flex-col">
+          <div className="md:max-w-150 w-full flex flex-col gap-5">
             <Orders userSession={userSession} />
             {userSession.userProducts.length > 0 && (
               <OrderSummary userSession={userSession} />

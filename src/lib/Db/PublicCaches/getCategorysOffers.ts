@@ -24,6 +24,11 @@ export const getCategorysOffers = Cache(
           },
           where: {
             isDeleted: false,
+            isOnSale: true,
+            discountPrice: {
+              not: null,
+              lte: prisma.product.fields.price,
+            },
           },
         },
       },

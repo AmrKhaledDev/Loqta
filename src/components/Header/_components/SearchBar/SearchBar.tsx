@@ -22,7 +22,7 @@ function SearchBar() {
   useEffect(() => {
     if (showSearchBar) {
       setShowSearchBar(false);
-      setSearch("")
+      setSearch("");
     }
   }, [pathname]);
   useEffect(() => {
@@ -60,14 +60,12 @@ function SearchBar() {
           initial={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
           className="fixed inset-0 bg-black/25 backdrop-blur flex justify-center z-55 "
         >
           <motion.div
             initial={{ opacity: 0, y: -100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }} // تعديل هنا
+            transition={{ duration: 0.4, ease: "easeOut" }}
             className="bg-white lg:px-10 sm:px-5 px-2 md:py-7 py-4 h-fit w-full flex justify-center items-center md:gap-6 sm:gap-3 gap-1 boxSearchBar"
           >
             <div className="lg:w-[65%] w-full relative">

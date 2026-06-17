@@ -40,7 +40,7 @@ function OrderForm({ userSession }: { userSession: User }) {
   return (
     <form
       onSubmit={handleSubmit(createOrder)}
-      className="p-5 rounded-2xl h-fit flex-1 shadow-xl flex flex-col gap-5 ring ring-gray-50/20 bg-white/5"
+      className="p-5 rounded-2xl h-fit md:w-150 w-full shadow-xl flex flex-col gap-5 ring ring-gray-50/20 bg-white/5"
     >
       {error && (
         <p className="p-5 bg-red-500 text-red-100 font-semibold">{error}</p>
