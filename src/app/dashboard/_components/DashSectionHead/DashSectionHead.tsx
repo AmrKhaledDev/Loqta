@@ -17,7 +17,7 @@ function DashSectionHead({
     | Dispatch<SetStateAction<Category | null>>;
   title: string;
   buttonName: string;
-  categories: Category[] | [];
+  categories?: Category[] | [];
 }) {
   return (
     <div className="flex items-center justify-between">
