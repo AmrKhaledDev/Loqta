@@ -13,7 +13,9 @@ function SimilarProducts({
 }) {
   return (
     <div className="flex flex-col gap-3">
-      <h2 className="font-semibold text-xl">منتجات مشابهة</h2>
+      <h2 className="font-semibold text-xl w-fit">
+        منتجات مشابهة <span className="w-1/2 bgg-ip rounded-full block h-[2.5px] mt-0.5" />
+      </h2>
       <Products
         singleProduct={singleProduct}
         products={products}

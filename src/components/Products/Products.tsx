@@ -19,7 +19,7 @@ function Products({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
       viewport={{ once: true }}
-      className="grid xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-3 products"
+      className="grid xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 sm:gap-3 gap-1 "
     >
       {products.map(
         (product) =>

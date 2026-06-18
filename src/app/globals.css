@@ -2,8 +2,6 @@
 @import "tailwindcss";
 @import "shadcn/tailwind.css";
 /* ============================================================================ */
-
-
 @custom-variant dark (&:is(.dark *));
 
 @utility mycontainer {
@@ -45,11 +43,6 @@
 @media (max-width: 320px) {
   .header_res {
     justify-content: center;
-  }
-}
-@media (max-width: 360px) {
-  .products {
-    grid-template-columns: repeat(1, 1fr);
   }
 }
 

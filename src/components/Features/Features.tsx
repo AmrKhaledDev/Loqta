@@ -1,4 +1,6 @@
+"use client";
 import { Truck, Headphones, RefreshCcw, ShieldCheck } from "lucide-react";
+import { motion } from "framer-motion";
 // ===============================================================================
 function Features() {
   const features = [
@@ -29,21 +31,35 @@ function Features() {
   ];
   return (
     <section className="flex items-center justify-center flex-col gap-15">
-      <h2 className="font-extrabold text-white lg:text-5xl sm:text-4xl text-3xl">لماذا تختارنا؟</h2>
-      <ul className="flex items-center flex-wrap justify-center md:gap-8 gap-3 text-white">
+      <motion.h2
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="font-extrabold text-white lg:text-5xl sm:text-4xl text-3xl"
+      >
+        لماذا تختارنا؟
+      </motion.h2>
+      <motion.ul
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 lg:gap-5 sm:gap-3 gap-2 text-white"
+      >
         {features.map((feature) => (
           <li
             key={feature.title}
-            className="shadow ring ring-white/30 md:py-10 py-5 md:w-70 w-60 hover:scale-105 bg-white/15 hover:shadow-2xl transition-all duration-150 rounded-2xl flex flex-col lg:gap-4 gap-3 items-center hover:shadow-cyan-600/30"
+            className="shadow ring ring-white/30 md:py-10 py-5 hover:scale-105 bg-white/15 hover:shadow-2xl transition-all duration-150 rounded-2xl flex flex-col lg:gap-4 gap-3 items-center hover:shadow-cyan-600/30"
           >
             <feature.Icon
-              className={`bg-linear-to-r p-3 lg:size-20 size-16 rounded-2xl ${feature.color}`}
+              className={`bg-linear-to-r p-3 lg:size-20 md:size-16 size-13 rounded-2xl ${feature.color}`}
             />
             <h2 className="font-bold lg:text-2xl text-xl">{feature.title}</h2>
-            <p className="max-w-[70%] text-center">{feature.desc}</p>
+            <p className="sm:max-w-[70%] text-gray-300 max-w-[90%] sm:text-[15px] text-sm text-center">
+              {feature.desc}
+            </p>
           </li>
         ))}
-      </ul>
+      </motion.ul>
     </section>
   );
 }

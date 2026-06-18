@@ -20,7 +20,7 @@ function ProductImages({
           alt="product image"
           width={50}
           height={50}
-          className="object-contain size-20 bg-white rounded-lg cursor-pointer"
+          className="object-contain sm:size-20 size-15 bg-white rounded-lg cursor-pointer"
         />
       ))}
     </div>

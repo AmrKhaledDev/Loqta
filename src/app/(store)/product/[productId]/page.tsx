@@ -47,9 +47,10 @@ async function Product({ params }: { params: Promise<{ productId: string }> }) {
               category: true,
               opinions: true,
             },
-            where:{
-              isDeleted:false
-            }
+            where: {
+              isDeleted: false,
+            },
+            take: 10,
           },
         },
       },
