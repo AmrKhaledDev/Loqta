@@ -21,7 +21,7 @@ function OwnerOpinionDetails({ opinion }: { opinion: OpinionDBType }) {
         <h2 className="line-clamp-1 text-xs capitalize font-semibold">
           {opinion.user.name}
         </h2>
-        <p className="text-[10px] text-gray-300 font-normal">{opinion.user.email}</p>
+        <p dir="auto" className="text-[10px] text-gray-300 font-normal line-clamp-1">{opinion.user.email}</p>
       </div>
     </div>
   );

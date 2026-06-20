@@ -19,7 +19,7 @@ function Products_Inventory({
   stagnantProducts: StagnantProduct[];
 }) {
   return (
-    <main className="flex flex-col gap-30">
+    <>
       <KpiCards
         totalInventory={totalInventory}
         productsLowStock={productsLowStock}
@@ -27,7 +27,7 @@ function Products_Inventory({
       />
       <TopProducts topProducts={topProducts} />
       <StagnantProducts stagnantProducts={stagnantProducts} />
-    </main>
+    </>
   );
 }
 

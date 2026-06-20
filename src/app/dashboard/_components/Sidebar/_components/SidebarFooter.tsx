@@ -24,26 +24,26 @@ function SidebarFooter({ userSession }: { userSession: User }) {
     <div className="flex flex-col gap-3">
       <UserBadge userSession={userSession} />
       <Link
-        className="flex items-center font-bold gap-2 group text-gray-400 text-sm w-fit hover:text-white mytransition"
+        className="flex items-center font-bold lg:gap-2 gap-1 group text-gray-400 lg:text-sm text-xs w-fit hover:text-white mytransition"
         href={"/"}
       >
         <CornerDownLeft
           strokeWidth={2.5}
-          className="group-hover:-translate-x-1 mytransition size-5"
+          className="group-hover:-translate-x-1 mytransition lg:size-5 size-4"
         />
         العودة للمتجر
       </Link>
       <button
         disabled={loading}
         onClick={handleSignOut}
-        className="flex text-sm disabled:bg-gray-300 disabled:text-gray-500 not-disabled:hover:scale-105 mytransition not-disabled:active:scale-95 not-disabled:hover:rotate-2 items-center w-full bg-red-500 py-2 rounded-sm shadow justify-center gap-3 font-semibold not-disabled:cursor-pointer"
+        className="flex lg:text-sm text-xs disabled:bg-gray-300 disabled:text-gray-500 not-disabled:hover:scale-105 mytransition not-disabled:active:scale-95 not-disabled:hover:rotate-2 items-center w-full bg-red-500 py-2 rounded-sm shadow justify-center gap-3 font-semibold not-disabled:cursor-pointer"
       >
         {loading ? (
           "جاري تسجيل الخروج . . ."
         ) : (
           <>
             تسجيل الخروج
-            <LogOut className="size-5" />
+            <LogOut className="lg:size-5 size-4" />
           </>
         )}
       </button>

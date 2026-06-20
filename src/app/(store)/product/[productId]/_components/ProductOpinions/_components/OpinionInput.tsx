@@ -24,12 +24,12 @@ function OpinionInput({
         onChange={(e) => onChange(e.target.value)}
         type="text"
         placeholder="اكتب رأيك"
-        className="py-2 flex-1 px-2 outline-none text-white bg-transparent"
+        className=" flex-1 px-2 outline-none text-white bg-transparent sm:text-[15px] text-sm"
       />
       <button
         disabled={disabled}
         onClick={handle}
-        className="ring ring-gray-50/30 disabled:text-gray-300 bg-white/5 py-2 px-6 z-15  not-disabled:cursor-pointer not-disabled:hover:bg-white/15 mytransition text-white"
+        className="ring ring-gray-50/30 h-full sm:text-[15px] text-xs disabled:text-gray-300 bg-white/5 py-2 px-6 z-15  not-disabled:cursor-pointer not-disabled:hover:bg-white/15 mytransition text-white"
       >
         {disabled ? "جاري النشر . . ." : "  نشر"}
       </button>

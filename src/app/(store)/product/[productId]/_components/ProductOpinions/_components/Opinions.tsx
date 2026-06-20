@@ -14,7 +14,7 @@ function Opinions({
 }) {
   const [isEditOpinion, setIsEditOpinion] = useState("");
   return (
-    <ul className="flex flex-col gap-2">
+    <ul className="flex flex-col gap-2 mt-5">
       {opinions.map((opinion) => (
         <OpinionCard
           key={opinion.id}

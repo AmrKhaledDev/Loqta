@@ -36,10 +36,10 @@ function Settings({ userSession }: { userSession: User }) {
   };
   const [openChangePassword, setOpenChangePassword] = useState(false);
   return (
-    <div className="text-white">
+    <div className="text-white w-full">
       <form
         onSubmit={handleSubmit(handleEditProfile)}
-        className="flex flex-col gap-2 sm:w-125 w-full"
+        className="flex flex-col gap-2 w-full"
       >
         {error && <AlertMessage type="error" message={error} />}
         <FormField

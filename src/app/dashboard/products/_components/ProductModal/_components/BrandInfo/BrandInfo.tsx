@@ -40,10 +40,10 @@ function BrandInfo({
   }, [file]);
   return (
     <div className="flex flex-col gap-3 my-2">
-      <h2 className="font-bold text-xl mb-3">معلومات عن الشركة المصنعة</h2>
+      <h2 className="font-bold sm:text-xl mb-3">معلومات عن الشركة المصنعة</h2>
       <div className="flex flex-col gap-2">
         <div className="flex items-center gap-5">
-          <h2>لوجو الشركة المصنعة ( اختياري )</h2>
+          <h2 className="sm:text-[15px] text-sm">لوجو الشركة المصنعة ( اختياري )</h2>
           <SwitchField
             brandLogoIsImage={brandLogoIsImage}
             setValue={setValue}

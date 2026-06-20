@@ -45,8 +45,8 @@ function ImageField({
     <div className="flex flex-col gap-2">
       <div
         className={`
-      ${type === "primary" ? "w-100 h-70" : "w-40 h-30"} 
-      overflow-hidden flex items-center justify-center rounded-xl bg-white/10 shadow ring ring-gray-50/30`}
+      ${type === "primary" ? "md:w-100 w-80 md:h-70 h-50" : "md:w-40 w-25 md:h-30 h-15"} 
+      overflow-hidden flex items-center justify-center md:rounded-xl rounded bg-white/10 shadow ring ring-gray-50/30`}
       >
         {preview ? (
           <div className="w-full h-full relative bg-white">
@@ -79,7 +79,7 @@ function ImageField({
             htmlFor={fieldNamePrev}
             className="p-2 rounded-full bg-white/20 ring ring-gray-50/40 shadow-2xl cursor-pointer hover:scale-105 mytransition active:scale-95"
           >
-            <Upload className={`${type === "primary" ? "size-6" : "size-4"}`} />
+            <Upload className={`${type === "primary" ? "md:size-6 size-4.5" : "md:size-4 size-3"}`} />
           </label>
         )}
 

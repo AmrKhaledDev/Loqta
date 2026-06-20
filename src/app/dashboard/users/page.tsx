@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 async function Users() {
   const users = await getUsers();
   return (
-    <main className="flex flex-col gap-10">
+    <main className="dashSectionStyle">
       <UsersPageContent users={users} />
     </main>
   );

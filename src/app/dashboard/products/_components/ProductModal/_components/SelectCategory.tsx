@@ -21,13 +21,13 @@ function SelectCategory({
       <div className="flex flex-col gap-2">
         <button type="button"
           onClick={() => setDropDown(!dropDown)}
-          className="flex items-center justify-between w-90 py-2 rounded-full cursor-pointer ring ring-cyan-500 px-4 bg-white/10 shadow"
+          className="flex items-center justify-between sm:w-90 w-70 sm:py-2 py-1.5 rounded-full cursor-pointer ring ring-cyan-500 px-4 bg-white/10 shadow"
         >
-          <h2 className={`${category ? "text-slate-100 " : "text-slate-300 "}`}>
+          <h2 className={`sm:text-[15px] text-sm ${category ? "text-slate-100 " : "text-slate-300 "}`}>
             {category ? category.name : "إختر صنف"}
           </h2>
           <ChevronDown
-            className={`text-slate-300 ${dropDown && "rotate-180"} mytransition`}
+            className={`text-slate-300 ${dropDown && "rotate-180"} mytransition sm:size-5 size-4.5`}
           />
         </button>
       </div>

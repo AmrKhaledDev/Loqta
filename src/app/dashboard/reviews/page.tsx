@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 async function Reviews() {
   const opinions = await getOpinions();
   return (
-    <main className="flex flex-col gap-10">
-      <h2 className="font-black text-3xl">إدارة تقييمات العملاء</h2>
+    <main className="dashSectionStyle">
+      <h2 className="dashSectionsHead">إدارة تقييمات العملاء</h2>
       <ReviewsPageContent opinions={opinions} />
     </main>
   );

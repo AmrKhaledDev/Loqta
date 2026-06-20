@@ -11,10 +11,10 @@ function UserImage({ u }: { u: User }) {
           alt="user-image"
           width={50}
           height={50}
-          className="size-12 rounded-full object-cover shrink-0"
+          className="lg:size-12 size-10 rounded-full object-cover shrink-0"
         />
       ) : (
-        <div className="size-10 text-sm mx-auto bg-white/10 rounded-full ring ring-gray-50/20 capitalize text-[17px] font-bold flex flex-col justify-center">
+        <div className="lg:size-10 size-8 lg:text-sm text-xs mx-auto bg-white/10 rounded-full ring ring-gray-50/20 capitalize text-[17px] font-bold flex flex-col justify-center">
           {u.name.slice(0, 1)}
         </div>
       )}

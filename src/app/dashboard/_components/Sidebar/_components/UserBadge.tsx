@@ -10,15 +10,15 @@ function UserBadge({userSession}:{userSession:User}) {
           alt="your image"
           width={50}
           height={50}
-          className="rounded-full shrink-0 size-10 object-cover"
+          className="rounded-full shrink-0 lg:size-10 size-8 object-cover"
         />
       ) : (
-        <div className="size-10 rounded-full bgg-ip font-extrabold text-xl flex items-center justify-center">
+        <div className="lg:size-10 size-8 rounded-full bgg-ip font-extrabold lg:text-xl flex items-center justify-center">
           {userSession.name.slice(0, 1).toUpperCase()}
         </div>
       )}
       <div>
-        <h2 className="text-[16px] font-semibold capitalize line-clamp-1">
+        <h2 className="lg:text-[16px] lg:font-semibold capitalize line-clamp-1">
           {userSession.name}
         </h2>
         <p className="text-xs text-gray-300 line-clamp-1">

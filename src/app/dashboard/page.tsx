@@ -11,6 +11,9 @@ import { getStagnantProducts } from "@/lib/Db/Products_InventoryCaches/getStagna
 import { getTotalAudiences } from "@/lib/Db/AudienceAnalyticsCaches/getTotalAudiences";
 import { getActiveCustomers } from "@/lib/Db/AudienceAnalyticsCaches/getActiveCustomers";
 import { getAccountsWithoutPurchases } from "@/lib/Db/AudienceAnalyticsCaches/getAccountsWithoutPurchases";
+import { getMonthlyRevenueData } from "@/lib/Db/OverviewCaches/getMonthlyRevenueData";
+import { getCategorySalesData } from "@/lib/Db/OverviewCaches/getCategorySalesData";
+import { getRegionSalesData } from "@/lib/Db/AudienceAnalyticsCaches/getRegionSalesData";
 // ========================================================================================
 async function page() {
   // Overview
@@ -18,6 +21,7 @@ async function page() {
   const ordersCount = await getOrdersCount();
   const newCustomers = await getNewCustomers();
   const activeProducts = await getActiveProductsCount();
+  const monthlyRevenueData = await getMonthlyRevenueData();
   // Products & Inventory
   const totalInventory = await getTotalInventory();
   const productsLowStock = await getProductsLowStock();
@@ -28,8 +32,10 @@ async function page() {
   const totalAudiences = await getTotalAudiences();
   const activeCustomers = await getActiveCustomers();
   const accountsWithoutPurchases = await getAccountsWithoutPurchases();
+  const categorySalesData = await getCategorySalesData()
+  const regionSalesData = await getRegionSalesData()
   return (
-    <main className="flex-1 flex flex-col gap-35">
+    <main className="flex-1 flex flex-col lg:gap-35 md:gap-25 sm:gap-20 gap-15">
       <StatisticsContent
         totalSales={totalSales}
         ordersCount={ordersCount}
@@ -43,6 +49,9 @@ async function page() {
         totalAudiences={totalAudiences}
         activeCustomers={activeCustomers}
         accountsWithoutPurchases={accountsWithoutPurchases}
+        monthlyRevenueData={monthlyRevenueData}
+        categorySalesData={categorySalesData}
+        regionSalesData={regionSalesData}
       />
     </main>
   );

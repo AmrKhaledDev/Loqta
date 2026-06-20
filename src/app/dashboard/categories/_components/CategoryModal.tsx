@@ -51,14 +51,14 @@ function CategoryModal({
   };
   return (
     <div className="fixed inset-0 bg-black/10 backdrop-blur z-60 flex items-center justify-center">
-      <div className="bg-white/20 flex flex-col gap-10 w-150 ring ring-gray-50/40 rounded-2xl p-5">
+      <div className="bg-white/20 flex flex-col gap-10 md:w-150 w-[90%] ring ring-gray-50/40 rounded-2xl sm:p-5 p-2">
         <div className="flex items-center justify-between">
-          <h2 className="font-bold text-2xl">
+          <h2 className="font-bold md:text-2xl sm:text-xl">
             {actionType === "edit" ? "تعديل الصنف" : "إضافة صنف جديد"}
           </h2>
           <button
             onClick={() => setAction(null)}
-            className="cursor-pointer p-2 bg-white/10 hover:bg-white/20 mytransition rounded-full"
+            className="cursor-pointer sm:p-2 p-1 bg-white/10 hover:bg-white/20 mytransition rounded-full"
           >
             <X className="size-5" />
           </button>
@@ -73,7 +73,7 @@ function CategoryModal({
               onChange={(e) => setContent(e.target.value)}
               type="text"
               placeholder="اكتب إسم الصنف"
-              className="w-full border border-dashed border-gray-50/20 focus:border-gray-50/40 mytransition focus:bg-white/15 cursor-pointer bg-white/5 rounded-2xl py-3 px-6 outline-none"
+              className="w-full border border-dashed border-gray-50/20 focus:border-gray-50/40 mytransition focus:bg-white/15 cursor-pointer bg-white/5 rounded-2xl sm:py-3 py-2 sm:px-6 px-4 outline-none"
             />
           </div>
           {error && <DashAlertMessage type="error" message={error} />}
@@ -81,7 +81,7 @@ function CategoryModal({
           <button
             onClick={handleSubmit}
             disabled={loading}
-            className="w-full py-3 rounded-2xl flex items-center justify-center shadow not-disabled:cursor-pointer not-disabled:hover:translate-y-1 mytransition not-disabled:bg-cyan-500 disabled:bg-gray-400 font-semibold"
+            className="w-full sm:py-3 py-2 sm:rounded-2xl rounded-xl flex items-center justify-center shadow not-disabled:cursor-pointer not-disabled:hover:translate-y-1 mytransition not-disabled:bg-cyan-500 disabled:bg-gray-400 font-semibold"
           >
             {loading ? <Loader /> : "حفظ الصنف"}
           </button>

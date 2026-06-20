@@ -22,7 +22,7 @@ function Thead({ usersType }: { usersType: "ADMINS" | "USERS" }) {
       <tr>
         {thList.map((t) => (
           <th
-            className="p-3 font-normal text-gray-300 text-sm whitespace-nowrap"
+            className="lg:p-3 p-2 font-normal text-gray-300 lg:text-sm text-xs whitespace-nowrap"
             key={t}
           >
             {t}

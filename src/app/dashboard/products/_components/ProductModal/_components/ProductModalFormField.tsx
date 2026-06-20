@@ -21,7 +21,7 @@ function ProductModalFormField({
 }) {
   return (
     <div className="flex flex-col gap-2">
-      <label className="italic w-fit" htmlFor={id}>
+      <label className="italic w-fit sm:text-[15px] text-xs" htmlFor={id}>
         {label}
       </label>
       <div className="w-full flex flex-col gap-2">
@@ -29,14 +29,14 @@ function ProductModalFormField({
           <textarea
             rows={6}
             {...register(id)}
-            className="p-2 resize-none ring focus:ring-2 ring-cyan-400 outline-none focus:ring-white mytransition cursor-pointer rounded text-white placeholder:text-gray-300"
+            className="p-2 sm:text-[15px] text-sm resize-none ring focus:ring-2 ring-cyan-400 outline-none focus:ring-white mytransition cursor-pointer rounded text-white placeholder:text-gray-300"
             placeholder={placeholder}
             id={id}
           />
         ) : (
           <input
             {...register(id)}
-            className="p-2 ring focus:ring-2 ring-cyan-400 outline-none focus:ring-white mytransition cursor-pointer rounded text-white placeholder:text-gray-300"
+            className="p-2 ring sm:text-[15px] text-sm focus:ring-2 ring-cyan-400 outline-none focus:ring-white mytransition cursor-pointer rounded text-white placeholder:text-gray-300"
             type={type}
             placeholder={placeholder}
             id={id}

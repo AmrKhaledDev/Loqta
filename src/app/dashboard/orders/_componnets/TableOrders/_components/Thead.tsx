@@ -17,7 +17,7 @@ function Thead() {
         {titles.map((title) => (
           <td
             key={title}
-            className="p-3 whitespace-nowrap font-semibold text-gray-300 text-center text-sm"
+            className="lg:p-3 p-2 whitespace-nowrap font-semibold text-gray-300 text-center lg:text-sm text-xs"
           >
             {title}
           </td>

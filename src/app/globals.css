@@ -31,10 +31,19 @@
   @apply sm:size-8 size-6 rounded-full sm:p-2 p-1 bg-white/10 hover:bg-white/20 mytransition ring shadow ring-gray-50/20 flex items-center justify-center cursor-pointer active:scale-97;
 }
 @utility kpiCardDesign{
-  @apply p-5 ring ring-gray-50/10 bg-black/5 shadow-2xl rounded-2xl flex flex-col items-center gap-5
+  @apply xl:p-5 p-3 ring ring-gray-50/10 bg-black/5 shadow-2xl rounded-2xl flex flex-col items-center xl:gap-5 gap-3
 }
 @utility kpiCardIconDesign{
-  @apply bg-black/30 size-12 p-2 rounded-2xl ring ring-gray-50/10 shadow-2xl
+  @apply bg-black/30 xl:size-12 size-10 p-2 rounded-2xl ring ring-gray-50/10 shadow-2xl
+}
+@utility authFormDesign{
+  @apply p-5 ring ring-gray-50/15 bg-white/5 rounded-2xl max-w-110 shadow mx-auto flex flex-col items-center gap-5
+}
+@utility dashSectionsHead{
+  @apply font-black lg:text-3xl sm:text-2xl text-xl
+}
+@utility dashSectionStyle{
+  @apply flex flex-col lg:gap-10 gap-6
 }
 /* Css */
 .toast-font {
@@ -126,27 +135,27 @@
 
 .dark {
   --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
+  --foreground: #d7d4d4;
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
+  --primary: rgb(229, 229, 229);
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
+  --muted-foreground: #d3d1d1;
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
+  --chart-1: #d4d4d4a7;
   --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
+  --chart-3: rgba(82, 82, 82, 0.577);
+  --chart-4: #404040;
   --chart-5: oklch(0.269 0 0);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
@@ -154,7 +163,7 @@
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.269 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-border: #ffffff1a;
   --sidebar-ring: oklch(0.556 0 0);
 }
 

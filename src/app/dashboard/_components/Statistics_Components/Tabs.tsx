@@ -11,12 +11,11 @@ function Tabs({
 }) {
   const tabs = [
     { id: "overview", name: "نظرة عامة" },
-    { id: "sales&revenue", name: "المبيعات و الأرباح" },
     { id: "products&inventory", name: "المنتجات و المخزون" },
     { id: "users&behavior", name: "العملاء والجمهور" },
   ];
   return (
-    <ul className="flex items-center justify-center gap-3">
+    <ul className="flex items-center justify-center gap-3 flex-wrap">
       {tabs.map((tab) => (
         <button
           onClick={() => setActiveTab(tab.id)}

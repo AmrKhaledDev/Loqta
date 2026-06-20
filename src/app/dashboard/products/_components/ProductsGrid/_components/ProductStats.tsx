@@ -10,7 +10,7 @@ function ProductStats({ product }: { product: ProductDbType }) {
   return (
     <div className="w-full flex flex-col gap-2">
       <span className="w-full h-px block bg-white/5 rounded-full" />
-      <div className="flex items-center gap-4">
+      <div className="flex items-center xl:gap-4 gap-2 flex-wrap">
         {stats.map((state) => (
           <span key={state.id} className="text-xs">
             {state.icon}

@@ -41,7 +41,7 @@ function CategoryPageContent({ cates }: { cates: CategoryDbType[] }) {
       {loading ? (
         <CategoryLoading />
       ) : (
-        <ul className="grid grid-cols-4 gap-4">
+        <ul className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 sm:gap-4 gap-2">
           {categories.map((cat: CategoryDbType) => (
             <CategeoryCard
               key={cat.id}

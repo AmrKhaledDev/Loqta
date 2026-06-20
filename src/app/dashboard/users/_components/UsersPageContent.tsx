@@ -33,7 +33,7 @@ function UsersPageContent({ users: usersProps }: { users: UserDashDbType[] }) {
   const users = value && result ? result : usersProps;
   return (
     <>
-      <h2 className="font-black text-3xl">إدارة المستخدمين</h2>
+      <h2 className="dashSectionsHead">إدارة المستخدمين</h2>
       <SearchBar
         placeholder="ابحث بالإيميل أو الإسم"
         value={value}

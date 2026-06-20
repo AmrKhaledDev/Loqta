@@ -17,20 +17,20 @@ function TableOrders({
 }) {
   const [dropDown, setDropDown] = useState("");
   return (
-    <div className="overflow-x-auto rounded-2xl w-full ">
+    <div className="overflow-x-auto md:rounded-2xl sm:rounded-xl rounded w-full ">
       <table className="ring ring-gray-50/10 bg-white/5 w-full">
         <Thead />
         <tbody>
           {orders.map((ord) => (
             <tr key={ord.id} className="text-center">
               <TdTable>
-                <p className="font-extrabold">{ord.order_num} #</p>
+                <p className="font-extrabold sm:text-[15px] text-sm">{ord.order_num} #</p>
               </TdTable>
-              <TdTable>{ord.fullName}</TdTable>
-              <TdTable>{ord.address}</TdTable>
-              <TdTable>{ord.city}</TdTable>
+              <TdTable><p className="lg:text-[15px] sm:text-sm text-xs">{ord.fullName}</p></TdTable>
+              <TdTable><p className="lg:text-[15px] text-xs">{ord.address}</p></TdTable>
+              <TdTable><p className="lg:text-[15px] text-xs">{ord.city}</p></TdTable>
               <TdTable>
-                <p className="font-mono font-semibold text-sm text-gray-200 py-1 px-3 rounded-full bg-white/5">
+                <p className="font-mono font-semibold lg:text-sm text-xs text-gray-200 py-1 px-3 rounded-full bg-white/5">
                   {ord.phone}
                 </p>
               </TdTable>

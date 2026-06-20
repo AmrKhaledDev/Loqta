@@ -6,7 +6,7 @@ function UserTotalSpending({ u }: { u: UserDashDbType }) {
   const totalSpending = u.orders.reduce((acc, ord) => acc + ord.totalPrice, 0);
   return (
     <TdUsersTable>
-      <p className="font-mono font-bold text-green-300">
+      <p className="font-mono font-bold text-green-300 lg:text-[15px] text-sm">
         {formatCurrency.format(totalSpending)}
       </p>
     </TdUsersTable>

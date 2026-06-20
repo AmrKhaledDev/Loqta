@@ -38,7 +38,7 @@ function LoginForm() {
       transition={{ duration: 0.3 }}
       viewport={{ once: true }}
       onSubmit={handleSubmit(submit)}
-      className="p-5 ring ring-gray-50/15 bg-white/5 rounded-2xl max-w-110 shadow mx-auto flex flex-col items-center gap-5"
+      className="authFormDesign"
     >
       <AuthIcon Icon={User} />
       <h1 className="font-semibold md:text-2xl sm:text-xl">تسجيل الدخول</h1>

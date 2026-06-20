@@ -15,7 +15,7 @@ function Rating({
   setHover: Dispatch<SetStateAction<number>>;
 }) {
   return (
-    <div className="flex items-center justify-between border border-gray-50/20 bg-white/5 rounded-md w-70 py-2 px-4">
+    <div className="flex items-center justify-between border border-gray-50/20 bg-white/5 rounded-md sm:w-70 w-50 py-2 px-4">
       <h2 className="text-nowrap text-xs text-gray-300"> التقييم :</h2>
       <div className="flex items-center gap-1">
         {[1, 2, 3, 4, 5].map((star) => (
@@ -27,7 +27,7 @@ function Rating({
             onMouseLeave={()=>setHover(0)}
           >
             <Star
-              className={`size-5 mytransition hover:scale-110 
+              className={`sm:size-5 size-4 mytransition hover:scale-110 
                       ${star <= (hover || rating) && " text-yellow-500 fill-yellow-500"} `}
             />
           </button>

@@ -6,11 +6,11 @@ import ButtonDeleteOpinion from "./ButtonDeleteOpinion";
 // =======================================================================
 function Opinions({ opinions }: { opinions: OpinionDBType[] }) {
   return (
-    <ul className="grid grid-cols-4 gap-3">
+    <ul className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-3">
       {opinions.map((opinion) => (
         <li
           key={opinion.id}
-          className="p-4 bg-black rounded-2xl shadow flex flex-col gap-3"
+          className="lg:p-4 p-2 bg-black rounded-2xl shadow flex flex-col gap-3"
         >
           <ProductOpinioned opinion={opinion} />
           <OwnerOpinionDetails opinion={opinion} />

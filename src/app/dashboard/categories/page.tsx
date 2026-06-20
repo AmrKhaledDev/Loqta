@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 async function Categories() {
   const categories = await getCategoriesDash();
   return (
-    <main className="flex flex-col gap-10">
+    <main className="dashSectionStyle">
       <CategoryPageContent cates={categories} />
     </main>
   );

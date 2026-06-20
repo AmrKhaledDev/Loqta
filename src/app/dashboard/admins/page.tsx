@@ -8,7 +8,7 @@ export const metadata:Metadata = {
 async function AdminsPage() {
   const admins = await getAdmins();
   return (
-    <main className="flex flex-col gap-10">
+    <main className="dashSectionStyle">
       <AdminsPageContent admins={admins} />
     </main>
   );

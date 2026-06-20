@@ -6,7 +6,7 @@ async function Products() {
   const products = await getProducts();
   const categories = await getCategoriesDash()
   return (
-    <main className="flex flex-col gap-10">
+    <main className="dashSectionStyle">
       <ProductsPageContent products={products} categories={categories}/>
     </main>
   );

@@ -38,7 +38,7 @@ function UserActions({ user }: { user: User }) {
       <button
         disabled={loading}
         onClick={handleDelete}
-        className={`mytransition text-red-300 text-sm ring ring-red-900/50 py-1 px-3 rounded-lg
+        className={`mytransition text-red-300 lg:text-sm text-xs ring ring-red-900/50 py-1 px-3 rounded-lg
           ${loading ? "text-red-500" : "bg-red-950/80 hover:scale-103 active:scale-95 hover:shadow-2xl hover:ring-red-900/40 hover:bg-red-950/50 "}
           `}
       >
@@ -48,7 +48,7 @@ function UserActions({ user }: { user: User }) {
       <button
         disabled={activationLoading}
         onClick={handleActivation}
-        className={`mytransition ${user.emailVerified ? "bg-red-950/80 ring-red-900/50 text-red-300" : "bg-green-950/80 ring-green-900/50 text-green-300"} text-sm ring  mr-2 py-1 px-3 rounded-lg  hover:scale-103 active:scale-95 hover:shadow-2xl hover:ring-green-900/40 `}
+        className={`mytransition ${user.emailVerified ? "bg-red-950/80 ring-red-900/50 text-red-300" : "bg-green-950/80 ring-green-900/50 text-green-300"} lg:text-sm text-xs ring  lg:mr-2 mr-1 py-1 px-3 rounded-lg  hover:scale-103 active:scale-95 hover:shadow-2xl hover:ring-green-900/40 `}
       >
         {user.emailVerified
           ? activationLoading

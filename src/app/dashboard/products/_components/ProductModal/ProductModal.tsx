@@ -164,7 +164,7 @@ function ProductModal({
   };
   return (
     <div className="fixed inset-0 bg-black/30 backdrop-blur-xl z-60 flex items-center justify-center">
-      <div className="bg-white/20 boxCreateProduct flex flex-col gap-10 h-170 overflow-y-auto w-250 ring ring-gray-50/40 rounded-2xl p-5">
+      <div className="bg-white/20 boxCreateProduct flex flex-col gap-10 sm:h-170 h-full overflow-y-auto sm:w-250 w-full ring ring-gray-50/40 lg:rounded-2xl sm:p-5 p-3">
         <ModalHead actionType={actionType} setActionType={setActionType} />
         <ProductImages
           setValue={setValue}

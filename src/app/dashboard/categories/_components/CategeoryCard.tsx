@@ -34,14 +34,14 @@ function CategeoryCard({
     },
   ];
   return (
-    <li className="ring ring-gray-50/20 p-4 hover:-translate-y-1 hover:scale-101 mytransition overflow-hidden relative bg-white/5 rounded-2xl flex flex-col items-center gap-2">
+    <li className="ring ring-gray-50/20 xl:p-4 p-2 hover:-translate-y-1 hover:scale-101 mytransition overflow-hidden relative bg-white/5 rounded-2xl flex flex-col items-center gap-2">
       {categoryInfos.map((info) => (
         <h2
           key={info.id}
-          className="flex items-center gap-2 text-gray-400 font-normal"
+          className="flex flex-wrap sm:text-[15px] text-sm items-center gap-2 text-gray-400 font-normal justify-center"
         >
-          {info.label}
-          <span className="font-black text-white">{info.value}</span>
+          {info.label}:
+          <span className="font-black text-white sm:text-[15px] text-sm">{info.value}</span>
         </h2>
       ))}
       <span className="w-full h-px bg-white/5 rounded-full" />
@@ -50,7 +50,7 @@ function CategeoryCard({
           setAction("edit");
           setCategoryEdit(category);
         }}
-        className="bg-white/5 ring ring-gray-50/10 shadow w-full py-3 mt-1 cursor-pointer rounded-2xl text-gray-400 hover:text-white hover:bg-white/10 mytransition font-semibold"
+        className="bg-white/5 ring ring-gray-50/10 shadow w-full py-3 mt-1 cursor-pointer rounded-2xl text-gray-400 hover:text-white sm:text-[15px] text-sm hover:bg-white/10 mytransition font-semibold"
       >
         تعديل الصنف
       </button>

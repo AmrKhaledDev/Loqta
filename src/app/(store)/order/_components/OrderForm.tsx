@@ -40,7 +40,7 @@ function OrderForm({ userSession }: { userSession: User }) {
   return (
     <form
       onSubmit={handleSubmit(createOrder)}
-      className="p-5 rounded-2xl h-fit md:w-150 w-full shadow-xl flex flex-col gap-5 ring ring-gray-50/20 bg-white/5"
+      className="sm:p-5 p-3 rounded-2xl h-fit md:w-150 w-full shadow-xl flex flex-col gap-5 ring ring-gray-50/20 bg-white/5"
     >
       {error && (
         <p className="p-5 bg-red-500 text-red-100 font-semibold">{error}</p>
@@ -72,7 +72,7 @@ function OrderForm({ userSession }: { userSession: User }) {
       />
       <button
         disabled={loading}
-        className="not-disabled:bgg-ip flex items-center disabled:bg-gray-400 gap-5 justify-center py-3 active:scale-96 mytransition rounded shadow not-disabled:cursor-pointer"
+        className="not-disabled:bg-blue-600 font-semibold flex items-center disabled:bg-gray-400 gap-5 justify-center py-3 active:scale-96 mytransition rounded-lg shadow not-disabled:cursor-pointer"
       >
         {loading ? (
           <>

@@ -12,7 +12,6 @@ function OrderSuccessMessage({
 }) {
   const [progress, setProgress] = useState(100);
   const DURATION = 7000;
-
   useEffect(() => {
     if (orderSuccess) {
       const animationTimeout = setTimeout(() => {
@@ -51,7 +50,7 @@ function OrderSuccessMessage({
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4 }}
         viewport={{ once: true }}
-        className="bg-white/10 backdrop-blur boxSuccess ring ring-gray-50/20 relative shadow w-150 flex flex-col items-center justify-center rounded-xl gap-5 py-15 overflow-hidden"
+        className="bg-orange-600 backdrop-blur boxSuccess relative shadow sm:w-150 w-[90%] flex flex-col items-center justify-center rounded-xl gap-5 py-15 overflow-hidden"
       >
         <Image
           src={"/checked.png"}
@@ -59,12 +58,12 @@ function OrderSuccessMessage({
           width={200}
           height={200}
           loading="eager"
-          className="size-30 p-2 bg-white rounded-full shadow animate-pulse"
+          className="md:size-30 sm:size-25 size-20 p-2 bg-white rounded-full shadow animate-pulse"
         />
-        <h2 className="font-black text-4xl text-white">
+        <h2 className="font-black md:text-4xl sm:text-3xl text-2xl text-white">
           تم <span className="text-green-400">نجاح</span> إتمام الطلب
         </h2>
-        <p className="font-semibold text-white">
+        <p className="font-semibold text-white sm:text-[15px] text-sm">
           سيتم الإتصال على الرقم الخاص بك لتأكيد الطلب
         </p>
         <span className="flex items-center gap-2 font-semibold">

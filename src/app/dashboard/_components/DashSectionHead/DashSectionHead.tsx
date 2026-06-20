@@ -21,7 +21,7 @@ function DashSectionHead({
 }) {
   return (
     <div className="flex items-center justify-between">
-      <h2 className="font-black text-3xl">{title}</h2>
+      <h2 className="dashSectionsHead">{title}</h2>
       <button
         onClick={() => {
           if (categories && categories.length < 1)

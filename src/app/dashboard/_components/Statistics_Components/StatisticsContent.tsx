@@ -12,6 +12,8 @@ function StatisticsContent({
   ordersCount,
   newCustomers,
   activeProducts,
+  monthlyRevenueData,
+  categorySalesData,
   // Products & Inventory
   totalInventory,
   productsLowStock,
@@ -22,12 +24,17 @@ function StatisticsContent({
   totalAudiences,
   activeCustomers,
   accountsWithoutPurchases,
+  regionSalesData,
 }: {
   // Overview
   totalSales: number;
   ordersCount: number;
   newCustomers: number;
   activeProducts: number;
+  monthlyRevenueData: {
+    month: string;
+    revenue: number;
+  }[];
   // Products & Inventory
   totalInventory: number;
   productsLowStock: number;
@@ -38,11 +45,16 @@ function StatisticsContent({
   totalAudiences: number;
   activeCustomers: number;
   accountsWithoutPurchases: number;
+  categorySalesData: { name: string; value: number }[];
+  regionSalesData: {
+    name: string;
+    value: number;
+  }[];
 }) {
   const [activeTab, setActiveTab] = useState("overview");
   return (
     <>
-      <div className="flex flex-col gap-15">
+      <div className="flex flex-col lg:gap-15 gap-10">
         <h2 className="font-black text-3xl">الإحصائيات</h2>
         <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
       </div>
@@ -51,7 +63,9 @@ function StatisticsContent({
           totalSales={totalSales}
           ordersCount={ordersCount}
           newCustomers={newCustomers}
+          monthlyRevenueData={monthlyRevenueData}
           activeProducts={activeProducts}
+          categorySalesData={categorySalesData}
         />
       )}
       {activeTab === "products&inventory" && (
@@ -68,6 +82,7 @@ function StatisticsContent({
           totalAudiences={totalAudiences}
           activeCustomers={activeCustomers}
           accountsWithoutPurchases={accountsWithoutPurchases}
+          regionSalesData={regionSalesData}
         />
       )}
     </>

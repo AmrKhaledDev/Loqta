@@ -57,7 +57,7 @@ function DropDown({
         {dropDown !== u.id && (
           <button
             onClick={() => setDropDown((prev) => (prev == u.id ? "" : u.id))}
-            className="flex text-cyan-400 font-bold w-full buttonSelectRole items-center text-xs gap-4 py-1.5 mx-auto px-4  justify-between rounded-lg cursor-pointer bg-white/10 ring ring-gray-50/20"
+            className="flex text-cyan-400 font-bold w-full buttonSelectRole items-center lg:text-xs text-[10px] lg:gap-4 gap-3 lg:py-1.5 py-1 mx-auto px-4  justify-between rounded-lg cursor-pointer bg-white/10 ring ring-gray-50/20"
           >
             {userRole.label || "مستخدم"}
             <ChevronDown className="size-4 text-gray-300 pt-px" />

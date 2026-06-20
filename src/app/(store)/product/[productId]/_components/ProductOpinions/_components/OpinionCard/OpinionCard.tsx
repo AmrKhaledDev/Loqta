@@ -1,12 +1,13 @@
 "use client";
 import { OpinionsDbType } from "@/lib/types/types";
 import { User } from "@prisma/client";
-import { Star } from "lucide-react";
+import { Crown, Star } from "lucide-react";
 import { Dispatch, SetStateAction } from "react";
 import OpinionActions from "./_components/OpinionActions";
 import OpinionImage from "./_components/OpinionImage";
 import BoxEditOpinion from "./_components/BoxEditOpinion";
 import dayjs from "dayjs";
+
 // ==============================================
 function OpinionCard({
   opinion,
@@ -22,15 +23,22 @@ function OpinionCard({
   return (
     <li
       key={opinion.id}
-      className="flex bg-black p-3 rounded-2xl sm:w-150 w-full ring ring-gray-50/10 gap-3 relative"
+      className="flex bg-black p-3 sm:rounded-2xl rounded-lg sm:w-150 w-full ring ring-gray-50/10 gap-3 relative"
     >
       <OpinionImage opinion={opinion} />
       <div className="flex flex-col gap-2 flex-1">
         <div className="flex items-center gap-5 justify-between">
-          <h2 className="text-[17px] capitalize text-white font-bold">
+          <h2 className="text-[17px] capitalize text-white font-semibold flex items-center gap-2">
             {opinion.user.name}
+            {opinion.user.role === "SUPER_ADMIN" && (
+              <i title="مسؤول فائق">
+                <Crown className="size-4 text-[#D4AF37]" />
+              </i>
+            )}
           </h2>
-          <p className="font-mono text-xs font-semibold text-gray-400">{dayjs(opinion.createdAt).format("D/M/YYYY")}</p>
+          <p className="font-mono text-xs font-semibold text-gray-400">
+            {dayjs(opinion.createdAt).format("D/M/YYYY")}
+          </p>
         </div>
         {isEditOpinion === opinion.id ? (
           <BoxEditOpinion
