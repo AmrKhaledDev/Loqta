@@ -10,13 +10,22 @@ function ProductInfo({ product }: { product: ProductDbType }) {
   ];
   return (
     <>
-      <h2 className="font-semibold md:text-4xl sm:text-3xl text-2xl">{product.name}</h2>
+      {product.stock <= product.min_stock && product.stock != 0 && (
+        <p className="font-extrabold text-sm text-red-500">تبقى {product.stock} فقط - اطلبه الآن.</p>
+      )}
+      <h2 className="font-semibold md:text-4xl sm:text-3xl text-2xl">
+        {product.name}
+      </h2>
       <p className="text-gray-200 font-normal">{product.description}</p>
       <p className="text-sm">
         في المخزون : <span className="font-bold">( {product.stock} )</span>
       </p>
       <p className="text-[#47b7e9] font-extrabold text-xl">
-        {formatCurrency.format(product.price)}
+        {formatCurrency.format(
+          product.isOnSale && product.discountPrice
+            ? product.discountPrice
+            : product.price,
+        )}
       </p>
       {infos.map(
         (info) =>
