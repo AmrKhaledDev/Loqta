@@ -28,7 +28,7 @@ function Sidebar({ userSession }: { userSession: User }) {
     <div>
       <button
         onClick={() => setShowSideBar(true)}
-        className="lg:hidden z-100 buttonShowSideBar hover:scale-102 active:scale-95 fixed top-2 right-2 text-white p-2 bgg-ip cursor-pointer rounded-full shadow"
+        className="lg:hidden buttonShowSideBar hover:scale-102 active:scale-95 fixed top-2 right-2 gap-3 text-white p-2 bgg-ip cursor-pointer rounded-full shadow"
       >
         <SquareMenu />
       </button>

@@ -14,6 +14,7 @@ import { getAccountsWithoutPurchases } from "@/lib/Db/AudienceAnalyticsCaches/ge
 import { getMonthlyRevenueData } from "@/lib/Db/OverviewCaches/getMonthlyRevenueData";
 import { getCategorySalesData } from "@/lib/Db/OverviewCaches/getCategorySalesData";
 import { getRegionSalesData } from "@/lib/Db/AudienceAnalyticsCaches/getRegionSalesData";
+import { getUsersCrowthData } from "@/lib/Db/AudienceAnalyticsCaches/getUsersGrowthData";
 // ========================================================================================
 async function page() {
   // Overview
@@ -32,8 +33,9 @@ async function page() {
   const totalAudiences = await getTotalAudiences();
   const activeCustomers = await getActiveCustomers();
   const accountsWithoutPurchases = await getAccountsWithoutPurchases();
-  const categorySalesData = await getCategorySalesData()
-  const regionSalesData = await getRegionSalesData()
+  const categorySalesData = await getCategorySalesData();
+  const regionSalesData = await getRegionSalesData();
+  const usersCrowthData = await getUsersCrowthData();
   return (
     <main className="flex-1 flex flex-col lg:gap-35 md:gap-25 sm:gap-20 gap-15">
       <StatisticsContent
@@ -52,6 +54,7 @@ async function page() {
         monthlyRevenueData={monthlyRevenueData}
         categorySalesData={categorySalesData}
         regionSalesData={regionSalesData}
+        usersCrowthData={usersCrowthData}
       />
     </main>
   );

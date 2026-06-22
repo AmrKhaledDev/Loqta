@@ -6,7 +6,6 @@ import { sendVerificationToken } from "@/lib/email/sendVerificationToken";
 import { generateVerificationToken } from "@/lib/generateVerificationToken";
 import bcrypt from "bcryptjs";
 import z from "zod";
-import { revalidateTag } from "next/cache";
 // ======================================================================
 export const RegisterAction = async (
   data: z.infer<typeof RegisterSchema>,
@@ -67,7 +66,6 @@ export const RegisterAction = async (
           "لم نتمكن من إرسال رمز التحقق إلى بريدك تأكد من الإنترنت أو أعد المحاولة",
       };
     }
-    revalidateTag("users", "");
     return {
       success: true,
       message: "تم إرسال رمز التحقق إلى بريدك الإلكتروني",

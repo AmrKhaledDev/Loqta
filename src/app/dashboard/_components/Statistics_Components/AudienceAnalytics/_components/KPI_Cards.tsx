@@ -52,7 +52,7 @@ function KPI_Cards({
       {KPI_CARDS.map((card) => (
         <li key={card.id} className="kpiCardDesign">
           <card.icon className={`kpiCardIconDesign ${card.textColor}`} />
-          <h2 className="xl:text-xl">{card.title}</h2>
+          <h2 className="xl:text-xl text-center">{card.title}</h2>
           <p className={`${card.textColor} font-extrabold`}>
             ( {card.content} )
           </p>

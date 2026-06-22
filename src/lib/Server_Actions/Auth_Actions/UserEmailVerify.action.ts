@@ -1,5 +1,6 @@
 "use server";
 import { prisma } from "@/lib/prisma";
+import { revalidateTag } from "next/cache";
 import { createHash } from "node:crypto";
 // ===================================================
 export const UserEmailVerifyAction = async (
@@ -45,6 +46,11 @@ export const UserEmailVerifyAction = async (
         },
       });
     });
+    revalidateTag("newCustomers", "");
+    revalidateTag("totalAudiences", "");
+    revalidateTag("accountsWithoutPurchases", "");
+    revalidateTag("usersCrowthData", "");
+    revalidateTag("users", "");
     return {
       success: true,
       message:

@@ -1,31 +1,33 @@
 import { Cache } from "@/lib/Cache/Cache";
 import { months } from "@/lib/data/months";
 import { prisma } from "@/lib/prisma";
-// ==========================================
-export const getMonthlyRevenueData = Cache(
+export const getUsersCrowthData = Cache(
   async () => {
     const currentYear = new Date().getFullYear();
-    const revenueData = await Promise.all(
+    const result = await Promise.all(
       months.map(async (month, index) => {
         const startDate = new Date(currentYear, index, 1);
         const endDate = new Date(currentYear, index + 1, 0, 23, 59, 59);
-        const orderSummary = await prisma.order.aggregate({
-          _sum: {
-            totalPrice: true,
-          },
+        const usersCount = await prisma.user.count({
           where: {
-            status: "DELIVERED",
             createdAt: {
-              gte: startDate,
               lte: endDate,
+              gte: startDate,
+            },
+            emailVerified: true,
+            role: {
+              in: ["SELLER", "USER"],
             },
           },
         });
-        return { month, revenue: orderSummary._sum.totalPrice || 0 };
+        return { month, value: usersCount };
       }),
     );
-    return revenueData;
+    return result;
   },
-  ["monthlyRevenueData"],
-  { revalidate: 3600, tags: ["monthlyRevenueData"] },
+  ["usersCrowthData"],
+  {
+    revalidate: 3600,
+    tags: ["usersCrowthData"],
+  },
 );

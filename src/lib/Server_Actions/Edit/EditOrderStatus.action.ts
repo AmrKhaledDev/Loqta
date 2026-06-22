@@ -113,10 +113,11 @@ export const EditOrderStatusAction = async (
         },
       });
     });
-    revalidateTag("orders", "");
     revalidateTag("products", "");
+    revalidateTag("orders", "");
     revalidateTag("ordersCount", "");
     revalidateTag("totalSales", "");
+    revalidateTag("activeProductsCount", "");
     revalidateTag("inventoryStats", "");
     revalidateTag("productsLowStock", "");
     revalidateTag("productOutOfStock", "");
@@ -124,7 +125,10 @@ export const EditOrderStatusAction = async (
     revalidateTag("stagnantProducts", "");
     revalidateTag("accountsWithoutPurchases", "");
     revalidateTag("activeCustomers", "");
+    revalidateTag("users", "");
     revalidateTag("monthlyRevenueData", "");
+    revalidateTag("categorySalesData", "");
+    revalidateTag("regionSalesData", "");
     return {
       success: true,
       message: `تم تعديل حالة طلب رقم ${currentOrder.order_num} من ${ORDER_STATUS_MAP[oldStatus].label} إلى ${ORDER_STATUS_MAP[newStatus].label}`,

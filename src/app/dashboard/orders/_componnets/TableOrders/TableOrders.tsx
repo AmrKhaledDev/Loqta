@@ -8,14 +8,8 @@ import Link from "next/link";
 import Thead from "./_components/Thead";
 import DropDown from "./_components/DropDown";
 import TdTable from "@/components/TdTable/TdTable";
-import { useState } from "react";
 // =======================================================================================
-function TableOrders({
-  orders,
-}: {
-  orders: OrderDbType[];
-}) {
-  const [dropDown, setDropDown] = useState("");
+function TableOrders({ orders }: { orders: OrderDbType[] }) {
   return (
     <div className="overflow-x-auto md:rounded-2xl sm:rounded-xl rounded w-full ">
       <table className="ring ring-gray-50/10 bg-white/5 w-full">
@@ -24,21 +18,27 @@ function TableOrders({
           {orders.map((ord) => (
             <tr key={ord.id} className="text-center">
               <TdTable>
-                <p className="font-extrabold sm:text-[15px] text-sm">{ord.order_num} #</p>
+                <p className="font-extrabold sm:text-[17px] text-sm">
+                   # {ord.order_num}
+                </p>
               </TdTable>
-              <TdTable><p className="lg:text-[15px] sm:text-sm text-xs">{ord.fullName}</p></TdTable>
-              <TdTable><p className="lg:text-[15px] text-xs">{ord.address}</p></TdTable>
-              <TdTable><p className="lg:text-[15px] text-xs">{ord.city}</p></TdTable>
+              <TdTable>
+                <p className="lg:text-[15px] sm:text-sm text-xs">
+                  {ord.fullName}
+                </p>
+              </TdTable>
+              <TdTable>
+                <p className="lg:text-[15px] text-xs">{ord.address}</p>
+              </TdTable>
+              <TdTable>
+                <p className="lg:text-[15px] text-xs">{ord.city}</p>
+              </TdTable>
               <TdTable>
                 <p className="font-mono font-semibold lg:text-sm text-xs text-gray-200 py-1 px-3 rounded-full bg-white/5">
                   {ord.phone}
                 </p>
               </TdTable>
-              <DropDown
-                dropDown={dropDown}
-                setDropDown={setDropDown}
-                ord={ord}
-              />
+              <DropDown ord={ord} />
               <TdTable>
                 <p className="font-extrabold text-green-400">
                   {formatCurrency.format(ord.totalPrice)}
@@ -56,7 +56,7 @@ function TableOrders({
               </TdTable>
               <TdTable>
                 <Link
-                target="_blank"
+                  target="_blank"
                   href={`/dashboard/orders/${ord.id}`}
                   className="bg-white/10 flex text-gray-400 hover:text-white mytransition group items-center gap-2 ring ring-gray-50/20 font-semibold shadow py-1 px-4 text-xs rounded-full"
                 >

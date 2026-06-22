@@ -11,7 +11,11 @@ export const getCategories = Cache(
         },
       },
       include: {
-        products: true,
+        products: {
+          where: {
+            isDeleted: false,
+          },
+        },
       },
     });
     return data;

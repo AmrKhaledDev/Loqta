@@ -5,7 +5,6 @@ import { generateVerificationToken } from "@/lib/generateVerificationToken";
 import { prisma } from "@/lib/prisma";
 import { LoginSchema } from "@/lib/Zod_Schemas/Auth_Schemas/Login.schema";
 import bcrypt from "bcryptjs";
-import { revalidateTag } from "next/cache";
 import z from "zod";
 // =======================================
 export const LoginAction = async (
@@ -64,9 +63,7 @@ export const LoginAction = async (
       password: validation.data.password,
       redirect: false,
     });
-    revalidateTag("newCustomers", "");
-    revalidateTag("totalAudiences", "");
-    revalidateTag("accountsWithoutPurchases","")
+   
     return { success: true, message: "يتم تسجيل دخولك.  أهلاً بك" };
   } catch (error) {
     console.log(error);

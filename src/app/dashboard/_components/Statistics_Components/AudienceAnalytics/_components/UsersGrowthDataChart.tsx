@@ -1,37 +1,40 @@
 "use client";
-import { formatCurrency } from "@/lib/formates/formatCurrency";
-import { DollarSign } from "lucide-react";
+
+import { TrendingUp } from "lucide-react";
 import {
+  ResponsiveContainer,
   BarChart,
-  Bar,
+  CartesianGrid,
   XAxis,
   YAxis,
-  CartesianGrid,
+  Bar,
   Tooltip,
-  ResponsiveContainer,
 } from "recharts";
-// ======================================================================================================
-export default function RevenueChart({
-  chartData,
+
+function UsersGrowthDataChart({
+  usersCrowthData,
 }: {
-  chartData: { month: string; revenue: number }[];
+  usersCrowthData: {
+    month: string;
+    value: number;
+  }[];
 }) {
+  const year = new Date().getFullYear();
   return (
     <div className="flex flex-col gap-10">
-      <h2 className="sm:text-3xl text-2xl font-extrabold flex items-center gap-3 justify-center">
-        <DollarSign className="sm:size-13 size-11 bg-emerald-50 rounded-full shadow p-2 text-emerald-600" />{" "}
-        أرباح العام الحالي
+      <h2 className="flex items-center gap-3 justify-center sm:text-3xl text-2xl font-extrabold">
+        <TrendingUp className="sm:size-13 size-11 p-2 bg-indigo-50 shadow rounded-full text-indigo-500" />
+        معدل نمو الحسابات
       </h2>
       <div className="w-full overflow-x-auto rounded-2xl shadow bg-white p-5 ">
         <div className="w-full min-w-250 md:h-130 h-110 ">
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={chartData}>
+            <BarChart data={usersCrowthData}>
               <CartesianGrid
-                stroke="#d4d4d4a7"
                 strokeDasharray="2 2"
+                strokeOpacity={0.4}
                 vertical={false}
               />
-              <Bar dataKey="revenue" radius={[10, 10, 0, 0]} fill="orange" />
               <XAxis
                 dataKey="month"
                 axisLine={{
@@ -44,12 +47,10 @@ export default function RevenueChart({
                   stroke: "rgba(226, 232, 240, 0.4)",
                 }}
               />
+              <Bar dataKey="value" fill="orange" radius={[10, 10, 0, 0]} />
               <Tooltip
-                formatter={(value) => [
-                  `${formatCurrency.format(Number(value))}`,
-                  "الأرباح",
-                ]}
-               contentStyle={{
+                formatter={(value) => [`${value}`, "مستخدمين"]}
+                contentStyle={{
                   borderRadius: "10px",
                   backgroundColor: "black",
                 }}
@@ -72,3 +73,5 @@ export default function RevenueChart({
     </div>
   );
 }
+
+export default UsersGrowthDataChart;

@@ -1,10 +1,10 @@
 "use client";
 import Image from "next/image";
 import { formatCurrency } from "@/lib/formates/formatCurrency";
-import { AlertCircle, Trophy } from "lucide-react";
+import {Trophy } from "lucide-react";
 import Link from "next/link";
 import { TopProductType } from "@/lib/types/types";
-import { formatProductsCount } from "@/lib/formates/formatProductsCount";
+import DashWarnMessage from "../../../DashWarnMessage";
 // ===================================================================
 function TopProducts({ topProducts }: { topProducts: TopProductType[] }) {
   return (
@@ -38,7 +38,7 @@ function TopProducts({ topProducts }: { topProducts: TopProductType[] }) {
                 <p className="flex items-center sm:justify-start justify-center flex-wrap md:text-[15px] sm:text-sm text-[16px] xl:gap-2 gap-1 text-gray-300 font-normal">
                   إجمالي الكمية المباعة :
                   <span className="flex items-center justify-center xl:text-[15px] text-xs py-1 px-3 text-white ring ring-gray-50/10  font-semibold bg-black/10 rounded-full shadow">
-                    {formatProductsCount(item.totalQty)}
+                    {item.totalQty}
                   </span>
                 </p>
                 <p className="flex items-center flex-wrap gap-2 sm:justify-start justify-center text-gray-300 font-normal md:text-[15px] sm:text-sm text-[16px]">
@@ -52,10 +52,7 @@ function TopProducts({ topProducts }: { topProducts: TopProductType[] }) {
           ))}
         </ul>
       ) : (
-        <p className="text-yellow-600 flex items-center gap-2 border border-yellow-600 mx-auto font-semibold w-fit px-10 rounded-sm text-xs py-1.5 text-center">
-          <AlertCircle className="size-4.5" />
-         لا يوجد منتجات حالياً
-        </p>
+        <DashWarnMessage message="لا يوجد منتجات حالياً" />
       )}
     </div>
   );

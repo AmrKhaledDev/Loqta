@@ -23,7 +23,7 @@ function FilterButtons({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
       viewport={{ once: true }}
-      className="flex items-center justify-center sm:gap-2 gap-1.5 flex-wrap"
+      className="flex items-center justify-center sm:gap-2 gap-1 flex-wrap"
     >
       <button
         title="الكل"

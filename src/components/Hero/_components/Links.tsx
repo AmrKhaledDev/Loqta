@@ -17,7 +17,7 @@ function Links() {
         title="تسوق الآن"
         className="flex sm:text-[15px] text-xs items-center gap-2 w-fit bg-indigo-500 sm:py-3 py-2 sm:px-6 px-5 rounded-md font-semibold shadow hover:scale-105 active:scale-95 mytransition"
       >
-        تسوق الآن <ShoppingCart className="md:size-6 size-4.5"/>
+        <ShoppingCart className="md:size-6 size-4.5" /> تسوق الآن
       </Link>
       <Link
         href={"/offers"}

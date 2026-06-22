@@ -25,7 +25,7 @@ function OrderDetails({ currentOrder }: { currentOrder: OrderDbType }) {
       </P>
       <P>
         إجمالي سعر الطلب :
-        <span className="font-extrabold text-green-400 rounded-full text-2xl">
+        <span className="font-extrabold text-green-400 rounded-full sm:text-2xl text-xl">
           {formatCurrency.format(Number(currentOrder.totalPrice))}
         </span>
       </P>
@@ -39,7 +39,7 @@ export default OrderDetails;
 
 function P({ children }: { children: React.ReactNode }) {
   return (
-    <p className="font-normal text-gray-300 flex items-center gap-2">
+    <p className="font-normal text-gray-300 flex items-center gap-2 sm:text-[15px] text-sm">
       {children}
     </p>
   );

@@ -25,6 +25,7 @@ function StatisticsContent({
   activeCustomers,
   accountsWithoutPurchases,
   regionSalesData,
+  usersCrowthData,
 }: {
   // Overview
   totalSales: number;
@@ -48,6 +49,10 @@ function StatisticsContent({
   categorySalesData: { name: string; value: number }[];
   regionSalesData: {
     name: string;
+    value: number;
+  }[];
+  usersCrowthData: {
+    month: string;
     value: number;
   }[];
 }) {
@@ -83,6 +88,7 @@ function StatisticsContent({
           activeCustomers={activeCustomers}
           accountsWithoutPurchases={accountsWithoutPurchases}
           regionSalesData={regionSalesData}
+          usersCrowthData={usersCrowthData}
         />
       )}
     </>
