@@ -7,7 +7,7 @@ export const CreateProductSchema = z
       .trim()
       .nonempty({ message: "إسم المنتج مطلوب" })
       .min(5, { message: "إسم المنتج قصير للغاية" })
-      .max(70, { message: "إسم المنتج طويل للغاية" }),
+      .max(200, { message: "إسم المنتج طويل للغاية" }),
     price: z.string().trim().nonempty({ message: "سعر المنتج مطلوب" }),
     stock: z
       .string()
