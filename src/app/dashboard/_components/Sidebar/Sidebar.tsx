@@ -33,7 +33,7 @@ function Sidebar({ userSession }: { userSession: User }) {
         <SquareMenu />
       </button>
       <div
-        className={`lg:p-5 p-3 mytransition sideBar text-white shrink-0 z-50 ring lg:right-0  backdrop-blur-2xl ring-gray-50/20 bg-white/5 flex flex-col gap-3 justify-between lg:w-70 w-60 h-screen lg:sticky fixed top-0
+        className={`lg:p-5 p-3 mytransition sideBar text-white shrink-0 z-50 ring lg:right-0  backdrop-blur ring-gray-50/10 bg-black/20 flex flex-col gap-3 justify-between lg:w-70 w-60 h-screen lg:sticky fixed top-0
         ${showSideBar ? "right-0" : "-right-100"}
         `}
       >
