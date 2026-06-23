@@ -39,5 +39,5 @@ Ensure you have Node.js (v18+) and a PostgreSQL instance running.
 
 1. Clone the repository:
 ```bash
-   git clone [https://github.com/your-username/laqta-store.git](https://github.com/your-username/laqta-store.git)
+   git clone [https://github.com/AmrKhaledDev/Loqta.git](https://github.com/AmrKhaledDev/Loqta.git)
    cd laqta-store
