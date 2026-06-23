@@ -1,7 +1,13 @@
 import Link from "next/link";
 import { CheckCircle2, ShoppingBag, ArrowRight, XCircle } from "lucide-react";
 import { UserEmailVerifyAction } from "@/lib/Server_Actions/Auth_Actions/UserEmailVerify.action";
+import { Metadata } from "next";
 // ======================================================================================
+export const metadata: Metadata = {
+  title: "لُقطة | التحقق من بريدك",
+  description:
+    "تأكيد وتفعيل حسابك الشخصي؛ جاري التحقق من الرابط لتأمين بريدك الإلكتروني والبدء في استخدام كافة مميزات المتجر فوراً.",
+};
 async function Page({
   params,
 }: {
@@ -32,7 +38,8 @@ async function Page({
             href={"/login"}
             className="flex items-center md:text-[15px] text-sm hover:bg-slate-600 mytransition gap-4 py-3 w-full justify-center md:rounded-xl rounded-lg bg-slate-900 shadow text-white"
           >
-            تسجيل الدخول إلى المتجر <ShoppingBag className="md:size-5.5 size-5"/>
+            تسجيل الدخول إلى المتجر{" "}
+            <ShoppingBag className="md:size-5.5 size-5" />
           </Link>
           <Link
             href={"/"}

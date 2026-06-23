@@ -4,6 +4,7 @@ import { Metadata } from "next";
 // ============================================================
 export const metadata:Metadata = {
   title:"لُقطة | إدارة المسؤولين",
+  description:"إدارة طاقم العمل والصلاحيات؛ إضافة وتعديل حسابات المدراء والمشرفين، وتحديد الأدوار والمسؤوليات لكل مستخدم لضمان أمان وحوكمة النظام."
 }
 async function AdminsPage() {
   const admins = await getAdmins();

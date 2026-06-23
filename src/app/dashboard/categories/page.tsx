@@ -3,7 +3,9 @@ import CategoryPageContent from "./_components/CategoryPageContent";
 import { getCategoriesDash } from "@/lib/Db/PublicCaches/getCategoriesDash";
 // ================================================
 export const metadata: Metadata = {
-  title: "لُقطة | لوحة التحكم | الأصناف",
+  title: "لُقطة | الأصناف",
+  description:
+    "إضافة وتعديل الفئات، وترتيبها لتسهيل عملية تصفح المتجر والوصول السريع للمنتجات.",
 };
 async function Categories() {
   const categories = await getCategoriesDash();

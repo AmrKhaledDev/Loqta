@@ -1,5 +1,11 @@
+import { Metadata } from "next";
 import FormResetPassword from "./_components/FormResetPassword";
 // =====================================================
+export const metadata: Metadata = {
+  title: "لُقطة | تغيير كلمة السر",
+  description:
+    "تحديث وتأمين حسابك الشخصي؛ تغيير كلمة المرور الحالية بكلمة جديدة قوية، لتعزيز أمان الحساب وحمايته من الوصول غير المصرح به.",
+};
 async function ResetPassword({
   params,
 }: {

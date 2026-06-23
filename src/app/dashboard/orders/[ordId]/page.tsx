@@ -2,7 +2,27 @@ import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import OrderStatus from "./_components/OrderStatus";
 import OrderDetails from "./_components/OrderDetails";
+import { Metadata } from "next";
+import { ORDER_STATUS_MAP } from "@/lib/data/OrderStatusMap";
 // =====================================================
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ ordId: string }>;
+}): Promise<Metadata> {
+  const { ordId } = await params;
+  if (!ordId) return { title: "هذا الطلب غير موجود" };
+  const orderDB = await prisma.order.findUnique({
+    where: {
+      id: ordId,
+    },
+  });
+  if (!orderDB) return { title: "هذا الطلب غير موجود" };
+  return {
+    title: `طلب رقم: #${orderDB.order_num}`,
+    description: `طلب رقم: #${orderDB.order_num}, حالة الطلب: ${ORDER_STATUS_MAP[orderDB.status].label}`,
+  };
+}
 async function SingleOrder({ params }: { params: Promise<{ ordId: string }> }) {
   const { ordId } = await params;
   if (!ordId) return redirect("/dashboard/orders");

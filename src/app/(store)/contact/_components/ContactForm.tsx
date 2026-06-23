@@ -4,6 +4,7 @@ import ContactFormField from "./ContactFormField";
 import ContactHead from "./ContactHead";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
+import { AlertCircle } from "lucide-react";
 // ===================================================
 function ContactForm() {
   const {
@@ -25,6 +26,9 @@ function ContactForm() {
     >
       <ContactHead />
       <div className="flex flex-col gap-4">
+        <p className="flex items-center gap-1 text-xs text-yellow-600 p-1.5 font-semibold ring rounded justify-center">
+          <AlertCircle className="size-4" /> سيتم تفعيل التواصل في أقرب وقت ممكن
+        </p>
         {inputs.map((field) => (
           <ContactFormField
             key={field.id}
@@ -37,7 +41,10 @@ function ContactForm() {
           />
         ))}
       </div>
-      <button className="py-4 bg-white/15 hover:bg-white/25 mytransition hover:ring-gray-50/50 ring ring-gray-50/40 font-semibold shadow rounded-lg cursor-pointer">
+      <button
+        disabled={true}
+        className="py-4 bg-white/15 not-disabled:hover:bg-white/25 mytransition hover:ring-gray-50/50 ring ring-gray-50/40 font-semibold shadow rounded-lg not-disabled:cursor-pointer"
+      >
         إرسال الرسالة
       </button>
     </motion.form>

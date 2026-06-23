@@ -15,7 +15,13 @@ import { getMonthlyRevenueData } from "@/lib/Db/OverviewCaches/getMonthlyRevenue
 import { getCategorySalesData } from "@/lib/Db/OverviewCaches/getCategorySalesData";
 import { getRegionSalesData } from "@/lib/Db/AudienceAnalyticsCaches/getRegionSalesData";
 import { getUsersCrowthData } from "@/lib/Db/AudienceAnalyticsCaches/getUsersGrowthData";
+import { Metadata } from "next";
 // ========================================================================================
+export const metadata: Metadata = {
+  title: "لُقطة | الإحصائيات",
+  description:
+    "نظرة شاملة وسريعة على أداء المنصة؛ تعرض مؤشرات الأداء الرئيسية والرسوم البيانية لمتابعة المبيعات، نمو المستخدمين، ونشاط النظام في الوقت الفعلي.",
+};
 async function page() {
   // Overview
   const totalSales = await getTotalSales();

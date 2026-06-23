@@ -1,6 +1,12 @@
 import { getOrders } from "@/lib/Db/PublicCaches/getOrders";
 import OrdersPageContent from "./_componnets/OrdersPageContent";
+import { Metadata } from "next";
 // ========================================================================
+export const metadata: Metadata = {
+  title: "لُقطة | الطلبات",
+  description:
+    "إدارة العمليات والطلبات الواردة، وتحديث حالات الشحن والدفع، مع متابعة تفاصيل الفواتير وبيانات العملاء أولاً بأول.",
+};
 async function Orders() {
   const orders = await getOrders();
   return (

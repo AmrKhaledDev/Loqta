@@ -4,9 +4,14 @@ import { ProductDbType } from "@/lib/types/types";
 import { GetUserSession } from "@/lib/Sessions/GetUserSession";
 import Products from "@/components/Products/Products";
 import Link from "next/link";
-import Image from "next/image";
 import { redirect } from "next/navigation";
-// ==============================================
+import { Metadata } from "next";
+// ==========================================================
+export const metadata: Metadata = {
+  title: "لُقطة | نتائج البحث",
+  description:
+    "استعراض وتصفية نتائج البحث؛ عرض كافة المنتجات المطابقة لعلامات البحث الخاصة بك، مع توفير خيارات بديلة وتوصيات مخصصة في حال عدم توفر نتائج دقيقة.",
+};
 async function Search({
   searchParams,
 }: {
@@ -39,7 +44,7 @@ async function Search({
             },
           },
         ],
-        isDeleted:false
+        isDeleted: false,
       },
       take: 9,
       include: {
@@ -65,7 +70,9 @@ async function Search({
         ) : (
           <div className="flex flex-col gap-10 items-center h-[80vh] justify-center">
             <div className="flex flex-col gap-5 items-center">
-              <h2 className="lg:text-4xl md:text-3xl text-2xl font-bold">لم يتم العثور على نتائج</h2>
+              <h2 className="lg:text-4xl md:text-3xl text-2xl font-bold">
+                لم يتم العثور على نتائج
+              </h2>
               <p className="text-gray-300 font-normal sm:text-[17px] text-sm">
                 لم نجد ما يطابق بحثك، جرب كلمات أخرى
               </p>
