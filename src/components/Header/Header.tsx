@@ -27,6 +27,7 @@ async function Header() {
             alt="logo"
             width={80}
             height={80}
+            priority
             className="sm:w-18 w-12 sm:h-14 h-10"
           />
         </Link>

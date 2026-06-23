@@ -46,14 +46,15 @@ function Hero() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="w-fit h-fit rounded-3xl overflow-hidden"
+          className="rounded-3xl overflow-hidden lg:w-100 sm:w-140 w-full sm:min-h-50 h-130 relative"
         >
           <Image
             src={"/hero-bg.jpg"}
             alt="hero"
-            width={400}
-            height={400}
-            className="lg:w-100 sm:w-140 w-full sm:min-h-50 h-130 object-cover"
+            priority
+            fill
+            className="object-cover"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 560px, 400px"
           />
         </motion.div>
       </div>

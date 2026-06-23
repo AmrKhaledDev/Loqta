@@ -24,13 +24,18 @@ function ProductCard({
   }
 
   return (
-    <div title={product.name} className="sm:p-5 relative p-2 rounded-2xl shadow-xl flex flex-col justify-between sm:gap-3 gap-2 ring ring-gray-50/20 bg-white/5 hover:shadow-2xl hover:scale-102 mytransition">
+    <div
+      title={product.name}
+      className="sm:p-5 relative p-2 rounded-2xl shadow-xl flex flex-col justify-between sm:gap-3 gap-2 ring ring-gray-50/20 bg-white/5 hover:shadow-2xl hover:scale-102 mytransition"
+    >
       <div className="relative aspect-square bg-white rounded-2xl overflow-hidden">
         <Image
           src={product.productImages[0].image}
           alt={product.name}
           fill
           className="object-contain"
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+          priority
         />
       </div>
       <Link
@@ -44,7 +49,7 @@ function ProductCard({
       </p>
       <ProductCardFooter userSession={userSession} product={product} />
       <LowStockWarning product={product} />
-      {product.stock > 0 && product.isOnSale &&  (
+      {product.stock > 0 && product.isOnSale && (
         <span className="absolute top-2 shadow right-2 bg-red-100 text-red-500 py-1 sm:px-3 px-2 rounded-full font-extrabold sm:text-xs text-[10px]">
           خصم {discountPercentage}%
         </span>
