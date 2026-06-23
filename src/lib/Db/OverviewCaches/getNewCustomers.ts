@@ -11,9 +11,7 @@ export const getNewCustomers = Cache(
           gte: thirtyDaysAgo,
         },
         emailVerified: true,
-        role: {
-          in: ["USER", "SELLER"],
-        },
+        role:"USER",
         orders: {
           some: {},
         },

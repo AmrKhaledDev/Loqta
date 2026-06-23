@@ -74,13 +74,13 @@ function ProductDetails({
             <button
               disabled={loading}
               onClick={handle}
-              className="py-2 not-disabled:bgg-ip disabled:bg-gray-400 select-none rounded not-disabled:cursor-pointer flex items-center gap-2 justify-center font-semibold"
+              className="py-3 not-disabled:bg-linear-to-r hover:shadow-xl mytransition from-blue-500 to-blue-600 not-disabled:shadow-none shadow-blue-500/15 disabled:bg-gray-400 select-none rounded-xl not-disabled:cursor-pointer flex items-center gap-2 justify-center font-semibold"
             >
               {loading ? (
                 <Loader />
               ) : (
                 <>
-                  أضف الى العربة <ShoppingBag />
+                  <ShoppingBag /> أضف الى العربة
                 </>
               )}
             </button>

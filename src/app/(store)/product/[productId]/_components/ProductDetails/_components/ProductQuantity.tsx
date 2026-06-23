@@ -27,12 +27,12 @@ function ProductQuantity({
               prev >= product.stock ? product.stock : (prev += 1),
             );
           }}
-          className="ring cursor-pointer mytransition hover:scale-105 active:scale-95 ring-gray-50/20 bg-white/5 rounded p-1"
+          className="ring cursor-pointer mytransition hover:scale-105 active:scale-95 shadow ring-gray-50/10 bg-white/5 rounded-full p-1"
         />
-        <span className="select-none">{quantity}</span>
+        <span className="select-none font-extrabold">{quantity}</span>
         <Minus
           onClick={() => setQuantity((prev) => (prev == 1 ? 1 : prev - 1))}
-          className="ring cursor-pointer mytransition hover:scale-105 active:scale-95 ring-gray-50/20 bg-white/5 rounded p-1"
+          className="ring cursor-pointer mytransition hover:scale-105 active:scale-95 shadow ring-gray-50/10 bg-white/5 rounded-full p-1"
         />
       </div>
     </div>

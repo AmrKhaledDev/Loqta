@@ -5,9 +5,7 @@ export const getUsers = Cache(
   async () => {
     const data = await prisma.user.findMany({
       where: {
-        role: {
-          in: ["USER", "SELLER"],
-        },
+        role: "USER"
       },
       include: {
         orders: {

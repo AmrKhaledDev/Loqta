@@ -85,7 +85,8 @@ export const DeleteProductAction = async (
             data: {
               status: "CANCELLED",
               isCanceled: true,
-              cancelReason: `تم إزالة هذا الطلب بسبب أنه تم حذف منتج ( ${product.name} ) من المتجر`,
+              cancelReason:
+                "عميلنا العزيز، نعتذر منك بشدة لإلغاء طلبك، وذلك لعدم توفر بعض المنتجات المطلوبة في مستودعاتنا حالياً. تم تحديث المتجر وسنسعد بخدمتك في طلب آخر.",
             },
           });
         }

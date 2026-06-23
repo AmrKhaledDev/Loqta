@@ -11,9 +11,7 @@ export const getAccountsWithoutPurchases = Cache(
           },
         },
         emailVerified: true,
-        role: {
-          in: ["SELLER", "USER"],
-        },
+        role: "USER"
       },
     });
     return accounts;

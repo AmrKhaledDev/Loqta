@@ -15,7 +15,14 @@ async function Profile() {
     where: {
       userId: userSession.id,
       status: {
-        in: ["PENDING", "SHIPPED", "CONFIRMED","CANCELLED","NO_ANSWER","REFUNDED"],
+        in: [
+          "PENDING",
+          "SHIPPED",
+          "CONFIRMED",
+          "CANCELLED",
+          "NO_ANSWER",
+          "REFUNDED",
+        ],
       },
     },
     include: {
@@ -28,6 +35,9 @@ async function Profile() {
           },
         },
       },
+    },
+    orderBy: {
+      createdAt: "desc",
     },
   });
   const PurchasedOrders = await prisma.order.findMany({
@@ -45,6 +55,9 @@ async function Profile() {
           },
         },
       },
+    },
+    orderBy: {
+      createdAt: "desc",
     },
   });
   return (

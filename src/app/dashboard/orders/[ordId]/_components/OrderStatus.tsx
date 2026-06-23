@@ -36,15 +36,18 @@ function OrderStatus({ currentOrder }: { currentOrder: OrderDbType }) {
   };
   return (
     <div className="flex items-center sm:gap-3 gap-1.5">
-      <p className="font-normal text-gray-300 md:text-[15px] sm:text-sm text-xs">حالة الطلب :</p>
+      <p className="font-normal text-gray-300 md:text-[15px] sm:text-sm text-xs">
+        حالة الطلب :
+      </p>
       <div className="relative">
         <button
+          disabled={currentOrder.isCanceled}
           onClick={() => setDropDown(!dropDown)}
-          className="flex buttonDropDown group items-center sm:gap-5 gap-3 ring font-semibold sm:text-sm text-xs shadow text-cyan-400 ring-gray-50/20 px-3 justify-between bg-white/10 py-2 sm:w-37 w-30 rounded-full cursor-pointer"
+          className={`flex ${currentOrder.isCanceled ? "text-red-400 ring-gray-50/10 bg-white/5" : "text-cyan-400 cursor-pointer ring-gray-50/20 bg-white/10 group"} buttonDropDown items-center sm:gap-5 gap-3 ring font-semibold sm:text-sm text-xs shadow  px-3 justify-between py-2 sm:w-37 w-30 rounded-full `}
         >
           {ORDER_STATUS_MAP[currentOrder.status].label}
           <ChevronDown
-            className={`sm:size-5 size-4 group-hover:translate-y-px block mytransition ${dropDown && "rotate-180"} mytransition`}
+            className={` sm:size-5 size-4 group-hover:translate-y-px block mytransition ${dropDown && "rotate-180"} mytransition`}
           />
         </button>
         {dropDown && (

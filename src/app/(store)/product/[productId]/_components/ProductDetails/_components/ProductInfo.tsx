@@ -20,7 +20,7 @@ function ProductInfo({ product }: { product: ProductDbType }) {
       <p className="text-sm">
         في المخزون : <span className="font-bold">( {product.stock} )</span>
       </p>
-      <p className="text-[#47b7e9] font-extrabold text-xl">
+      <p className="text-emerald-400 font-extrabold text-2xl">
         {formatCurrency.format(
           product.isOnSale && product.discountPrice
             ? product.discountPrice
@@ -30,9 +30,9 @@ function ProductInfo({ product }: { product: ProductDbType }) {
       {infos.map(
         (info) =>
           info.des && (
-            <p key={info.id} className="flex items-center gap-2 flex-wrap">
+            <p key={info.id} className="flex items-center gap-2 flex-wrap text-sm text-gray-200">
               {info.name} :
-              <span className="font-bold text-sm bg-clip-text bg-linear-to-r from-pink-300 to-indigo-300 text-transparent">
+              <span className="font-bold text-sm bg-clip-text text-cyan-400">
                 {info.des}
               </span>
             </p>

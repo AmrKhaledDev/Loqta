@@ -16,15 +16,16 @@ export const CreateOrderAction = async (
     const userSession = await GetUserSession();
     if (!userSession)
       return { success: false, message: "فشل انشاء طلبك تأكد من تسجيل دخولك" };
-    if (userSession.role === "ADMIN")
-      return {
-        success: false,
-        message: "يتعذر إنشاء طلبك حسابك حساب مسؤول ",
-      };
     if (!userSession.emailVerified)
       return {
         success: false,
         message: "فشل إنشاء طلبك برجاء تفعيل حسابك أولاً",
+      };
+    if (userSession.role === "ADMIN")
+      return {
+        success: false,
+        message:
+          "عذراً، الحسابات الإدارية مخصصة لإدارة المنصة فقط ولا يمكنها إجراء عمليات شراء أو إضافة منتجات.",
       };
     const userProducts = await prisma.userProduct.findMany({
       where: {
@@ -56,7 +57,7 @@ export const CreateOrderAction = async (
         },
       },
     });
-    if (userSession.role !== "SELLER" && userOrdersPendding >= 2)
+    if (userOrdersPendding >= 2)
       return {
         success: false,
         message: "برجاء إنتظار طلباتك السابقة قبل إتمام طلب جديد",
@@ -69,19 +70,17 @@ export const CreateOrderAction = async (
       };
 
     const totalQuantity = userProducts.reduce((acc, p) => acc + p.quantity, 0);
-    if (userSession.role !== "SELLER" && totalQuantity > 10)
+    if (totalQuantity > 10)
       return {
         success: false,
         message: "عذراً، لا يمكنك طلب أكثر من 10 قطع في الأوردر الواحد.",
       };
-    if (userSession.role !== "SELLER") {
-      for (const p of userProducts) {
-        if (p.quantity > 2)
-          return {
-            success: false,
-            message: "عذراً لا يمكنك طلب أكثر من قطعتين للمنتج الواحد",
-          };
-      }
+    for (const p of userProducts) {
+      if (p.quantity > 2)
+        return {
+          success: false,
+          message: "عذراً لا يمكنك طلب أكثر من قطعتين للمنتج الواحد",
+        };
     }
     const subtotal = userProducts.reduce(
       (acc, p) => acc + p.priceAtAdd * p.quantity,
@@ -151,7 +150,7 @@ export const CreateOrderAction = async (
     revalidateTag("users", "");
     revalidateTag("monthlyRevenueData", "");
     revalidateTag("categorySalesData", "");
-    revalidateTag("regionSalesData","")
+    revalidateTag("regionSalesData", "");
     return {
       success: true,
       message: "تم إنشاء طلبك بنجاح سيتم توصيله إليك في أسرع وقت",

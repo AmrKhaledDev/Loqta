@@ -11,9 +11,7 @@ export const getActiveCustomers = Cache(
             status: "DELIVERED",
           },
         },
-        role: {
-          in: ["USER", "SELLER"],
-        },
+        role:"USER"
       },
     });
     return customers;

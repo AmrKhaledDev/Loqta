@@ -13,7 +13,7 @@ export const CreateUserProductAction = async (
     const [user, product] = await Promise.all([
       prisma.user.findUnique({
         where: { id: userId },
-        select: { id: true, emailVerified: true },
+        select: { id: true, emailVerified: true, role: true },
       }),
       prisma.product.findUnique({
         where: { id: productId },
@@ -31,7 +31,17 @@ export const CreateUserProductAction = async (
     if (!product) return { success: false, message: "المنتج غير موجود" };
     if (!user.emailVerified)
       return { success: false, message: "برجاء تفعيل حسابك أولاً" };
-    if(product.isDeleted) return {success:false,message:"تم حذف هذا المنتج من المتجر لا يمكنك إضافته"}
+    if (user.role === "ADMIN")
+      return {
+        success: false,
+        message:
+          "عذراً، الحسابات الإدارية مخصصة لإدارة المنصة فقط ولا يمكنها إجراء عمليات شراء أو إضافة منتجات.",
+      };
+    if (product.isDeleted)
+      return {
+        success: false,
+        message: "تم حذف هذا المنتج من المتجر لا يمكنك إضافته",
+      };
     if (product.stock < quantity)
       return {
         success: false,

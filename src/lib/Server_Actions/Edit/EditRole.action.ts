@@ -4,7 +4,7 @@ import { GetUserSession } from "@/lib/Sessions/GetUserSession";
 import { revalidateTag } from "next/cache";
 // ============================================
 export const EditRoleAction = async (
-  role: "ADMIN" | "USER" | "SELLER",
+  role: "ADMIN" | "USER" ,
   userId: string,
 ): Promise<{
   success: boolean;

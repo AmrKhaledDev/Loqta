@@ -15,9 +15,7 @@ export const getUsersCrowthData = Cache(
               gte: startDate,
             },
             emailVerified: true,
-            role: {
-              in: ["SELLER", "USER"],
-            },
+            role:"USER"
           },
         });
         return { month, value: usersCount };

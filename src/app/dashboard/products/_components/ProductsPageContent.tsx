@@ -6,7 +6,7 @@ import SearchBar from "../../_components/SearchBar/SearchBar";
 import ProductsGrid from "./ProductsGrid/ProductsGrid";
 import ProductModal from "./ProductModal/ProductModal";
 import axios from "axios";
-import ProductLoading from "./ProductLoading";
+import FilterButtons from "./FilterButtons";
 // =================================================
 function ProductsPageContent({
   products,
@@ -15,6 +15,7 @@ function ProductsPageContent({
   products: ProductDbType[];
   categories: CategoryDbType[];
 }) {
+  const [activeTab, setActiveTab] = useState("all");
   const [editProduct, setEditProduct] = useState<ProductDbType | null>(null);
   const [search, setSearch] = useState("");
   const [error, setError] = useState("");
@@ -34,7 +35,6 @@ function ProductsPageContent({
     };
     FETCH_DATA();
   }, [search]);
-  const productsList = search && dataSearch ? dataSearch : products;
   useEffect(() => {
     const handle = (e: MouseEvent) => {
       if (e.target instanceof Element) {
@@ -45,6 +45,11 @@ function ProductsPageContent({
     document.addEventListener("click", handle);
     return () => document.removeEventListener("click", handle);
   }, []);
+  const productsList = search && dataSearch ? dataSearch : products;
+  const filteredProducts =
+    activeTab === "all"
+      ? productsList
+      : productsList.filter((product) => product.categoryId == activeTab);
   return (
     <>
       <DashSectionHead
@@ -54,16 +59,18 @@ function ProductsPageContent({
         setItem={setEditProduct}
         categories={categories}
       />
-      <SearchBar value={search} setValue={setSearch} error={error} />
-      {loading ? (
-        <ProductLoading />
-      ) : (
-        <ProductsGrid
-          setEditProduct={setEditProduct}
-          setActionType={setActionType}
-          products={productsList}
-        />
-      )}
+      <SearchBar value={search} setValue={setSearch} error={error} placeholder="ابحث عن المنتجات بالاسم أو الصنف" />
+      <FilterButtons
+        categories={categories}
+        setActiveTab={setActiveTab}
+        activeTab={activeTab}
+      />
+      <ProductsGrid
+        products={filteredProducts}
+        loading={loading}
+        setActionType={setActionType}
+        setEditProduct={setEditProduct}
+      />
       {actionType !== null && categories.length > 0 && (
         <ProductModal
           actionType={actionType}

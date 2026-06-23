@@ -6,9 +6,7 @@ export const getTotalAudiences = Cache(
     const audiences = await prisma.user.count({
       where: {
         emailVerified: true,
-        role: {
-          in: ["USER", "SELLER"],
-        },
+        role: "USER"
       },
     });
     return audiences;

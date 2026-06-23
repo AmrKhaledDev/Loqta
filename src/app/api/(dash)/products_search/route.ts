@@ -24,6 +24,14 @@ export async function GET(req: NextRequest) {
               mode: "insensitive",
             },
           },
+          {
+            category: {
+              name: {
+                contains: searchTxt,
+                mode: "insensitive",
+              },
+            },
+          },
         ],
         isDeleted: false,
       },

@@ -18,6 +18,7 @@ function OrderProducts({currentOrder}:{currentOrder:OrderDbType}) {
             className="xl:size-25 size-22 shadow p-2 bg-white rounded-2xl object-contain shrink-0"
           />
           <div className="flex flex-col gap-1">
+            {item.product.isDeleted && <p className="text-sm font-extrabold text-red-500">منتج محذوف</p>}
             <h2 className="line-clamp-2 font-bold xl:text-[18px] sm:text-[15px] text-xs">
               {item.product.name}
             </h2>

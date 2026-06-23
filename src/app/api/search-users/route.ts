@@ -31,9 +31,7 @@ export async function GET(req: NextRequest) {
             },
           },
         ],
-        role: {
-          in: ["USER", "SELLER"],
-        },
+        role: "USER"
       },
       take: 9,
       include: {
