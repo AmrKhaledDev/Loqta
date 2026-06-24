@@ -23,11 +23,26 @@ function ProductsWithFilter({
   categories: Category[];
   userSession: User | null;
 }) {
-  useEffect(() => {
-    setShuffledProducts(shuffleArray(products));
-  }, [products]);
   const [shuffledProducts, setShuffledProducts] =
     useState<ProductDbType[]>(products);
+  useEffect(() => {
+    const savedProducts = sessionStorage.getItem("my_shuffled_products_ids");
+    if (savedProducts) {
+      const idsProducts = JSON.parse(savedProducts) as String[];
+      const currentShuffledProducts = [...products].sort(
+        (a, b) => idsProducts.indexOf(a.id) - idsProducts.indexOf(b.id),
+      );
+      setShuffledProducts(currentShuffledProducts);
+    } else {
+      const shuffleProducts = shuffleArray(products);
+      const idsShuffledProducts = shuffleProducts.map((p) => p.id);
+      sessionStorage.setItem(
+        "my_shuffled_products_ids",
+        JSON.stringify(idsShuffledProducts),
+      );
+      setShuffledProducts(shuffleProducts);
+    }
+  }, [products]);
   const [category, setCategory] = useState("all");
   const filteredProducts =
     category === "all"
